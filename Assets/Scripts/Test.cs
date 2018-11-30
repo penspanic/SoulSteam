@@ -11,7 +11,7 @@ namespace DefaultNamespace
 			StaticInfoManager.Instance.Init("StaticData/Common/");
 
 			EntityManager.Instance.Create<StarDust>(StaticInfoManager.Instance.EntityInfos["StarDust_1"]);
-
+			EffectManager.Instance.Attach("Effects/SampleParticle", Vector3.one * 3f);
 		}
 	}
 }
