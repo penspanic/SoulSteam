@@ -23,10 +23,13 @@ public class ObjectFactory<T>
 
 	public T Create()
 	{
-		if (typeof(T) == typeof(Entity))
-		{
-			return GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Entity")).GetComponent<T>();
-		}
+//		if (typeof(T) == typeof(StarDust))
+//		{
+//			return GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Entity")).GetComponent<T>();
+//		}
+
+		string resourcePath = $"Prefabs/{typeof(T).Name}";
+		return GameObject.Instantiate(Resources.Load<GameObject>(resourcePath)).GetComponent<T>();
 
 		throw new NotSupportedException();
 	}

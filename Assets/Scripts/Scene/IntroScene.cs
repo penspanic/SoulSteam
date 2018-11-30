@@ -1,3 +1,4 @@
+using Spine;
 using Spine.Unity;
 using UnityEngine;
 
@@ -12,7 +13,14 @@ namespace Scene
 		{
 			base.Enter(beforeScene);
 
-			
+			_introAnimation.gameObject.SetActive(true);
+			_introAnimation.state?.SetAnimation(0, "Intro", false);
+		}
+
+		public override void Exit(AbstractScene nextScene)
+		{
+			base.Exit(nextScene);
+			_introAnimation.gameObject.SetActive(false);
 		}
 	}
 }

@@ -26,7 +26,11 @@ public class PoolManager<T> where T : IPoolable
 			_pool.Add(newInstance);
 		}
 
-		return _pool[_pool.Count - 1];
+		T target = _pool[_pool.Count - 1];
+		_pool.RemoveAt(_pool.Count - 1);
+		target.OnInit();
+
+		return target;
 	}
 
 	public void Release(T instance)

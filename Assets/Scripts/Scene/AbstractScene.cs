@@ -10,6 +10,11 @@ namespace Scene
 
 		public virtual void Enter(AbstractScene beforeScene)
 		{
+			Debug.Log($"Scene entered, {_type}");
+		}
+
+		public virtual void Exit(AbstractScene nextScene)
+		{
 			
 		}
 	}

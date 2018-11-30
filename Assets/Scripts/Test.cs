@@ -1,3 +1,5 @@
+using Common.StaticInfo;
+using Logic.Entity;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -6,8 +8,10 @@ namespace DefaultNamespace
 	{
 		private void Awake()
 		{
-			Common.StaticInfo.StaticInfoManager.Instance.Init("StaticData/Common/");
-			PoolManager<Logic.Entity.Entity>.Instance.Get();
+			StaticInfoManager.Instance.Init("StaticData/Common/");
+
+			EntityManager.Instance.Create<StarDust>(StaticInfoManager.Instance.EntityInfos["StarDust_1"]);
+
 		}
 	}
 }

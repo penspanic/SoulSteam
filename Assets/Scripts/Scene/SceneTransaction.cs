@@ -26,6 +26,12 @@ namespace Scene
 		public void TransactionTo(SceneType type)
 		{
 			AbstractScene nextScene = _scenes.Find(s => s.Type == type);
+
+			if (_currentScene != null)
+			{
+				_currentScene.Exit(nextScene);
+			}
+
 			nextScene.Enter(_currentScene);
 			_currentScene = nextScene;
 		}
