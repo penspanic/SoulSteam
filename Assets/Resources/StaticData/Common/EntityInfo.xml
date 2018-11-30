@@ -1,21 +1,227 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfEntityInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<EntityInfo Id="StarDust_1" xsi:type="StarDustInfo">
-</EntityInfo>
-	<EntityInfo Id="StarDust_2" xsi:type="StarDustInfo">
-	</EntityInfo>
-	<EntityInfo Id="StarDust_3" xsi:type="StarDustInfo">
-	</EntityInfo>
-	<EntityInfo Id="StarDust_4" xsi:type="StarDustInfo">
-	</EntityInfo>
-	<EntityInfo Id="StarDust_5" xsi:type="StarDustInfo">
+		<Move Level="1">
+			<DefaultMovingSpeed>0</DefaultMovingSpeed>
+			<MaxMovingSpeed>0</MaxMovingSpeed>
+		</Move>
 	</EntityInfo>
 
+	
 	<EntityInfo Id="Planet_1" xsi:type="PlanetInfo">
+		<Move Level="1">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+		<Move Level="2">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+		<Move Level="3">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+		<Move Level="4">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+		<Move Level="5">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+		
+		<Groth Level="1">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
+		<Groth Level="2">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
+		<Groth Level="3">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
+		<Groth Level="4">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
+		<Groth Level="5">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
 	</EntityInfo>
 	<EntityInfo Id="Planet_2" xsi:type="PlanetInfo">
+		<Move Level="1">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+		<Move Level="2">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+		<Move Level="3">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+		<Move Level="4">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+		<Move Level="5">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+
+		<Groth Level="1">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
+		<Groth Level="2">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
+		<Groth Level="3">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
+		<Groth Level="4">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
+		<Groth Level="5">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
 	</EntityInfo>
 	<EntityInfo Id="Planet_3" xsi:type="PlanetInfo">
+		<Move Level="1">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+		<Move Level="2">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+		<Move Level="3">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+		<Move Level="4">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+		<Move Level="5">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+
+		<Groth Level="1">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
+		<Groth Level="2">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
+		<Groth Level="3">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
+		<Groth Level="4">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
+		<Groth Level="5">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
+	</EntityInfo>
+	<EntityInfo Id="Planet_4" xsi:type="PlanetInfo">
+		<Move Level="1">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+		<Move Level="2">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+		<Move Level="3">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+		<Move Level="4">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+		<Move Level="5">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+
+		<Groth Level="1">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
+		<Groth Level="2">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
+		<Groth Level="3">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
+		<Groth Level="4">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
+		<Groth Level="5">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
+	</EntityInfo>
+	<EntityInfo Id="Planet_5" xsi:type="PlanetInfo">
+		<Move Level="1">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+		<Move Level="2">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+		<Move Level="3">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+		<Move Level="4">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+		<Move Level="5">
+			<DefaultMovingSpeed>1</DefaultMovingSpeed>
+			<MaxMovingSpeed>2</MaxMovingSpeed>
+		</Move>
+
+		<Groth Level="1">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
+		<Groth Level="2">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
+		<Groth Level="3">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
+		<Groth Level="4">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
+		<Groth Level="5">
+			<Scale>1</Scale>
+			<RequireStarDust>1</RequireStarDust>
+		</Groth>
 	</EntityInfo>
 
 	<EntityInfo Id="Star_1" xsi:type="StarInfo">
