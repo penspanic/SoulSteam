@@ -6,6 +6,7 @@ namespace DefaultNamespace
 	{
 		private void Awake()
 		{
+			Common.StaticInfo.StaticInfoManager.Instance.Init("StaticData/Common/");
 			PoolManager<Logic.Entity.Entity>.Instance.Get();
 		}
 	}

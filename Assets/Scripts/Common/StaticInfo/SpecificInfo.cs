@@ -66,7 +66,6 @@ namespace Common.StaticInfo
         }
         public void InitFromFile(string path, bool isReload = false)
         {
-#if UnityEngine
             try
             {
                 UnityEngine.TextAsset textAsset = Utility.FileUtil.LoadResource<UnityEngine.TextAsset>(path);
@@ -80,30 +79,6 @@ namespace Common.StaticInfo
             catch(System.NullReferenceException)
             {
             }
-#else
-            try
-            {
-                var text = System.IO.File.OpenText(path);
-
-                XmlDeserializer serializer = new XmlDeserializer(typeof(T));
-                using (StringReader reader = new StringReader(text.ReadToEnd()))
-                {
-                    if (isReload == true)
-                    {
-                        Utility.ObjectExtensions.Replace((T)serializer.Deserialize(reader), _data);
-                    }
-                    else
-                    {
-                        _data = (T)serializer.Deserialize(reader);
-                    }
-                }
-            }
-            catch (FileNotFoundException)
-            {
-                throw;
-            }
-
-#endif
             if (_data == null)
             {
                 Common.Log.Logger.Error($"SpecificInfo {typeof(T).Name} Init failed, path : {path}");

@@ -5,6 +5,11 @@ namespace Logic.Entity
 	/// </summary>
 	public class Star : Entity
 	{
-		
+		public Common.StaticData.StarInfo StarInfo { get; private set; }
+		public override void Init(string id, int serial)
+		{
+			base.Init(id, serial);
+			StarInfo = Common.StaticInfo.StaticInfoManager.Instance.EntityInfos[id] as Common.StaticData.StarInfo;
+		}
 	}
 }

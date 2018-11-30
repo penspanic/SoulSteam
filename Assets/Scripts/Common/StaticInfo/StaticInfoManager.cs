@@ -32,7 +32,7 @@ namespace Common.StaticInfo
         private List<IStaticTableInfo> _staticTableInfos = new List<IStaticTableInfo>();
 
 
-        private readonly StaticInfo<int, UnitInfo> _unitInfo = new StaticInfo<int, UnitInfo>("UnitInfo.xml");
+        private readonly StaticInfo<string, EntityInfo> _entityInfo = new StaticInfo<string, StaticData.EntityInfo>("EntityInfo.xml");        
         private readonly StaticInfo<string, ShakeInfo> _shakeInfo = new StaticInfo<string, StaticData.ShakeInfo>("ShakeInfo.xml");
 
         private readonly SpecificInfo<GameRuleInfo> _gameRuleInfo = new SpecificInfo<GameRuleInfo>("GameRuleInfo.xml");
@@ -78,7 +78,7 @@ namespace Common.StaticInfo
             }
         }
 
-        public StaticInfo<int, UnitInfo> UnitInfos => _unitInfo;
+        public StaticInfo<string, EntityInfo> EntityInfos => _entityInfo;
         public StaticInfo<string, ShakeInfo> ShakeInfos => _shakeInfo;
         public GameRuleInfo GameRuleInfo => _gameRuleInfo.Get();
     }

@@ -104,7 +104,6 @@ namespace Common.StaticInfo
 
             List<Data_T> infoList = null;
 
-#if UnityEngine
             try
             {
                 UnityEngine.TextAsset textAsset = Utility.FileUtil.LoadResource<UnityEngine.TextAsset>(filePath);
@@ -118,22 +117,10 @@ namespace Common.StaticInfo
             {
                 throw;
             }
-#else
-            try
-            {
-                var text = System.IO.File.OpenText(filePath);
-                var read = text.ReadToEnd();
-                XmlDeserializer serializer = new XmlDeserializer(typeof(List<Data_T>));
-                using (StringReader reader = new StringReader(read))
-                {
-                    infoList = (List<Data_T>)serializer.Deserialize(reader);
-                }
-            }
             catch (FileNotFoundException)
             {
                 throw;
             }
-#endif
             if (infoList != null)
             {
                 foreach (Data_T info in infoList)
@@ -210,7 +197,6 @@ namespace Common.StaticInfo
             Data_T info = default(Data_T);
             bool loaded = false;
 
-#if UnityEngine
             try
             {
                 UnityEngine.TextAsset textAsset = Utility.FileUtil.LoadResource<UnityEngine.TextAsset>(filePath);
@@ -224,23 +210,6 @@ namespace Common.StaticInfo
             catch(System.NullReferenceException)
             {
             }
-            
-#else
-            try
-            {
-                var text = System.IO.File.OpenText(filePath);
-                XmlDeserializer serializer = new XmlDeserializer(typeof(Data_T));
-                using (StringReader reader = new StringReader(text.ReadToEnd()))
-                {
-                    info = (Data_T)serializer.Deserialize(reader);
-                    loaded = true;
-                }
-            }
-            catch (FileNotFoundException)
-            {
-                loaded = false;
-            }
-#endif
             if (loaded == true)
             {
                 Infos.Add(info.Key, info);
@@ -251,7 +220,6 @@ namespace Common.StaticInfo
         {
             List<string> infoPathList = null;
 
-#if UnityEngine
             try
             {
                 UnityEngine.TextAsset textAsset = Utility.FileUtil.LoadResource<UnityEngine.TextAsset>(listFilePath);
@@ -269,25 +237,6 @@ namespace Common.StaticInfo
             catch(System.NullReferenceException)
             {
             }
-#else
-            try
-            {
-                var text = System.IO.File.OpenText(listFilePath);
-                XmlDeserializer serializer = new XmlDeserializer(typeof(List<string>));
-                using (StringReader reader = new StringReader(text.ReadToEnd()))
-                {
-                    infoPathList = (List<string>)serializer.Deserialize(reader);
-
-                    foreach (string path in infoPathList)
-                    {
-                        SimpleInit(path, false);
-                    }
-                }
-            }
-            catch (FileNotFoundException)
-            {
-            }
-#endif
         }
 
         public void Write(string filePath)

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEntityInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<EntityInfo Id="StarDust_1" xsi:type="StarDustInfo">
+</EntityInfo>
+	<EntityInfo Id="StarDust_2" xsi:type="StarDustInfo">
+	</EntityInfo>
+	<EntityInfo Id="StarDust_3" xsi:type="StarDustInfo">
+	</EntityInfo>
+	<EntityInfo Id="StarDust_4" xsi:type="StarDustInfo">
+	</EntityInfo>
+	<EntityInfo Id="StarDust_5" xsi:type="StarDustInfo">
+	</EntityInfo>
+
+	<EntityInfo Id="Planet_1" xsi:type="PlanetInfo">
+	</EntityInfo>
+	<EntityInfo Id="Planet_2" xsi:type="PlanetInfo">
+	</EntityInfo>
+	<EntityInfo Id="Planet_3" xsi:type="PlanetInfo">
+	</EntityInfo>
+
+	<EntityInfo Id="Star_1" xsi:type="StarInfo">
+	</EntityInfo>
+	<EntityInfo Id="Star_2" xsi:type="StarInfo">
+	</EntityInfo>
+	<EntityInfo Id="Star_3" xsi:type="StarInfo">
+	</EntityInfo>
+
+	<EntityInfo Id="BlackHole" xsi:type="BlackHoleInfo">
+	</EntityInfo>
+</ArrayOfEntityInfo>

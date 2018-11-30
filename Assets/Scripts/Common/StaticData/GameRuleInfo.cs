@@ -6,7 +6,5 @@ namespace Common.StaticData
     [System.Serializable]
     public class GameRuleInfo
     {
-        public float DefaultUnitCreateInterval;
-        public float PotionCreateInterval;
     }
 }
