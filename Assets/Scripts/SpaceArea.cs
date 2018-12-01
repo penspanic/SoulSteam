@@ -5,16 +5,15 @@ using Logic.Entity;
 
 public class SpaceArea : MonoBehaviour
 {
-    public List<Dust> stardusts = new List<Dust>();
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.name.Contains("Wall"))
             return;
 
-        if (other.name.Contains("Dust"))
+        Entity entity = other.GetComponent<Entity>();
+        if (entity != null)
         {
-            other.GetComponent<Dust>().WallOutReset(transform);
+            entity.WallOutReset(transform);
         }
     }
     //private void OnTriggerExit(Collider other)

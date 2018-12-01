@@ -60,6 +60,7 @@ namespace Logic.Entity
             
             // Init StaticData
             moveSpeedBase = Info.Moves[level - 1].DefaultMovingSpeed;
+            moveSpeedLevelRate = Info.Moves[level - 1].LevelSpeedRate;
             //
 
             // ������ ����

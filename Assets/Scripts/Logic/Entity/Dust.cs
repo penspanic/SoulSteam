@@ -39,10 +39,7 @@ namespace Logic.Entity
 
         public void Update()
         {
-            if (Testment.testment == null)
-                return;
-
-            if (Testment.testment.isTest)
+            if (Testment.testment != null && Testment.testment.isTest == true)
             {
                 rotateSpeed = Testment.testment.dust_rotateSpeed;
                 moveSpeedBase = Testment.testment.dust_moveSpeedBase;

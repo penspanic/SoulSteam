@@ -53,9 +53,6 @@ namespace Logic.Entity
 
         private void Update()
         {
-            if (Testment.testment == null)
-                return;
-
             transform.Rotate(angleRotate * rotateSpeed * Time.deltaTime);
             Move?.Invoke();
         }
