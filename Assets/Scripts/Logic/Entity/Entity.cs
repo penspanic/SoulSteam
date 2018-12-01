@@ -93,6 +93,7 @@ namespace Logic.Entity
 	        return Vector3.zero;
         }
 
+        public float cycleRange = 1f;
         public int cycleCount = 0;
         public int cycleCountMax = 5;
     }

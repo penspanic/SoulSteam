@@ -12,7 +12,7 @@ namespace Logic.Entity
 
         public SpriteRenderer _renderer;
         public TrailRenderer _trail;
-        public Sprite[] _sprites;
+        public Sprite[] _sprites = null;
 
         // rotate
         private Vector3 angleRotate;
@@ -96,8 +96,10 @@ namespace Logic.Entity
                     break;
 
                 case MoveType.Cycle:
-                    if (cycleCount >= cycleCountMax)
+                    cycleCore = (Planet)hole;
+                    if (cycleCore.cycleCount >= cycleCore.cycleCountMax)
                     {
+                        cycleCore = null;
                         ChangeMoveState(null, MoveType.Linear);
                         return;
                     }
@@ -123,12 +125,10 @@ namespace Logic.Entity
 
         public Planet cycleCore = null;
         public float cycleRotateSpeed = 72f;
-        public float cycleRange = 1f;
 
         public void MoveCycleStart()
         {
             MoveLinear();
-
             if (cycleCore.cycleCount >= cycleCore.cycleCountMax)
             {
                 ChangeMoveState(null, MoveType.Linear);
@@ -136,9 +136,10 @@ namespace Logic.Entity
             }
 
             float nowDist = Vector2.Distance(cycleCore.transform.position, transform.position);
-            if (nowDist > cycleRange)
+            if (nowDist > cycleCore.cycleRange)
                 return;
 
+            //transform.position = cycleCore.transform.position - transform.position;
             cycleCore.cycleCount++;
             _renderer.sprite = _sprites[cycleCore.spriteIdx];
             _trail.enabled = true;
@@ -169,10 +170,6 @@ namespace Logic.Entity
             moveDirection = (moveDirection * moveSpeedTotal * Time.deltaTime + affectedVector).normalized;
 
             transform.position += moveDirection * moveSpeedTotal * Time.deltaTime;
-        }
-
-        public void GetAffectedVector()
-        {
         }
 
         public void AddAffectedEntity(Entity affectEntity, float gravityRate)

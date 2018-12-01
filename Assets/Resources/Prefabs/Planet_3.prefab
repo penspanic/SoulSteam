@@ -149,6 +149,9 @@ MonoBehaviour:
   MoveState: 0
   impactedGravity: 0.04
   curveGravity: 0.015
+  cycleRange: 1
+  cycleCount: 0
+  cycleCountMax: 5
   _renderer: {fileID: 212179077440313440}
   _sprites:
   - {fileID: 21300000, guid: d8dcd0e8d084fef498ebe757a9347a8a, type: 3}
@@ -157,6 +160,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fd4aad2335cc73c4d8843133c444b932, type: 3}
   - {fileID: 21300000, guid: 9f1b30766412de340ba56a7b0e0f070b, type: 3}
   _col: {fileID: 58286127214848618}
+  spriteIdx: 3
 --- !u!212 &212179077440313440
 SpriteRenderer:
   m_ObjectHideFlags: 1
