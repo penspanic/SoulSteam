@@ -30,14 +30,13 @@ public class CameraManager : Utility.SingletonMonoBehaviour<CameraManager>
         sizeUp = StartCoroutine(SmoothCameraSizeUp2());
     }
 
-    Vector3 vec = new Vector3(1f, 1f, 0f);
+    Vector3 vec = new Vector3(1.01f, 1f, 0f);
     IEnumerator SmoothCameraSizeUp2()
     {
         while (true)
         {
             prevSize = nowSize;
             nowSize = Mathf.Lerp(nowSize, endSize, Time.deltaTime / 0.5f);
-            Debug.Log(nowSize);
             _camera.orthographicSize = nowSize;
 
             walls.localScale = vec * (nowSize / minSize);

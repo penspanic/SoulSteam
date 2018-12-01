@@ -398,6 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 519420031}
+  walls: {fileID: 1133136616}
   prevSize: 0
   nowSize: 0
   endSize: 0
@@ -503,7 +504,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f0dddc37396b84f909f9231a292063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stardusts: []
 --- !u!1 &306863201
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,7 +591,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f0dddc37396b84f909f9231a292063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stardusts: []
 --- !u!1 &444047261
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,7 +678,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f0dddc37396b84f909f9231a292063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stardusts: []
 --- !u!1 &508303718
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,7 +825,7 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 8b994c53ef19f4731be840806e1fa0a9, type: 2}
   m_CullingMode: 0
@@ -1157,7 +1155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f0dddc37396b84f909f9231a292063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stardusts: []
 --- !u!1 &935375151
 GameObject:
   m_ObjectHideFlags: 0
