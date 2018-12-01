@@ -35,7 +35,7 @@ namespace Logic.Entity
         public int Serial => _serial;
         private int _serial;
         public int Level => level;
-        protected int level;
+        public int level;
 
         public MoveType MoveState = MoveType.Undefined;
         public float impactedGravity;

@@ -26,6 +26,135 @@ public class PlanetAbsorve : MonoBehaviour
 
         // 동일개체와 충돌함 (Planet)
 
+        if (otherEntity.Type == _planet.Type)
+        {
+            Planet otherPlanet = (Planet)otherEntity;
+
+            switch (_planet.elementId)
+            {
+                case Element.Normal:
+                    break;
+
+                case Element.Fire:
+                    // 승리
+                    if (otherPlanet.elementId == Element.Ice
+                        || otherPlanet.elementId == Element.Gas)
+                    {
+                        EntityManager.Instance.Destroy<Planet>(otherPlanet);
+                    }
+
+                    // 합체
+                    else if (otherPlanet.elementId == Element.Fire
+                       || otherPlanet.elementId == Element.Tree)
+                    {
+                        // 단계가 같음
+                        if (otherPlanet.level == _planet.level)
+                        {
+
+                        }
+                        else if (otherPlanet.level > _planet.level)
+                        {
+                            EntityManager.Instance.Destroy<Planet>(_planet);
+                        }
+                        else
+                        {
+                            EntityManager.Instance.Destroy<Planet>(otherPlanet);
+                        }
+                    }
+
+                    // 패배
+                    //else if (otherPlanet.elementId == Element.Iron)
+                    //{
+                    //}
+                    break;
+
+                case Element.Ice:
+                    // 승리
+                    // 합체
+                    if (otherPlanet.elementId == Element.Ice
+                        || otherPlanet.elementId == Element.Gas
+                        || otherPlanet.elementId == Element.Tree)
+                    {
+
+                    }
+
+                    // 패배
+                    //else if (otherPlanet.elementId == Element.Fire
+                    //    || otherPlanet.elementId == Element.Iron)
+                    //{
+
+                    //}
+                    break;
+
+                case Element.Iron:
+                    // 승리
+                    if (otherPlanet.elementId == Element.Fire
+                        || otherPlanet.elementId == Element.Ice
+                        || otherPlanet.elementId == Element.Gas
+                        || otherPlanet.elementId == Element.Tree)
+                    {
+                        EntityManager.Instance.Destroy<Planet>(otherPlanet);
+                    }
+
+                    // 합체
+                    else if (otherPlanet.elementId == Element.Iron)
+                    {
+
+                    }
+                    // 패배
+                    break;
+
+                case Element.Gas:
+                    // 승리
+                    // 자신 - 합체
+                    if (otherPlanet.elementId == Element.Gas)
+                    {
+
+                    }
+                    // 상대 - 합체
+                    else if (otherPlanet.elementId == Element.Ice
+                        || otherPlanet.elementId == Element.Tree)
+                    {
+
+                    }
+                    // 패배
+                    //else if (otherPlanet.elementId == Element.Fire
+                    //    || otherPlanet.elementId == Element.Iron)
+                    //{
+
+                    //}
+                    break;
+
+                case Element.Tree:
+                    // 승리
+                    // 자신 - 합체
+                    if (otherPlanet.elementId == Element.Tree
+                        || otherPlanet.elementId == Element.Gas)
+                    {
+
+                    }
+
+                    // 상대 - 합체
+                    else if (otherPlanet.elementId == Element.Fire
+                        || otherPlanet.elementId == Element.Ice)
+                    {
+
+                    }
+
+                    // 패배
+                    //else if (otherPlanet.elementId == Element.Iron)
+                    //{
+
+                    //}
+                    break;
+
+                default:
+                    break;
+            }
+
+            return;
+        }
+
         // 하위개체와 추돌함 (Dust)
         switch (otherEntity.Type)
         {
