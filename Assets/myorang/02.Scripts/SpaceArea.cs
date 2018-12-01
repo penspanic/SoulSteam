@@ -7,17 +7,16 @@ public class SpaceArea : MonoBehaviour
 {
     public List<Dust> stardusts = new List<Dust>();
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.name.Contains("Wall"))
             return;
 
-        if (other.name.Contains("Stardust"))
+        if (other.name.Contains("Dust"))
         {
             other.SendMessage("WallOutReset");
         }
     }
-
     //private void OnTriggerExit(Collider other)
     //{
     //    Debug.Log("who wall out");

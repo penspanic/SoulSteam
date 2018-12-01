@@ -125,10 +125,11 @@ namespace Logic.Entity
         }
 
         private readonly static string LayerMaskWall = "Wall";
-        private RaycastHit hit;
+        private RaycastHit2D hit;
         public void WallOutReset()
         {
-            if (Physics.Raycast(transform.position, -moveDirection, out hit, 100f, 1 << LayerMask.NameToLayer(LayerMaskWall)))
+            hit = Physics2D.Raycast(transform.position, -moveDirection, 100f, 1 << LayerMask.NameToLayer("Wall"), -1, 1);
+            if (hit)
             {
                 transform.position = hit.point;
             }
