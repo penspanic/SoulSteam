@@ -180,7 +180,10 @@ namespace Logic.Entity
 
             //transform.position = cycleCore.transform.position - transform.position;
             cycleCore.cycleCount++;
-            _trail.enabled = true;
+            if (_trail != null)
+            {
+                _trail.enabled = true;
+            }
             transform.SetParent(cycleCore.transform);
             Move = MoveCycleLoop;
         }

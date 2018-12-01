@@ -99,8 +99,6 @@ namespace Logic.Entity
             base.OnChangeLevel();
             float radiusScale = StarInfo.Growths[level - 1].Scale;
             this.transform.localScale = Vector3.one * radiusScale;
-            _col.radius = _colOriginRadius * radiusScale;
-            _absorveCol.radius = _absorveColOriginRadius * radiusScale;
         }
 
         float impact = 45f, cycle = 90f;
