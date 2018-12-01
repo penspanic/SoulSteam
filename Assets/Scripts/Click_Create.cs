@@ -6,45 +6,25 @@ using UnityEngine;
 public class Click_Create : MonoBehaviour
 {
 
-    public GameObject prefab_red;
-    public GameObject prefab_blue;
+    public GameObject prefab_fire;
+    public GameObject prefab_ice;
+    public GameObject prefab_iron;
+    public GameObject prefab_jupiter;
+    public GameObject prefab_tree;
 
-    int Num = 1;
-    bool Num_2 = true;
+    int Num = 0;
 
     // Use this for initialization
     void Start()
     {
-
+        Screen.SetResolution(1920, 1080, true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Num_2 == true)
-        {
-            if (Num > 0 && Num < 3)
-            {
-                Num++;
-            }
-            else
-            {
-                Num_2 = false;
-                Num = Num - 1;
-            }
-        }
-        if (Num_2 == false)
-        {
-            if (Num > 0 && Num < 3)
-            {
-                Num--;
-            }
-            else
-            {
-                Num_2 = true;
-                Num = Num + 1;
-            }
-        }
+        Num=UnityEngine.Random.Range(1, 6);
+
         Vector3 createPos = new Vector3(transform.position.x, transform.position.y, -10);
         // 마우스 왼쪽 버튼 클릭
         if (UnityEngine.Input.GetMouseButtonDown(0))
@@ -60,14 +40,25 @@ public class Click_Create : MonoBehaviour
             // 생성 
             if (Num == 1)
             {
-                GameObject Inst_Red = Instantiate(prefab_red, createPos, Quaternion.identity) as GameObject;
+                GameObject Inst_Fire = Instantiate(prefab_fire, createPos, Quaternion.identity) as GameObject;
             }
             if (Num == 2)
             {
-                GameObject Inst_Blue = Instantiate(prefab_blue, createPos, Quaternion.identity) as GameObject;
+                GameObject Inst_Ice = Instantiate(prefab_ice, createPos, Quaternion.identity) as GameObject;
             }
-            
-    }
+            if (Num == 3)
+            {
+                GameObject Inst_Iron = Instantiate(prefab_iron, createPos, Quaternion.identity) as GameObject;
+            }
+            if (Num == 4)
+            {
+                GameObject Inst_Jupiter = Instantiate(prefab_jupiter, createPos, Quaternion.identity) as GameObject;
+            }
+            if (Num == 5)
+            {
+                GameObject Inst_Tree = Instantiate(prefab_tree, createPos, Quaternion.identity) as GameObject;
+            }
+        }
 
 }
 
