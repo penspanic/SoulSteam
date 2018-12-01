@@ -28,7 +28,7 @@ namespace Scene
 
 		private void Update()
 		{
-			if (IsActiveScene == true && UnityEngine.Input.GetMouseButtonDown(0) == true && _canChangeScene == true)
+			if (IsActiveScene == true && _canChangeScene == true)
 			{
 				_canChangeScene = false;
 				SceneTransaction.Instance.TransactionTo(SceneType.Title);
@@ -38,7 +38,7 @@ namespace Scene
 		public override void Exit(AbstractScene nextScene)
 		{
 			base.Exit(nextScene);
-			_introAnimation.gameObject.SetActive(false);
+//			_introAnimation.gameObject.SetActive(false);
 		}
 	}
 }

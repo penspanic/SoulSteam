@@ -8,24 +8,30 @@ namespace Scene
 	public class TitleScene : AbstractScene
 	{
 		[SerializeField]
-		private Canvas _canvas;
-		[SerializeField]
-		private Button _startButton;
-		[SerializeField]
-		private Button _creditButton;
+		private SkeletonAnimation _introAnimation;
+
+		private bool _canChangeScene = true;
 
 		private void Awake()
 		{
-			_startButton.onClick.AddListener(() => SceneTransaction.Instance.TransactionTo(SceneType.InGame));
-			_creditButton.onClick.AddListener(() => SceneTransaction.Instance.TransactionTo(SceneType.Credit));
 		}
 
 		public void Update()
 		{
-			if (IsActiveScene == true && UnityEngine.Input.GetMouseButtonDown(0) == true)
+			if (IsActiveScene == true && _canChangeScene == true)
 			{
-				SceneTransaction.Instance.TransactionTo(SceneType.InGame);
+				_canChangeScene = false;
+				_introAnimation.state.SetAnimation(0, "outro", true);
+				_introAnimation.AnimationState.Complete += OnAnimationStateComplete;
 			}
+		}
+		
+		private void OnAnimationStateComplete(TrackEntry trackentry)
+		{
+			_canChangeScene = true;
+			_introAnimation.AnimationState.Complete -= OnAnimationStateComplete;
+			_introAnimation.gameObject.SetActive(false);
+			SceneTransaction.Instance.TransactionTo(SceneType.InGame);
 		}
 
 		public override void Enter(AbstractScene beforeScene)

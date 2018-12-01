@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "3qnrm5gMBi3YfVPHXT7VqC9HNNQ", "spine": "3.6.53", "width": 0, "height": 0, "images": "./title_spine/images/" },
+"skeleton": { "hash": "DBNWqOsjm9cUv3bQ8W6vT4Vl8Ow", "spine": "3.6.53", "width": 0, "height": 0, "images": "./title_spine/images/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "title", "parent": "root" },
@@ -384,6 +384,173 @@
 					},
 					{ "time": 1.6667, "x": 1.117, "y": 1.117 },
 					{ "time": 4.3333, "x": 1, "y": 1 }
+				]
+			}
+		}
+	},
+	"outro": {
+		"slots": {
+			"light0": {
+				"color": [
+					{ "time": 0.7667, "color": "ffffffff" },
+					{ "time": 0.9333, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "time": 0.6, "name": "light0" }
+				]
+			},
+			"planet0": {
+				"attachment": [
+					{ "time": 0, "name": "planet0" },
+					{ "time": 0.7667, "name": null }
+				]
+			},
+			"planet1": {
+				"attachment": [
+					{ "time": 0, "name": "planet1" },
+					{ "time": 0.7667, "name": null }
+				]
+			},
+			"power": {
+				"color": [
+					{ "time": 0.5, "color": "ffffffff" },
+					{ "time": 0.7, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "time": 0.5, "name": "power" }
+				]
+			},
+			"title": {
+				"attachment": [
+					{ "time": 0, "name": "title" },
+					{ "time": 0.7667, "name": null }
+				]
+			},
+			"track0": {
+				"attachment": [
+					{ "time": 0, "name": "track0" },
+					{ "time": 0.7667, "name": null }
+				]
+			},
+			"track1": {
+				"attachment": [
+					{ "time": 0, "name": "track1" },
+					{ "time": 0.7667, "name": null }
+				]
+			},
+			"wave": {
+				"color": [
+					{
+						"time": 0.8333,
+						"color": "ffffff00",
+						"curve": [ 0.998, -0.01, 0.75, 1 ]
+					},
+					{ "time": 1.1667, "color": "ffffffff" },
+					{ "time": 1.2, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "time": 0.8333, "name": "wave" }
+				]
+			}
+		},
+		"bones": {
+			"bone4": {
+				"rotate": [
+					{ "time": 0.9333, "angle": 0 }
+				],
+				"translate": [
+					{ "time": 0, "x": 0, "y": 0 },
+					{ "time": 0.2, "x": -22.53, "y": 16.2 },
+					{ "time": 0.2667, "x": -35.72, "y": 22.93 },
+					{ "time": 0.3333, "x": -49.75, "y": 22.92 },
+					{ "time": 0.4667, "x": -55.09, "y": 10.94 },
+					{ "time": 0.6, "x": -50.33, "y": -10.2 },
+					{ "time": 0.7333, "x": -23.07, "y": -52.67 },
+					{ "time": 0.8667, "x": 3.76, "y": -81.73 },
+					{ "time": 0.9333, "x": 13.71, "y": -87.66 }
+				],
+				"scale": [
+					{ "time": 0, "x": 1, "y": 1 },
+					{ "time": 0.4, "x": 0.757, "y": 0.757 },
+					{ "time": 0.7333, "x": 0.622, "y": 0.622 },
+					{ "time": 0.9333, "x": 0.667, "y": 0.667 }
+				]
+			},
+			"bone2": {
+				"rotate": [
+					{ "time": 0.9333, "angle": 0 }
+				],
+				"translate": [
+					{ "time": 0, "x": 0, "y": 0 },
+					{ "time": 0.9333, "x": -139.83, "y": -46.99 }
+				],
+				"scale": [
+					{ "time": 0, "x": 1, "y": 1 },
+					{ "time": 0.9333, "x": 0.796, "y": 0.796 }
+				]
+			},
+			"title": {
+				"rotate": [
+					{ "time": 0.9333, "angle": 0 }
+				],
+				"scale": [
+					{ "time": 0.9333, "x": 1, "y": 1 }
+				]
+			},
+			"power": {
+				"rotate": [
+					{ "time": 0.9333, "angle": 0 }
+				],
+				"translate": [
+					{ "time": 0.9333, "x": 0, "y": 0 }
+				],
+				"scale": [
+					{ "time": 0.5, "x": 0.133, "y": 0.133 },
+					{ "time": 0.7, "x": 4.727, "y": 4.727, "curve": "stepped" },
+					{ "time": 0.9333, "x": 4.727, "y": 4.727 }
+				]
+			},
+			"light0": {
+				"rotate": [
+					{ "time": 0.9333, "angle": 0 }
+				],
+				"translate": [
+					{ "time": 0.9333, "x": 0, "y": 0 }
+				],
+				"scale": [
+					{ "time": 0.6, "x": 0.269, "y": 0.269 },
+					{ "time": 0.7667, "x": 3.722, "y": 3.722 },
+					{ "time": 0.9333, "x": 23.572, "y": 23.572 }
+				]
+			},
+			"wave": {
+				"rotate": [
+					{ "time": 0.8333, "angle": -8.84, "curve": "stepped" },
+					{ "time": 1.2667, "angle": -8.84 }
+				],
+				"translate": [
+					{ "time": 1.2667, "x": 0, "y": 0 }
+				],
+				"scale": [
+					{
+						"time": 0.8333,
+						"x": 5.678,
+						"y": 5.678,
+						"curve": [ 0.998, -0.01, 0.75, 1 ]
+					},
+					{ "time": 1.1667, "x": 0.079, "y": 0.079, "curve": "stepped" },
+					{ "time": 1.2667, "x": 0.079, "y": 0.079 }
+				]
+			},
+			"light1": {
+				"rotate": [
+					{ "time": 0.9333, "angle": 0 }
+				],
+				"translate": [
+					{ "time": 0.9333, "x": 0, "y": 0 }
+				],
+				"scale": [
+					{ "time": 0.9333, "x": 1, "y": 1 }
 				]
 			}
 		}
