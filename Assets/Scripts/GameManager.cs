@@ -34,9 +34,12 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 	private IEnumerator ResetGameProcess()
 	{
 		IsGameProcessing = false;
-		Camera.main.GetComponent<Animator>().Play("GameReset");
+		Animator animator = Camera.main.GetComponent<Animator>();
+		animator.enabled = true;
+		animator.Play("GameReset");
 		FindObjectOfType<UIManager>().PlayResetAnimation();
-		yield return new WaitForSeconds(2f);
+		yield return new WaitForSeconds(1f);
+		animator.enabled = false;
 		EntityManager.Instance.DestroyAll();
 		IsGameProcessing = true;
 	}

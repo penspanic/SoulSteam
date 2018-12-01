@@ -4,7 +4,7 @@ namespace Logic.Entity
 {
 	public class EntityManager : Utility.SingletonMonoBehaviour<EntityManager>
 	{
-        public float _entityBestCount = 0f, _entityMaxCount = 500f;
+        public int _entityBestCount = 0, _entityMaxCount = 500;
 		private Dictionary<int /*Serial*/, Entity> _entities = new Dictionary<int, Entity>();
 		private Dictionary<EntityType, List<Entity>> _entityTypeLists = new Dictionary<EntityType, List<Entity>>();
 		private int _currentSerial;
@@ -30,7 +30,7 @@ namespace Logic.Entity
             if (_entityBestCount < _entities.Count)
             {
                 _entityBestCount = _entities.Count;
-                CameraManager.Instance.SmoothCameraSizeUp(_entityBestCount / _entityMaxCount);
+                CameraManager.Instance.SmoothCameraSizeUp((float)_entityBestCount / (float)_entityMaxCount);
             }
 
 			return entity;
@@ -65,6 +65,7 @@ namespace Logic.Entity
 			}
 			_entities.Clear();
 			_entityTypeLists.Clear();
+			_entityBestCount = 0;
 		}
 
 		public Entity Get<T>(int serial) where T : Entity
