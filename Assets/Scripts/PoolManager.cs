@@ -16,27 +16,33 @@ public class PoolManager<T> where T : IPoolable
 	}
 
 	private static PoolManager<T> _instance;
-	private List<T> _pool = new List<T>();
+	private Dictionary<string,List<T>> _pool = new Dictionary<string, List<T>>();
 
-	public T Get()
+	public T Get(string id)
 	{
-		if (_pool.Count == 0)
+		if (_pool.ContainsKey(id) == false)
 		{
-			T newInstance = ObjectFactory<T>.Instance.Create();
-			_pool.Add(newInstance);
+			_pool.Add(id, new List<T>());
 		}
 
-		T target = _pool[_pool.Count - 1];
-		_pool.RemoveAt(_pool.Count - 1);
+		List<T> targetPool = _pool[id];
+		if (targetPool.Count == 0)
+		{
+			T newInstance = ObjectFactory<T>.Instance.Create(id);
+			targetPool.Add(newInstance);
+		}
+
+		T target = targetPool[targetPool.Count - 1];
+		targetPool.RemoveAt(targetPool.Count - 1);
 		target.OnInit();
 
 		return target;
 	}
 
-	public void Release(T instance)
+	public void Release(T instance, string id)
 	{
 		instance.OnRelease();
-		_pool.Add(instance);
+		_pool[id].Add(instance);
 	}
 }
 

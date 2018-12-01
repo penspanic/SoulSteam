@@ -106,11 +106,11 @@ namespace Logic.Entity
             affectedEntities.Remove(affectEntity);
         }
 
-        public Common.StaticData.StarDustInfo StarDustInfo { get; private set; }
+        public Common.StaticData.DustInfo DustInfo { get; private set; }
         public override void Init(string id, int serial)
         {
             base.Init(id, serial);
-            StarDustInfo = Common.StaticInfo.StaticInfoManager.Instance.EntityInfos[id] as Common.StaticData.StarDustInfo;
+            DustInfo = Common.StaticInfo.StaticInfoManager.Instance.EntityInfos[id] as Common.StaticData.DustInfo;
 
             angleRotate.x = Random.value;
             angleRotate.y = Random.value;

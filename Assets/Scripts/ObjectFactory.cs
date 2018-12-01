@@ -21,9 +21,9 @@ public class ObjectFactory<T>
 
 	private static ObjectFactory<T> _instance;
 
-	public T Create()
+	public T Create(string id)
 	{
-		string resourcePath = $"Prefabs/{typeof(T).Name}";
+		string resourcePath = $"Prefabs/{id}";
 		return GameObject.Instantiate(Resources.Load<GameObject>(resourcePath)).GetComponent<T>();
 
 		throw new NotSupportedException();

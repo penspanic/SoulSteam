@@ -31,6 +31,12 @@ namespace Input
 		
 		private void Update()
 		{
+			if (GameManager.Instance.IsGameProcessing == false)
+			{
+				_prevState = InputState.None;
+				return;
+			}
+
 			List<Touch> touches = InputHelper.GetTouches();
 			if (touches.Count == 0)
 			{

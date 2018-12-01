@@ -13,7 +13,7 @@ namespace Logic.Entity
 
 		public T Create<T>(Common.StaticData.EntityInfo entityInfo) where T : Entity
 		{
-			T entity = PoolManager<T>.Instance.Get();
+			T entity = PoolManager<T>.Instance.Get(entityInfo.Id);
 			int serial = ++_currentSerial;
 			entity.Init(entityInfo.Id, serial);
 			_entities.Add(serial, entity);
@@ -28,7 +28,7 @@ namespace Logic.Entity
 
 		public void Destroy<T>(T entity) where T : Entity
 		{
-			PoolManager<T>.Instance.Release(entity);
+			PoolManager<T>.Instance.Release(entity, entity.Id);
 			_entities.Remove(entity.Serial);
 			_entityTypeLists[entity.Type].Remove(entity);
 		}
