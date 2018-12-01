@@ -166,9 +166,22 @@ MonoBehaviour:
   MoveState: 0
   impactedGravity: 0
   curveGravity: 0
+  _renderer: {fileID: 0}
+  _trail: {fileID: 0}
+  affectedVector: {x: 0, y: 0, z: 0}
+  moveDirection: {x: 0, y: 0, z: 0}
+  moveSpeedRate: {x: 0, y: 0, z: 0}
+  moveSpeedTotal: 0
+  moveSpeedBase: 0
+  moveSpeedLevelRate: 0
+  angleRotate: {x: 0, y: 0, z: 0}
+  rotateSpeed: 0
+  scaleBase: 0
+  scaleRate: 0
   cycleNowRange: 1
   cycleNextRange: 0
   cyclePrevRange: 0
   cycleCount: 0
   cycleCountMax: 5
+  cycleRotateSpeed: 72
   _aliveTime: 40

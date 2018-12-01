@@ -46,6 +46,8 @@ namespace Logic.Entity
         protected Vector3 dragDestPos;
         protected Vector3 dragDir;
 
+        public bool Invincible { get; private set; }
+
         public virtual void Init(string id, int serial)
         {
             _id = id;
@@ -56,12 +58,20 @@ namespace Logic.Entity
             StopAllCoroutines();
             Info = Common.StaticInfo.StaticInfoManager.Instance.EntityInfos[_id];
 
-            // ¹«ÀÛÀ§ ÀÚÀü
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             angleRotate.x = 0f;
             angleRotate.y = 0f;
             angleRotate.z = UnityEngine.Random.value;
 
             affectedEntities.Clear();
+            Invincible = true;
+            StartCoroutine(InvincibleProcess());
+        }
+
+        private IEnumerator InvincibleProcess()
+        {
+            yield return new WaitForSeconds(1f);
+            Invincible = false;
         }
 
         protected virtual void OnChangeLevel()
@@ -126,35 +136,35 @@ namespace Logic.Entity
             return Vector3.zero;
         }
 
-        // ÄÄÆ÷³ÍÆ®
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
         [Header("Component")]
         public SpriteRenderer _renderer;
         public TrailRenderer _trail;
 
-        // ÀÌµ¿ ÆÄ¶ó¹ÌÅÍ
+        // ï¿½Ìµï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½
         [Header("Movement")]
         public Vector3 affectedVector;
         public Vector3 moveDirection;
-        public Vector3 moveSpeedRate;     // ÀÌµ¿ °¡¼Óµµ
-        public float moveSpeedTotal;      // ÀÌµ¿¼Óµµ - ½ÇÁ¦ ÀÌµ¿¼Óµµ
-        public float moveSpeedBase;       // ÀÌµ¿¼Óµµ - ±âº»
-        public float moveSpeedLevelRate;  // ÀÌµ¿¼Óµµ - ´Ü°èºñÀ²
+        public Vector3 moveSpeedRate;     // ï¿½Ìµï¿½ ï¿½ï¿½ï¿½Óµï¿½
+        public float moveSpeedTotal;      // ï¿½Ìµï¿½ï¿½Óµï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Óµï¿½
+        public float moveSpeedBase;       // ï¿½Ìµï¿½ï¿½Óµï¿½ - ï¿½âº»
+        public float moveSpeedLevelRate;  // ï¿½Ìµï¿½ï¿½Óµï¿½ - ï¿½Ü°ï¿½ï¿½ï¿½ï¿½
         protected delegate void Delegate_Move();
         protected Delegate_Move Move;
 
         public Dictionary<Entity, float> affectedEntities = new Dictionary<Entity, float>();
 
-        // ÀÚÀü ÆÄ¶ó¹ÌÅÍ
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½
         [Header("Rotate")]
         public Vector3 angleRotate;
         public float rotateSpeed;
 
-        // ½ºÄÉÀÏ ÆÄ¶ó¹ÌÅÍ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½
         [Header("Scale")]
-        public float scaleBase;         // ±âº» Å©±â
-        public float scaleRate;         // ´Ü°èº° Å©±â ºñÀ²
+        public float scaleBase;         // ï¿½âº» Å©ï¿½ï¿½
+        public float scaleRate;         // ï¿½Ü°èº° Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-        // °øÀü ÆÄ¶ó¹ÌÅÍ
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½
         [Header("Settlate")]
         public float cycleNowRange = 1f;
         public float cycleNextRange = 0f;
@@ -165,7 +175,7 @@ namespace Logic.Entity
 
         public virtual void ChangeMoveState(Entity hole, MoveType movetype) { }
 
-        // ¿µ¿ª ¹ÛÀ¸·Î ÀÌµ¿
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
         protected readonly static string LayerMaskWall = "Wall";
         protected RaycastHit2D[] hit;
         public void WallOutReset(Transform hitWall)

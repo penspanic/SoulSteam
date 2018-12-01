@@ -14,6 +14,13 @@ namespace Input
 		{
 			_inputController.OnSlide += OnSlide;
 			_inputController.OnTouchUp += OnTouchUp;
+			_inputController.OnPressUp += InputControllerOnOnPressUp;
+		}
+
+		private void InputControllerOnOnPressUp(Vector3 obj)
+		{
+			_entities.ForEach(e => e.OnEndDrag());
+			_entities.Clear();
 		}
 
 		private void OnSlide(Vector3 startPoint, Vector3 endPoint)
@@ -43,10 +50,12 @@ namespace Input
 			}
 		}
 
+		
+
 		private void OnTouchUp(Vector3 pos)
 		{
-			_entities.ForEach(e => e.OnEndDrag());
-			_entities.Clear();
+//			_entities.ForEach(e => e.OnEndDrag());
+//			_entities.Clear();
 		}
 	}
 }

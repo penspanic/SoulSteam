@@ -50,8 +50,10 @@ namespace Input
 			_gravityZone.transform.position = pos;
 		}
 
+		private float _pressTime;
 		private void OnPressStart(Vector3 pos)
 		{
+			_pressTime = Time.time;
 			_entities.Clear();
 			_gravityZone.gameObject.SetActive(true);
 			pos = Camera.main.ScreenToWorldPoint(pos);
@@ -65,7 +67,6 @@ namespace Input
 					_entities.Add(entity);
 				}
 			}
-
 		}
 
 		private void OnPressUp(Vector3 pos)
@@ -76,7 +77,7 @@ namespace Input
 				_entities[i].OnPressUp();
 			}
 
-			if (_entities.Count == 0)
+			if (_entities.Count == 0 && Time.time - _pressTime < 0.4f)
 			{
 				Vector3 worldPos = Camera.main.ScreenToWorldPoint(pos);
 				worldPos.z = 0;
