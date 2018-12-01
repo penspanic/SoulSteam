@@ -12,7 +12,7 @@ namespace Logic.Situation
 		{
 			Common.StaticData.EntityInfo[] planetInfos = StaticInfoManager.Instance.EntityInfos.GetList()
 				.Where(i => i is Common.StaticData.PlanetInfo).ToArray();
-			Common.StaticData.PlanetInfo selected = planetInfos[planetInfos.Length - 1] as Common.StaticData.PlanetInfo;
+			Common.StaticData.PlanetInfo selected = planetInfos[1] as Common.StaticData.PlanetInfo;
 			if (random == true)
 			{
 				selected = planetInfos[Random.Range(0, planetInfos.Length)] as Common.StaticData.PlanetInfo;
