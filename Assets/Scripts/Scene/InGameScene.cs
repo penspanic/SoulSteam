@@ -10,5 +10,5 @@ namespace Scene
 			GameManager.Instance.StartGame();
 			Camera.main.GetComponent<Animator>().Play("GameStart");
 		}
-	}
+    }
 }
