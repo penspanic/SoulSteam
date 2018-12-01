@@ -38,11 +38,6 @@ namespace Logic.Entity
 
 		public void Destroy<T>(T entity) where T : Entity
 		{
-			if (entity.Invincible == true)
-			{
-				return;
-			}
-
 			PoolManager<T>.Instance.Release(entity, entity.Id);
 			_entities.Remove(entity.Serial);
 			_entityTypeLists[entity.Type].Remove(entity);
