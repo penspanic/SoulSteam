@@ -72,7 +72,7 @@ namespace Logic.Entity
             if (level == PlanetInfo.Growths.Count)
             {
                 EntityManager.Instance.Destroy(this);
-                EntityManager.Instance.Create<Star>(StaticInfoManager.Instance.EntityInfos["Star_2"] as StarInfo);
+                EntityManager.Instance.Create<Star>(StaticInfoManager.Instance.EntityInfos["Star_" + Random.Range(1, 4).ToString()] as StarInfo);
                 return;
             }
             _renderer.sprite = _sprites[level - 1];
