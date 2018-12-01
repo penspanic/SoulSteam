@@ -116,11 +116,11 @@ namespace Logic.Entity
                            || otherPlanet.elementId == Element.Tree)
                         {
                             // 단계가 같음
-                            if(otherPlanet.level == level)
+                            if (otherPlanet.level == level)
                             {
 
                             }
-                            else if(otherPlanet.level > level)
+                            else if (otherPlanet.level > level)
                             {
                                 EntityManager.Instance.Destroy<Planet>(this);
                             }
