@@ -67,7 +67,7 @@ namespace Logic.Entity
 			gameObject.SetActive(true);
 		}
 
-		public void OnRelease()
+		public virtual void OnRelease()
 		{
 			gameObject.SetActive(false);
 		}

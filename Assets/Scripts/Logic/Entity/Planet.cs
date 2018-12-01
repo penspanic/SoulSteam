@@ -1,3 +1,5 @@
+using Common.StaticData;
+using Common.StaticInfo;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -56,24 +58,23 @@ namespace Logic.Entity
         {
             EntityManager.Instance.Destroy<Dust>(dust);
             ++_collectedDust;
-            if (PlanetInfo.Growths.Count == level)
+            if (_collectedDust >= PlanetInfo.Growths[level - 1].RequireStarDust)
             {
-                // 항성이 된다?
-            }
-            else
-            {
-                if (_collectedDust >= PlanetInfo.Growths[level - 1].RequireStarDust)
-                {
-                    _collectedDust = 0;
-                    ++level;
-                    OnChangeLevel();
-                }
+                _collectedDust = 0;
+                ++level;
+                OnChangeLevel();
             }
         }
 
         protected override void OnChangeLevel()
         {
             base.OnChangeLevel();
+            if (level == PlanetInfo.Growths.Count)
+            {
+                EntityManager.Instance.Destroy(this);
+                EntityManager.Instance.Create<Star>(StaticInfoManager.Instance.EntityInfos["Star_2"] as StarInfo);
+                return;
+            }
             _renderer.sprite = _sprites[level - 1];
             float radiusScale = PlanetInfo.Growths[level - 1].Scale;
             _col.radius = _colOriginRadius * radiusScale;

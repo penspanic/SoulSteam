@@ -25,6 +25,10 @@ public class ObjectFactory<T>
 
 	public T Create(string id)
 	{
+		if (id.Contains("Star_"))
+		{
+			id = "Star";
+		}
 		if (resources.ContainsKey(id) == false)
 		{
 			string resourcePath = $"Prefabs/{id}";

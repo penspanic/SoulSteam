@@ -32,6 +32,17 @@ namespace Common.StaticData
 	[XmlType("StarInfo")]
 	public class StarInfo : EntityInfo
 	{
+		[Serializable]
+		public class GrowthInfo
+		{
+			[XmlAttribute]
+			public int Level;
+			public float Scale;
+			public int RequireStarDust;
+			public int DestroyDustCount;
+		}
+		[XmlElement("Groth")]
+		public List<GrowthInfo> Growths = new List<GrowthInfo>();
 	}
 
 	[Serializable]
