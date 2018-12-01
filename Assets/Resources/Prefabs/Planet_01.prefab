@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 212402364276730090}
   - component: {fileID: 58806318118528196}
   - component: {fileID: 50323975459586544}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Planet_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 645f4fb5233d46e2b61b3a0494049af6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
   MoveState: 0
   impactedGravity: 0.04
   curveGravity: 0.015
