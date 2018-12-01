@@ -6,6 +6,6 @@ namespace Input
 	{
 		void OnPressDown();
 		void OnPressUp();
-		void OnDrag(Vector3 pos);
+		void OnDrag(Vector3 pos, Vector3 deltaPos);
 	}
 }

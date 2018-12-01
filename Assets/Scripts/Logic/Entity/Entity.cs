@@ -21,7 +21,6 @@ namespace Logic.Entity
         Cycle,
         Impacted
     }
-
 	public class Entity : MonoBehaviour, IPoolable, Input.ITouchable
 	{
 		public virtual EntityType Type { get; } = EntityType.Entity;
@@ -64,9 +63,9 @@ namespace Logic.Entity
 			IsPressed = false;
 		}
 
-		public virtual void OnDrag(Vector3 pos)
+		public virtual void OnDrag(Vector3 pos, Vector3 deltaPos)
 		{
-			transform.position = pos;
+			transform.position = deltaPos;
 		}
 		#endregion
 
@@ -77,7 +76,7 @@ namespace Logic.Entity
 
         public Vector3 GetAffectVector()
         {
-            return Vector3.zero;
+	        return Vector3.zero;
         }
 	}
 }
