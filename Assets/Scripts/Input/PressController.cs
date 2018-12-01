@@ -36,9 +36,9 @@ namespace Input
 			RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero, 0f);
 
 			Logic.Entity.Entity entity = hit.collider?.gameObject.GetComponent<Logic.Entity.Entity>();
-			if (entity != null)
+			if (entity is Logic.Entity.Planet || entity is Logic.Entity.Star)
 			{
-				Debug.Log($"Pressed : {entity}");
+				_entities.Add(entity);
 			}
 		}
 
@@ -48,6 +48,13 @@ namespace Input
 			for (int i = 0; i < _entities.Count; ++i)
 			{
 				_entities[i].OnPressUp();
+			}
+
+			if (_entities.Count == 0)
+			{
+				Vector3 worldPos = Camera.main.ScreenToWorldPoint(pos);
+				worldPos.z = 0;
+				var createPlanet = new Logic.Situation.CreatePlanetSituation(worldPos, random: true);
 			}
 			_entities.Clear();
 		}
