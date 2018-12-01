@@ -8,17 +8,25 @@ namespace Scene
 	{
 		Undefined = 0,
 		Intro,
+		Title,
 		Credit,
 		InGame,
 	}
 	public class SceneTransaction : MonoBehaviour
 	{
+		public static SceneTransaction Instance;
+
 		[SerializeField]
 		private List<AbstractScene> _scenes = new List<AbstractScene>();
 
 		private AbstractScene _currentScene;
 
 		private void Awake()
+		{
+			Instance = this;
+		}
+
+		private void Start()
 		{
 			TransactionTo(SceneType.Intro);
 		}

@@ -7,6 +7,8 @@ namespace Logic.Entity
 	/// </summary>
 	public class StarDust : Entity
 	{
+		public override EntityType Type { get; } = EntityType.StarDust;
+
         // rotate
         private Vector3 angleRotate;
         private float rotateSpeed;
@@ -23,6 +25,10 @@ namespace Logic.Entity
         
         public void Update()
         {
+	        if (DD_Testment.Testment == null)
+	        {
+		        return;
+	        }
             if (DD_Testment.Testment.isTest)
             {
             }
@@ -38,7 +44,10 @@ namespace Logic.Entity
             angleRotate.y = Random.value;
             angleRotate.z = Random.value;
 
-            SetData(DD_Testment.Testment.isTest);
+			if (DD_Testment.Testment != null)
+			{
+				SetData(DD_Testment.Testment.isTest);
+			}
 		}
 
         public void SetData(bool isTest)

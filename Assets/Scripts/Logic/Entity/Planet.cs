@@ -5,6 +5,8 @@ namespace Logic.Entity
 	/// </summary>
 	public class Planet : Entity
 	{
+		public override EntityType Type { get; } = EntityType.Planet;
+
 		public Common.StaticData.PlanetInfo PlanetInfo { get; private set; }
 		public override void Init(string id, int serial)
 		{

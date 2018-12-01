@@ -5,6 +5,8 @@ namespace Logic.Entity
 	/// </summary>
 	public class Star : Entity
 	{
+		public override EntityType Type { get; } = EntityType.Star;
+
 		public Common.StaticData.StarInfo StarInfo { get; private set; }
 		public override void Init(string id, int serial)
 		{

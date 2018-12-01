@@ -5,6 +5,8 @@ namespace Logic.Entity
 	/// </summary>
 	public class BlackHole : Entity
 	{
+		public override EntityType Type { get; } = EntityType.BlackHole;
+
 		public Common.StaticData.BlackHoleInfo BlackHoleInfo { get; private set; }
 		public override void Init(string id, int serial)
 		{

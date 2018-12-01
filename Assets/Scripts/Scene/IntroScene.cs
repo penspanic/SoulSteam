@@ -14,7 +14,14 @@ namespace Scene
 			base.Enter(beforeScene);
 
 			_introAnimation.gameObject.SetActive(true);
-			_introAnimation.state?.SetAnimation(0, "Intro", false);
+			_introAnimation.state.SetAnimation(0, "intro", false);
+			_introAnimation.AnimationState.End += AnimationStateOnEnd;
+		}
+
+		private void AnimationStateOnEnd(TrackEntry trackentry)
+		{
+			_introAnimation.AnimationState.End -= AnimationStateOnEnd;
+			SceneTransaction.Instance.TransactionTo(SceneType.Title);
 		}
 
 		public override void Exit(AbstractScene nextScene)
