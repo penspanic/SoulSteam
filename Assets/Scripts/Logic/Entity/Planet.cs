@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Logic.Entity
 {
@@ -16,6 +17,8 @@ namespace Logic.Entity
         private float _absorveColOriginRadius;
 
         public int spriteIdx = 0;
+
+        public List<Dust> satellites = new List<Dust>();
 
         public override EntityType Type { get; } = EntityType.Planet;
 
