@@ -28,7 +28,10 @@ namespace Logic.Entity
                 return entity;
 
             if (_entityBestCount < _entities.Count)
+            {
                 _entityBestCount = _entities.Count;
+                CameraManager.Instance.SmoothCameraSizeUp(_entityBestCount / _entityMaxCount);
+            }
 
 			return entity;
 		}

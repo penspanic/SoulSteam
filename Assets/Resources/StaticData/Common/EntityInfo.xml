@@ -8,7 +8,7 @@
 	</EntityInfo>
 
 	<!-- 불속성 행성-->
-	<EntityInfo Id="Planet_1" xsi:type="PlanetInfo">
+	<EntityInfo Id="Planet_01" xsi:type="PlanetInfo">
 		<Move Level="1">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
@@ -57,7 +57,7 @@
 		</Groth>
 	</EntityInfo>
 	<!-- 얼음속성 행성-->
-	<EntityInfo Id="Planet_2" xsi:type="PlanetInfo">
+	<EntityInfo Id="Planet_02" xsi:type="PlanetInfo">
 		<Move Level="1">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
@@ -106,7 +106,7 @@
 		</Groth>
 	</EntityInfo>
 	<!-- 금속속성 행성-->
-	<EntityInfo Id="Planet_3" xsi:type="PlanetInfo">
+	<EntityInfo Id="Planet_03" xsi:type="PlanetInfo">
 		<Move Level="1">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
@@ -155,7 +155,7 @@
 		</Groth>
 	</EntityInfo>
 	<!--가스속성 행성-->
-	<EntityInfo Id="Planet_4" xsi:type="PlanetInfo">
+	<EntityInfo Id="Planet_04" xsi:type="PlanetInfo">
 		<Move Level="1">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
@@ -204,7 +204,7 @@
 		</Groth>
 	</EntityInfo>
 	<!--나무속성 행성-->
-	<EntityInfo Id="Planet_5" xsi:type="PlanetInfo">
+	<EntityInfo Id="Planet_05" xsi:type="PlanetInfo">
 		<Move Level="1">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
