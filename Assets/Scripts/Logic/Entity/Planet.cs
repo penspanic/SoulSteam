@@ -10,7 +10,6 @@ namespace Logic.Entity
     /// </summary>
     public class Planet : Entity
     {
-        public SpriteRenderer _renderer;
         public Sprite[] _sprites;
 
         public CircleCollider2D _col;

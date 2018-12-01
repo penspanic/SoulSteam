@@ -4,6 +4,7 @@ namespace Logic.Entity
 {
 	public class EntityManager : Utility.SingletonMonoBehaviour<EntityManager>
 	{
+        public int _entityBestCount = 0, _entityMaxCount = 1000;
 		private Dictionary<int /*Serial*/, Entity> _entities = new Dictionary<int, Entity>();
 		private Dictionary<EntityType, List<Entity>> _entityTypeLists = new Dictionary<EntityType, List<Entity>>();
 		private int _currentSerial;
@@ -22,6 +23,12 @@ namespace Logic.Entity
 				_entityTypeLists.Add(entity.Type, new List<Entity>());
 			}
 			_entityTypeLists[entity.Type].Add(entity);
+
+            if (_entityBestCount == _entityMaxCount)
+                return entity;
+
+            if (_entityBestCount < _entities.Count)
+                _entityBestCount = _entities.Count;
 
 			return entity;
 		}

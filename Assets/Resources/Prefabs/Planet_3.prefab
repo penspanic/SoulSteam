@@ -149,18 +149,35 @@ MonoBehaviour:
   MoveState: 0
   impactedGravity: 0.04
   curveGravity: 0.015
-  cycleRange: 1
+  _renderer: {fileID: 212179077440313440}
+  _trail: {fileID: 0}
+  affectedVector: {x: 0, y: 0, z: 0}
+  moveDirection: {x: 0, y: 0, z: 0}
+  moveSpeedRate: {x: 0, y: 0, z: 0}
+  moveSpeedTotal: 0
+  moveSpeedBase: 0
+  moveSpeedLevelRate: 0
+  angleRotate: {x: 0, y: 0, z: 0}
+  rotateSpeed: 0
+  scaleBase: 0
+  scaleRate: 0
+  cycleNowRange: 1
+  cycleNextRange: 0
+  cyclePrevRange: 0
   cycleCount: 0
   cycleCountMax: 5
+  cycleRotateSpeed: 72
   _renderer: {fileID: 212179077440313440}
   _sprites:
-  - {fileID: 21300000, guid: d8dcd0e8d084fef498ebe757a9347a8a, type: 3}
-  - {fileID: 21300000, guid: 2b64dc0865105864d9726e6217f3c075, type: 3}
+  - {fileID: 21300000, guid: c133be140a1413d43ab2eb3ff8812c87, type: 3}
+  - {fileID: 21300000, guid: 76735b496c0be684eb4deec3332ee1cf, type: 3}
   - {fileID: 21300000, guid: d7a2da1c1e6f43845b1d637a7dfcb4f6, type: 3}
   - {fileID: 21300000, guid: fd4aad2335cc73c4d8843133c444b932, type: 3}
-  - {fileID: 21300000, guid: 9f1b30766412de340ba56a7b0e0f070b, type: 3}
+  - {fileID: 21300000, guid: 116d35e5c9d3f9c498bbb231c48139db, type: 3}
   _col: {fileID: 58286127214848618}
-  spriteIdx: 3
+  cycleCore: {fileID: 0}
+  elementId: 3
+  satellites: []
 --- !u!212 &212179077440313440
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -196,12 +213,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d8dcd0e8d084fef498ebe757a9347a8a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c133be140a1413d43ab2eb3ff8812c87, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.37, y: 0.37}
+  m_Size: {x: 0.74, y: 0.74}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

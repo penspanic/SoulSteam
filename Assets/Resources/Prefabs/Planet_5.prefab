@@ -138,11 +138,24 @@ MonoBehaviour:
   MoveState: 0
   impactedGravity: 0.04
   curveGravity: 0.015
+  _renderer: {fileID: 212258906651490024}
+  _trail: {fileID: 0}
+  affectedVector: {x: 0, y: 0, z: 0}
+  moveDirection: {x: 0, y: 0, z: 0}
+  moveSpeedRate: {x: 0, y: 0, z: 0}
+  moveSpeedTotal: 0
+  moveSpeedBase: 0
+  moveSpeedLevelRate: 0
+  angleRotate: {x: 0, y: 0, z: 0}
+  rotateSpeed: 0
+  scaleBase: 0
+  scaleRate: 0
   cycleNowRange: 1
   cycleNextRange: 0
   cyclePrevRange: 0
   cycleCount: 0
   cycleCountMax: 5
+  cycleRotateSpeed: 72
   _renderer: {fileID: 212258906651490024}
   _sprites:
   - {fileID: 21300000, guid: 4f0dc805fe34489448d096952275f65f, type: 3}
@@ -151,7 +164,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 99be95d8b9ef33b47951165b3de8726e, type: 3}
   - {fileID: 21300000, guid: 3019cea2f7ed29d46ad02eba69ee007e, type: 3}
   _col: {fileID: 58803391091217850}
-  elementId: 0
+  cycleCore: {fileID: 0}
+  elementId: 5
   satellites: []
 --- !u!114 &114165851791372482
 MonoBehaviour:
