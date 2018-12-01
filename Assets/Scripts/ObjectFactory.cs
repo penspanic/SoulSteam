@@ -24,7 +24,8 @@ public class ObjectFactory<T>
 	public T Create()
 	{
 		string resourcePath = $"Prefabs/{typeof(T).Name}";
-		return GameObject.Instantiate(Resources.Load<GameObject>(resourcePath)).GetComponent<T>();
+        Vector3 pos = new Vector3(UnityEngine.Random.Range(200f, 1000f), UnityEngine.Random.Range(200f, 1000f));
+		return GameObject.Instantiate(Resources.Load<GameObject>(resourcePath), pos, Quaternion.identity).GetComponent<T>();
 
 		throw new NotSupportedException();
 	}

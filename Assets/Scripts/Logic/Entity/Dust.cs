@@ -18,7 +18,7 @@ namespace Logic.Entity
         private float rotateSpeed;
 
         // movement
-        public Vector3 moveVector;
+        public Vector3 affectedVector;
         public Vector3 moveDirection;
         public Vector3 moveSpeedRate;     // 이동 가속도
         public float moveSpeedTotal;      // 이동속도 - 실제 이동속도
@@ -26,7 +26,7 @@ namespace Logic.Entity
         public float moveSpeedLevelRate;  // 이동속도 - 단계비율
         //public float moveSpeedGravity;  // 중력
 
-        public List<Entity> affectedEntities = new List<Entity>();
+        public Dictionary<Entity, float> affectedEntities = new Dictionary<Entity, float>();
 
         // scale
         public float scaleBase;         // 기본 크기
@@ -61,41 +61,100 @@ namespace Logic.Entity
             {
                 rotateSpeed = Testment.testment.dust_rotateSpeed;
                 moveSpeedBase = Testment.testment.dust_moveSpeedBase;
-                moveSpeedLevelRate = Testment.testment.dust_moveSpeedLevelRate[level-1];
+                moveSpeedLevelRate = Testment.testment.dust_moveSpeedLevelRate[level - 1];
 
                 scaleBase = Testment.testment.dust_scaleBase;
-                scaleRate = Testment.testment.dust_scaleLevelRate[level-1];
+                scaleRate = Testment.testment.dust_scaleLevelRate[level - 1];
             }
 
             transform.Rotate(angleRotate * rotateSpeed * Time.deltaTime);
             Move();
         }
 
+        public override void ChangeMoveState(Entity hole, MoveType movetype)
+        {
+
+            switch (movetype)
+            {
+                case MoveType.Undefined:
+                    break;
+
+                case MoveType.Holded:
+                    AddAffectedEntity(hole, hole.impactedGravity);
+                    break;
+
+                case MoveType.Linear:
+                    break;
+
+                case MoveType.Curve:
+                    AddAffectedEntity(hole, hole.curveGravity);
+                    break;
+
+                case MoveType.Cycle:
+                    break;
+
+                case MoveType.Impacted:
+                    AddAffectedEntity(hole, hole.impactedGravity);
+                    break;
+
+                default:
+                    break;
+            }
+
+            MoveState = movetype;
+        }
+
         public void Move()
         {
             moveSpeedTotal = moveSpeedBase * moveSpeedLevelRate;
 
-            moveVector = Vector3.zero;
-            for (int i = 0; i < affectedEntities.Count; i++)
-            {
-                moveVector += affectedEntities[i].GetAffectVector();
-            }
-            moveVector = (moveDirection * moveSpeedTotal) + moveVector;
-            moveVector *= Time.deltaTime;
+            affectedVector = Vector3.zero;
 
-            transform.position += moveVector;
+            if (affectedEntities != null)
+                foreach (var hole in affectedEntities)
+                {
+                    affectedVector += (hole.Key.transform.position - transform.position).normalized
+                        * moveSpeedTotal * hole.Value * Time.deltaTime;
+                }
+
+            moveDirection = (moveDirection * moveSpeedTotal * Time.deltaTime + affectedVector).normalized;
+
+            transform.position += moveDirection * moveSpeedTotal * Time.deltaTime;
+        }
+
+        //public void Move_Linear()
+        //{
+        //    moveSpeedTotal = moveSpeedBase * moveSpeedLevelRate;
+
+        //    moveVector = Vector3.zero;
+        //    foreach (var hole in affectedEntities)
+        //    {
+        //        moveVector += (hole.Key.transform.position - transform.position).normalized
+        //            * moveSpeedTotal * hole.Value * Time.deltaTime;
+        //    }
+        //    moveVector = moveDirection + moveVector;
+
+        //    transform.position += moveVector.normalized * moveSpeedTotal * Time.deltaTime;
+        //}
+
+        public void Move_Cycle()
+        {
+
         }
 
         public void GetAffectedVector()
         {
         }
 
-        public void AddAffectedEntity(Entity affectEntity)
+        public void AddAffectedEntity(Entity affectEntity, float gravityRate)
         {
             if (affectEntity.Type == EntityType.Dust)
                 return;
 
-            affectedEntities.Add(affectEntity);
+            if (affectedEntities.ContainsKey(affectEntity))
+                return;
+
+            affectedEntities.Add(affectEntity, gravityRate);
         }
 
         public void RemoveAffectedEntity(Entity affectEntity)
@@ -120,6 +179,9 @@ namespace Logic.Entity
             {
                 SetData(Testment.testment.isTest);
             }
+
+            affectedEntities.Clear();
+            ChangeMoveState(null, MoveType.Linear);
         }
 
         public void SetParameter(Vector2 pos, Vector2 dir)

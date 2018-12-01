@@ -16,11 +16,12 @@ namespace Logic.Entity
     {
         Undefined = 0,
         Holded,     // 
-        Move,
+        Linear,
         Curve,
         Cycle,
         Impacted
     }
+
 	public class Entity : MonoBehaviour, IPoolable, Input.ITouchable
 	{
 		public virtual EntityType Type { get; } = EntityType.Entity;
@@ -32,7 +33,11 @@ namespace Logic.Entity
 		public int Serial => _serial;
 		private int _serial;
 
-		public virtual void Init(string id, int serial)
+        public MoveType MoveState = MoveType.Undefined;
+        public float impactedGravity;
+        public float curveGravity;
+
+        public virtual void Init(string id, int serial)
 		{
 			_id = id;
 			_serial = serial;
@@ -70,9 +75,8 @@ namespace Logic.Entity
 		}
 		#endregion
 
-        public virtual void ChangeMoveState()
+        public virtual void ChangeMoveState(Entity hole, MoveType movetype)
         {
-
         }
 
         public Vector3 GetAffectVector()

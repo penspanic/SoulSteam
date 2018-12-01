@@ -11,7 +11,8 @@ public class DustGenerator : MonoBehaviour
         Undefined = 0,
         Ingame,
         Fountain,
-        Area
+        Area,
+        Homing
     }
     public GeneratorType Type = GeneratorType.Undefined;
     [Range(0.1f, 1f)]
@@ -35,6 +36,11 @@ public class DustGenerator : MonoBehaviour
 
             case GeneratorType.Area:
                 break;
+
+            case GeneratorType.Homing:
+                StartCoroutine("CreateHoming");
+                break;
+
             default:
                 break;
         }
@@ -53,7 +59,21 @@ public class DustGenerator : MonoBehaviour
             yield return interval;
         }
     }
-    
+
+    public Transform homingTarget;
+    IEnumerator CreateHoming()
+    {
+        interval = new WaitForSeconds(createInterval);
+        while (true)
+        {
+            Common.StaticData.EntityInfo entityInfo = StaticInfoManager.Instance.EntityInfos[OriginEntityId];
+            Dust target = EntityManager.Instance.Create<Dust>(entityInfo);
+            target.SetParameter(transform.position, homingTarget.position - transform.position);
+
+            yield return interval;
+        }
+    }
+
     void CreateArea()
     {
         for (int i = 0; i < 100; ++i)
