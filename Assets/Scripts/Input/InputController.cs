@@ -26,6 +26,7 @@ namespace Input
 		public event System.Action<Vector3> OnPressUp;
 		public event System.Action<Vector3> OnTouchUp;
 		public event System.Action<Vector3, Vector3> OnSlide;
+		public event System.Action<Vector3> OnTouchPosChange;
 		public event System.Action<float> OnPinch;
 		
 		
@@ -44,6 +45,7 @@ namespace Input
 			}
 			else if (touches.Count == 1)
 			{
+				OnTouchPosChange?.Invoke(touches[0].position);
 				float deltaPositionLength = touches[0].deltaPosition.magnitude;
 				float moveSpeed = deltaPositionLength * Time.deltaTime;
 //				Debug.Log($"Delta : {deltaPositionLength * Time.deltaTime}");
