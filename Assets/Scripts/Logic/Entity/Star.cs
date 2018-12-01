@@ -26,6 +26,7 @@ namespace Logic.Entity
         {
             _colOriginRadius = _col.radius;
             _skeleton = GetComponent<SkeletonAnimation>();
+            SoundManager.Instance.Play("Sounds/Star_Born");
         }
 
         public override void Init(string id, int serial)
@@ -36,19 +37,30 @@ namespace Logic.Entity
             // B W Y
             if (id == "Star_1")
             {
+                SoundManager.Instance.Play("Sounds/Planet_Destroy");
                 _skeleton.Skeleton.SetSkin("B");
             }
             else if (id == "Star_2")
             {
+                SoundManager.Instance.Play("Sounds/Planet_Destroy");
                 _skeleton.Skeleton.SetSkin("B");
             }
             else if (id == "Star_3")
             {
+                SoundManager.Instance.Play("Sounds/Planet_Destroy");
                 _skeleton.Skeleton.SetSkin("B");
             }
 
             _skeleton.state.SetAnimation(0, "create", false);
             _skeleton.AnimationState.Complete += OnCreateComplete;
+            SoundManager.Instance.Play("Sounds/Star_Grow");
+        }
+
+        public override void OnCollide()
+        {
+            base.OnCollide();
+            SoundManager.Instance.Play("Sounds/Star_Col");
+
         }
 
         private void OnCreateComplete(TrackEntry trackentry)
@@ -61,6 +73,7 @@ namespace Logic.Entity
         {
             _skeleton.state.SetAnimation(0, "explosion", false);
             _skeleton.AnimationState.Complete += OnExplosionComplete;
+            SoundManager.Instance.Play("Sounds/Star_Destroy");
         }
 
         private void OnExplosionComplete(TrackEntry trackentry)
@@ -99,6 +112,7 @@ namespace Logic.Entity
             base.OnChangeLevel();
             float radiusScale = StarInfo.Growths[level - 1].Scale;
             this.transform.localScale = Vector3.one * radiusScale;
+            SoundManager.Instance.Play("Sounds/Star_Grow");
         }
 
         float impact = 45f, cycle = 90f;

@@ -39,6 +39,8 @@ namespace Logic.Entity
         private void Awake()
         {
             _colOriginRadius = _col.radius;
+
+            SoundManager.Instance.Play("Sounds/Planet_Born");
         }
 
         public override void Init(string id, int serial)
@@ -51,6 +53,18 @@ namespace Logic.Entity
             Move = null;
 
             cycleCount = 0;
+        }
+
+        public override void OnRelease()
+        {
+            base.OnRelease();
+            SoundManager.Instance.Play("Sounds/Planet_Destroy");
+        }
+
+        public override void OnCollide()
+        {
+            base.OnCollide();
+            SoundManager.Instance.Play("Sounds/Planet_Col");
         }
 
         private void Update()
@@ -80,10 +94,12 @@ namespace Logic.Entity
         protected override void OnChangeLevel()
         {
             base.OnChangeLevel();
+            SoundManager.Instance.Play("Sounds/Planet_Grow");
             if (level == PlanetInfo.Growths.Count)
             {
                 EntityManager.Instance.Destroy(this);
                 EntityManager.Instance.Create<Star>(StaticInfoManager.Instance.EntityInfos["Star_" + Random.Range(1, 4).ToString()] as StarInfo);
+                
                 return;
             }
             _renderer.sprite = _sprites[level - 1];

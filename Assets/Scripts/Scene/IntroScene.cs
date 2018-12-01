@@ -19,6 +19,19 @@ namespace Scene
 			_introAnimation.AnimationState.Complete += OnAnimationStateComplete;
 		}
 
+        private void OnAnimationStateStart(TrackEntry trackEntry)
+        {
+            switch(trackEntry.Animation.name)
+            {
+                case "intro":
+                    SoundManager.Instance.Play("BigBang");
+                    break;
+                case "outro":
+                    SoundManager.Instance.Play("Un_Bigbang");
+                    break;
+            }
+        }
+
 		private void OnAnimationStateComplete(TrackEntry trackentry)
 		{
 			_introAnimation.AnimationState.End -= OnAnimationStateComplete;

@@ -88,6 +88,12 @@ namespace Logic.Entity
         {
             gameObject.SetActive(false);
         }
+
+        /// <summary> 행성, 항성, 블랙홀 충돌시 재생 </summary>
+        public virtual void OnCollide()
+        {
+
+        }
         #endregion
         #region Input.ITouchable
 

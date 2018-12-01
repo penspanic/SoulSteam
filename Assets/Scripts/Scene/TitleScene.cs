@@ -14,7 +14,8 @@ namespace Scene
 
 		private void Awake()
 		{
-		}
+            SoundManager.Instance.Play("Sounds/Main_Theme");
+        }
 
 		public void Update()
 		{
