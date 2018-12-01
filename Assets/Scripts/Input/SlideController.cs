@@ -20,8 +20,6 @@ namespace Input
 		{
 			startPoint = Camera.main.ScreenToWorldPoint(startPoint);
 			endPoint = Camera.main.ScreenToWorldPoint(endPoint);
-			startPoint = new Vector3(startPoint.x, startPoint.y, 0f);
-			endPoint = new Vector3(endPoint.x, endPoint.y, 0f);
 			Vector3 delta = endPoint - startPoint;
 			Collider2D[] hits = Physics2D.OverlapCircleAll(endPoint, 0.5f);
 			for (int i = 0; i < hits.Length; ++i)
@@ -34,8 +32,12 @@ namespace Input
 						entity.OnStartDrag(endPoint);
 					}
 					_entities.Add(entity);
-					entity.OnDrag(endPoint, delta.normalized);
 				}
+			}
+
+			for (int i = 0; i < _entities.Count; ++i)
+			{
+				_entities[i].OnDrag(endPoint, delta.normalized);
 			}
 		}
 

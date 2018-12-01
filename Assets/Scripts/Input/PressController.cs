@@ -28,17 +28,16 @@ namespace Input
 		private void OnClick(Vector3 pos)
 		{
 			pos = Camera.main.ScreenToWorldPoint(pos);
-			
-			RaycastHit2D[] hits = Physics2D.RaycastAll(pos, Vector2.zero, 0f);
-			for (int i = 0; i < hits.Length; ++i)
+			pos.z = 0;
+
+			List<Entity> planets = new List<Entity>(EntityManager.Instance.GetAll(EntityType.Planet));
+			for (int i = 0; i < planets.Count; ++i)
 			{
-				Logic.Entity.Entity entity = hits[i].collider.gameObject.GetComponent<Logic.Entity.Entity>();
-				if (entity is Planet)
+				Planet planet = planets[i] as Planet;
+				if ((planet.transform.position - pos).magnitude < 0.5f + ((planet.Level - 1) * 0.1f) == true)
 				{
-					Planet planet = entity as Planet;
-					Vector3 createPos = planet.transform.position;
 					EntityManager.Instance.Destroy(planet);
-					_dustGenerator.CreateOnPlanetDestruction(planet.PlanetInfo.Growths[planet.Level - 1].DestroyDustCount, createPos);
+					_dustGenerator.CreateOnPlanetDestruction(planet.PlanetInfo.Growths[planet.Level - 1].DestroyDustCount, planet.transform.position);
 					break;
 				}
 			}

@@ -94,7 +94,7 @@ namespace Logic.Entity
 		{
 			while (true)
 			{
-				transform.position = Vector3.Lerp(transform.position, dragDestPos, Time.deltaTime);
+				transform.position = Vector3.Lerp(transform.position, dragDestPos, Time.deltaTime * 2f);
 				yield return null;
 			}
 		}
