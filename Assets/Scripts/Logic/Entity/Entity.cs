@@ -37,13 +37,21 @@ namespace Logic.Entity
         public float impactedGravity;
         public float curveGravity;
 
+		protected int level;
+		
         public virtual void Init(string id, int serial)
 		{
 			_id = id;
 			_serial = serial;
+			level = 1;
 			name = $"{Type}_{ToString()}";
 			IsPressed = false;
 			Info = Common.StaticInfo.StaticInfoManager.Instance.EntityInfos[_id];
+		}
+
+		protected virtual void OnChangeLevel()
+		{
+			
 		}
 
 		#region IPoolable

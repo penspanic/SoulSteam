@@ -9,11 +9,16 @@ public class PlanetAbsorve : MonoBehaviour
     private void Awake()
     {
         _planet = transform.parent.GetComponent<Planet>();
+        _planet.SetAbsorve(this);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         Entity otherEntity = other.GetComponent<Entity>();
+        if (otherEntity == null)
+        {
+            return;
+        }
 
         // 상위개체와 충돌함 (Star, Blackhole)
         if (otherEntity.Type > _planet.Type)
@@ -29,7 +34,7 @@ public class PlanetAbsorve : MonoBehaviour
 
             case EntityType.Dust:
                 Dust dust = (Dust)otherEntity;
-                EntityManager.Instance.Destroy<Dust>(dust);
+                _planet.CollectDust(dust);
                 break;
 
             default:

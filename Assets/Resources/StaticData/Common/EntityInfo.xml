@@ -32,23 +32,23 @@
 		
 		<Groth Level="1">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 		<Groth Level="2">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 		<Groth Level="3">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 		<Groth Level="4">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 		<Groth Level="5">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 	</EntityInfo>
 	<EntityInfo Id="Planet_2" xsi:type="PlanetInfo">
@@ -75,23 +75,23 @@
 
 		<Groth Level="1">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 		<Groth Level="2">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 		<Groth Level="3">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 		<Groth Level="4">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 		<Groth Level="5">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 	</EntityInfo>
 	<EntityInfo Id="Planet_3" xsi:type="PlanetInfo">
@@ -118,23 +118,23 @@
 
 		<Groth Level="1">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 		<Groth Level="2">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 		<Groth Level="3">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 		<Groth Level="4">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 		<Groth Level="5">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 	</EntityInfo>
 	<EntityInfo Id="Planet_4" xsi:type="PlanetInfo">
@@ -161,23 +161,23 @@
 
 		<Groth Level="1">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 		<Groth Level="2">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 		<Groth Level="3">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 		<Groth Level="4">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 		<Groth Level="5">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 	</EntityInfo>
 	<EntityInfo Id="Planet_5" xsi:type="PlanetInfo">
@@ -204,23 +204,23 @@
 
 		<Groth Level="1">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 		<Groth Level="2">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 		<Groth Level="3">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 		<Groth Level="4">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 		<Groth Level="5">
 			<Scale>1</Scale>
-			<RequireStarDust>1</RequireStarDust>
+			<RequireStarDust>20</RequireStarDust>
 		</Groth>
 	</EntityInfo>
 
