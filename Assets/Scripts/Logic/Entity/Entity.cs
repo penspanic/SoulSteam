@@ -57,6 +57,10 @@ namespace Logic.Entity
             IsPressed = false;
             StopAllCoroutines();
             Info = Common.StaticInfo.StaticInfoManager.Instance.EntityInfos[_id];
+            
+            // Init StaticData
+            moveSpeedBase = Info.Moves[level - 1].DefaultMovingSpeed;
+            //
 
             // ������ ����
             angleRotate.x = 0f;
@@ -126,6 +130,8 @@ namespace Logic.Entity
         public virtual void OnEndDrag()
         {
             StopCoroutine(dragLerpCoroutine);
+            moveDirection = dragDir.normalized;
+            ChangeMoveState(null, MoveType.Linear);
         }
 
         #endregion

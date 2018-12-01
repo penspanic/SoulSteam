@@ -96,7 +96,10 @@ namespace Logic.Entity
         // 이동
         public override void ChangeMoveState(Entity hole, MoveType movetype)
         {
-            _trail.enabled = false;
+            if (_trail != null)
+            {
+                _trail.enabled = false;
+            }
             switch (movetype)
             {
                 case MoveType.Undefined:

@@ -9,9 +9,6 @@ namespace Logic.Entity
     /// </summary>
     public class Star : Entity
     {
-        public SpriteRenderer _renderer;
-        public Sprite[] _sprites;
-
         public CircleCollider2D _col;
         private float _colOriginRadius;
         private CircleCollider2D _absorveCol;
