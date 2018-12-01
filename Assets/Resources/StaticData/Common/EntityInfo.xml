@@ -7,7 +7,7 @@
 		</Move>
 	</EntityInfo>
 
-	
+	// 불속성 행성
 	<EntityInfo Id="Planet_1" xsi:type="PlanetInfo">
 		<Move Level="1">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
@@ -33,24 +33,30 @@
 		<Groth Level="1">
 			<Scale>1</Scale>
 			<RequireStarDust>20</RequireStarDust>
+			<DestroyDustCount>20</DestroyDustCount>
 		</Groth>
 		<Groth Level="2">
-			<Scale>1</Scale>
-			<RequireStarDust>20</RequireStarDust>
+			<Scale>1.5</Scale>
+			<RequireStarDust>30</RequireStarDust>
+			<DestroyDustCount>30</DestroyDustCount>
 		</Groth>
 		<Groth Level="3">
-			<Scale>1</Scale>
-			<RequireStarDust>20</RequireStarDust>
+			<Scale>2</Scale>
+			<RequireStarDust>40</RequireStarDust>
+			<DestroyDustCount>40</DestroyDustCount>
 		</Groth>
 		<Groth Level="4">
-			<Scale>1</Scale>
-			<RequireStarDust>20</RequireStarDust>
+			<Scale>2.5</Scale>
+			<RequireStarDust>45</RequireStarDust>
+			<DestroyDustCount>45</DestroyDustCount>
 		</Groth>
 		<Groth Level="5">
-			<Scale>1</Scale>
-			<RequireStarDust>20</RequireStarDust>
+			<Scale>3.0</Scale>
+			<RequireStarDust>50</RequireStarDust>
+			<DestroyDustCount>50</DestroyDustCount>
 		</Groth>
 	</EntityInfo>
+	// 얼음속성 행성
 	<EntityInfo Id="Planet_2" xsi:type="PlanetInfo">
 		<Move Level="1">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
@@ -76,24 +82,30 @@
 		<Groth Level="1">
 			<Scale>1</Scale>
 			<RequireStarDust>20</RequireStarDust>
+			<DestroyDustCount>20</DestroyDustCount>
 		</Groth>
 		<Groth Level="2">
-			<Scale>1</Scale>
-			<RequireStarDust>20</RequireStarDust>
+			<Scale>1.5</Scale>
+			<RequireStarDust>35</RequireStarDust>
+			<DestroyDustCount>35</DestroyDustCount>
 		</Groth>
 		<Groth Level="3">
-			<Scale>1</Scale>
-			<RequireStarDust>20</RequireStarDust>
+			<Scale>2</Scale>
+			<RequireStarDust>40</RequireStarDust>
+			<DestroyDustCount>40</DestroyDustCount>
 		</Groth>
 		<Groth Level="4">
-			<Scale>1</Scale>
-			<RequireStarDust>20</RequireStarDust>
+			<Scale>2.5</Scale>
+			<RequireStarDust>45</RequireStarDust>
+			<DestroyDustCount>45</DestroyDustCount>
 		</Groth>
 		<Groth Level="5">
-			<Scale>1</Scale>
-			<RequireStarDust>20</RequireStarDust>
+			<Scale>3</Scale>
+			<RequireStarDust>50</RequireStarDust>
+			<DestroyDustCount>50</DestroyDustCount>
 		</Groth>
 	</EntityInfo>
+	//금속속성 행성
 	<EntityInfo Id="Planet_3" xsi:type="PlanetInfo">
 		<Move Level="1">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
@@ -119,24 +131,30 @@
 		<Groth Level="1">
 			<Scale>1</Scale>
 			<RequireStarDust>20</RequireStarDust>
+			<DestroyDustCount>20</DestroyDustCount>
 		</Groth>
 		<Groth Level="2">
-			<Scale>1</Scale>
-			<RequireStarDust>20</RequireStarDust>
+			<Scale>1.5</Scale>
+			<RequireStarDust>35</RequireStarDust>
+			<DestroyDustCount>35</DestroyDustCount>
 		</Groth>
 		<Groth Level="3">
-			<Scale>1</Scale>
-			<RequireStarDust>20</RequireStarDust>
+			<Scale>2</Scale>
+			<RequireStarDust>45</RequireStarDust>
+			<DestroyDustCount>45</DestroyDustCount>
 		</Groth>
 		<Groth Level="4">
-			<Scale>1</Scale>
-			<RequireStarDust>20</RequireStarDust>
+			<Scale>2.5</Scale>
+			<RequireStarDust>50</RequireStarDust>
+			<DestroyDustCount>50</DestroyDustCount>
 		</Groth>
 		<Groth Level="5">
-			<Scale>1</Scale>
-			<RequireStarDust>20</RequireStarDust>
+			<Scale>3</Scale>
+			<RequireStarDust>50</RequireStarDust>
+			<DestroyDustCount>50</DestroyDustCount>
 		</Groth>
 	</EntityInfo>
+	// 가스속성 행성
 	<EntityInfo Id="Planet_4" xsi:type="PlanetInfo">
 		<Move Level="1">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
@@ -162,24 +180,30 @@
 		<Groth Level="1">
 			<Scale>1</Scale>
 			<RequireStarDust>20</RequireStarDust>
+			<DestroyDustCount>20</DestroyDustCount>
 		</Groth>
 		<Groth Level="2">
-			<Scale>1</Scale>
-			<RequireStarDust>20</RequireStarDust>
+			<Scale>1.5</Scale>
+			<RequireStarDust>40</RequireStarDust>
+			<DestroyDustCount>40</DestroyDustCount>
 		</Groth>
 		<Groth Level="3">
-			<Scale>1</Scale>
-			<RequireStarDust>20</RequireStarDust>
+			<Scale>2</Scale>
+			<RequireStarDust>45</RequireStarDust>
+			<DestroyDustCount>45</DestroyDustCount>
 		</Groth>
 		<Groth Level="4">
-			<Scale>1</Scale>
-			<RequireStarDust>20</RequireStarDust>
+			<Scale>2.5</Scale>
+			<RequireStarDust>50</RequireStarDust>
+			<DestroyDustCount>50</DestroyDustCount>
 		</Groth>
 		<Groth Level="5">
-			<Scale>1</Scale>
-			<RequireStarDust>20</RequireStarDust>
+			<Scale>3</Scale>
+			<RequireStarDust>50</RequireStarDust>
+			<DestroyDustCount>50</DestroyDustCount>
 		</Groth>
 	</EntityInfo>
+	// 나무속성 행성
 	<EntityInfo Id="Planet_5" xsi:type="PlanetInfo">
 		<Move Level="1">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
@@ -205,22 +229,27 @@
 		<Groth Level="1">
 			<Scale>1</Scale>
 			<RequireStarDust>20</RequireStarDust>
+			<DestroyDustCount>20</DestroyDustCount>
 		</Groth>
 		<Groth Level="2">
-			<Scale>1</Scale>
-			<RequireStarDust>20</RequireStarDust>
+			<Scale>1.5</Scale>
+			<RequireStarDust>35</RequireStarDust>
+			<DestroyDustCount>35</DestroyDustCount>
 		</Groth>
 		<Groth Level="3">
-			<Scale>1</Scale>
-			<RequireStarDust>20</RequireStarDust>
+			<Scale>2</Scale>
+			<RequireStarDust>40</RequireStarDust>
+			<DestroyDustCount>40</DestroyDustCount>
 		</Groth>
 		<Groth Level="4">
-			<Scale>1</Scale>
-			<RequireStarDust>20</RequireStarDust>
+			<Scale>2.5</Scale>
+			<RequireStarDust>45</RequireStarDust>
+			<DestroyDustCount>45</DestroyDustCount>
 		</Groth>
 		<Groth Level="5">
-			<Scale>1</Scale>
-			<RequireStarDust>20</RequireStarDust>
+			<Scale>3</Scale>
+			<RequireStarDust>50</RequireStarDust>
+			<DestroyDustCount>50</DestroyDustCount>
 		</Groth>
 	</EntityInfo>
 
