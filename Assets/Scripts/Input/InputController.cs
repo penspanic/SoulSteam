@@ -55,10 +55,7 @@ namespace Input
 				float moveSpeed = deltaPositionLength * Time.deltaTime;
 				if (touches[0].phase == TouchPhase.Ended)
 				{
-					if (_prevTouches.Count == 1)
-					{
-						OnPressUp?.Invoke(touches[0].position);
-					}
+					OnPressUp?.Invoke(touches[0].position);
 					_state = InputState.Up;
 				}
 				else if (moveSpeed > 0.1f)

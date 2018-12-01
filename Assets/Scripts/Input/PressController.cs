@@ -30,16 +30,20 @@ namespace Input
 
 		private void OnPressStart(Vector3 pos)
 		{
+			_entities.Clear();
 			_gravityZone.gameObject.SetActive(true);
 			pos = Camera.main.ScreenToWorldPoint(pos);
 
-			RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero, 0f);
-
-			Logic.Entity.Entity entity = hit.collider?.gameObject.GetComponent<Logic.Entity.Entity>();
-			if (entity is Logic.Entity.Planet || entity is Logic.Entity.Star)
+			RaycastHit2D[] hits = Physics2D.RaycastAll(pos, Vector2.zero, 0f);
+			for (int i = 0; i < hits.Length; ++i)
 			{
-				_entities.Add(entity);
+				Logic.Entity.Entity entity = hits[i].collider.gameObject.GetComponent<Logic.Entity.Entity>();
+				if (entity is Logic.Entity.Planet || entity is Logic.Entity.Star)
+				{
+					_entities.Add(entity);
+				}
 			}
+
 		}
 
 		private void OnPressUp(Vector3 pos)
