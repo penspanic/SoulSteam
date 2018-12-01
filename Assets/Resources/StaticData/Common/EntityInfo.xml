@@ -254,10 +254,85 @@
 	</EntityInfo>
 
 	<EntityInfo Id="Star_1" xsi:type="StarInfo">
+		<Groth Level="1">
+			<Scale>1</Scale>
+			<RequireStarDust>20</RequireStarDust>
+			<DestroyDustCount>20</DestroyDustCount>
+		</Groth>
+		<Groth Level="2">
+			<Scale>1.5</Scale>
+			<RequireStarDust>55</RequireStarDust>
+			<DestroyDustCount>55</DestroyDustCount>
+		</Groth>
+		<Groth Level="3">
+			<Scale>2</Scale>
+			<RequireStarDust>70</RequireStarDust>
+			<DestroyDustCount>70</DestroyDustCount>
+		</Groth>
+		<Groth Level="4">
+			<Scale>2.5</Scale>
+			<RequireStarDust>85</RequireStarDust>
+			<DestroyDustCount>85</DestroyDustCount>
+		</Groth>
+		<Groth Level="5">
+			<Scale>3</Scale>
+			<RequireStarDust>100</RequireStarDust>
+			<DestroyDustCount>100</DestroyDustCount>
+		</Groth>
 	</EntityInfo>
 	<EntityInfo Id="Star_2" xsi:type="StarInfo">
+		<Groth Level="1">
+			<Scale>1</Scale>
+			<RequireStarDust>20</RequireStarDust>
+			<DestroyDustCount>20</DestroyDustCount>
+		</Groth>
+		<Groth Level="2">
+			<Scale>1.5</Scale>
+			<RequireStarDust>55</RequireStarDust>
+			<DestroyDustCount>55</DestroyDustCount>
+		</Groth>
+		<Groth Level="3">
+			<Scale>2</Scale>
+			<RequireStarDust>70</RequireStarDust>
+			<DestroyDustCount>70</DestroyDustCount>
+		</Groth>
+		<Groth Level="4">
+			<Scale>2.5</Scale>
+			<RequireStarDust>85</RequireStarDust>
+			<DestroyDustCount>85</DestroyDustCount>
+		</Groth>
+		<Groth Level="5">
+			<Scale>3</Scale>
+			<RequireStarDust>100</RequireStarDust>
+			<DestroyDustCount>100</DestroyDustCount>
+		</Groth>
 	</EntityInfo>
 	<EntityInfo Id="Star_3" xsi:type="StarInfo">
+		<Groth Level="1">
+			<Scale>1</Scale>
+			<RequireStarDust>20</RequireStarDust>
+			<DestroyDustCount>20</DestroyDustCount>
+		</Groth>
+		<Groth Level="2">
+			<Scale>1.5</Scale>
+			<RequireStarDust>55</RequireStarDust>
+			<DestroyDustCount>55</DestroyDustCount>
+		</Groth>
+		<Groth Level="3">
+			<Scale>2</Scale>
+			<RequireStarDust>70</RequireStarDust>
+			<DestroyDustCount>70</DestroyDustCount>
+		</Groth>
+		<Groth Level="4">
+			<Scale>2.5</Scale>
+			<RequireStarDust>85</RequireStarDust>
+			<DestroyDustCount>85</DestroyDustCount>
+		</Groth>
+		<Groth Level="5">
+			<Scale>3</Scale>
+			<RequireStarDust>100</RequireStarDust>
+			<DestroyDustCount>100</DestroyDustCount>
+		</Groth>
 	</EntityInfo>
 
 	<EntityInfo Id="BlackHole" xsi:type="BlackHoleInfo">
