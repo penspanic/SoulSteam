@@ -68,12 +68,13 @@ namespace Logic.Entity
             }
 
             transform.Rotate(angleRotate * rotateSpeed * Time.deltaTime);
-            Move();
+            MoveLinear();
         }
 
+        private delegate void Delegate_Move();
+        private Delegate_Move Move;
         public override void ChangeMoveState(Entity hole, MoveType movetype)
         {
-
             switch (movetype)
             {
                 case MoveType.Undefined:
@@ -88,13 +89,18 @@ namespace Logic.Entity
 
                 case MoveType.Curve:
                     AddAffectedEntity(hole, hole.curveGravity);
+                    Move = MoveLinear;
                     break;
 
                 case MoveType.Cycle:
+                    affectedEntities.Clear();
+                    cycleCore = hole;
+                    Move = MoveCycleStart;
                     break;
 
                 case MoveType.Impacted:
                     AddAffectedEntity(hole, hole.impactedGravity);
+                    Move = MoveLinear;
                     break;
 
                 default:
@@ -104,7 +110,28 @@ namespace Logic.Entity
             MoveState = movetype;
         }
 
-        public void Move()
+        public Entity cycleCore = null;
+        public float cycleRotateSpeed = 36f;
+        public float cycleRange = 2f;
+
+        public void MoveCycleStart()
+        {
+            float nowDist = Vector2.Distance(cycleCore.transform.position, transform.position);
+            if (nowDist > 2f)
+                return;
+
+            Move = MoveCycleLoop;
+        }
+
+        public void MoveCycleLoop()
+        {
+            if (cycleCore == null)
+                ChangeMoveState(null, MoveType.Linear);
+
+            transform.RotateAround(cycleCore.transform.position, Vector3.forward, cycleRotateSpeed);
+        }
+
+        public void MoveLinear()
         {
             moveSpeedTotal = moveSpeedBase * moveSpeedLevelRate;
 
@@ -136,11 +163,6 @@ namespace Logic.Entity
 
         //    transform.position += moveVector.normalized * moveSpeedTotal * Time.deltaTime;
         //}
-
-        public void Move_Cycle()
-        {
-
-        }
 
         public void GetAffectedVector()
         {
