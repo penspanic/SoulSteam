@@ -6,7 +6,7 @@ namespace Logic.Entity
 	{
 		Undefined = 0,
 		Entity,
-		StarDust,
+		Dust,
 		Planet,
 		Star,
 		BlackHole,
@@ -37,5 +37,11 @@ namespace Logic.Entity
 		{
 			
 		}
+
+        protected Vector3 affectVector;
+        public Vector3 GetAffectVector()
+        {
+            return affectVector;
+        }
 	}
 }

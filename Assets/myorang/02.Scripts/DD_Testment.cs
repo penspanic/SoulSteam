@@ -17,22 +17,14 @@ public class DD_Testment : MonoBehaviour
 
     [Header("별가루")]
     [Range(100f, 2000f)]
-    public float rotateSpeed = 100f;    // 회전 속도
+    public float dust_rotateSpeed = 100f;    // 회전 속도
     [Range(0f, 50f)]
-    public float moveSpeedBase = 1f;    // 기본 속도
+    public float dust_moveSpeedBase = 1f;    // 기본 속도
     [Range(0f, 1f)]
-    public float moveSpeed1 = 1f;       // 1단계 속도
-    [Range(0f, 1f)]
-    public float moveSpeed2 = 0.75f;    // 2단계 속도
-    [Range(0f, 1f)]
-    public float moveSpeed3 = 0.5f;     // 3단계 속도
+    public float[] dust_moveSpeedLevelRate = { 1f, 0.75f, 0.5f };
 
     [Range(0.1f, 1f)]
-    public float scaleBase = 0.1f;      // 기본 크기
+    public float dust_scaleBase = 0.1f;      // 기본 크기
     [Range(0f, 1f)]
-    public float scaleRate1 = 0.5f;     // 1단계 크기
-    [Range(0f, 1f)]
-    public float scaleRate2 = 0.75f;    // 2단계 크기
-    [Range(0f, 1f)]
-    public float scaleRate3 = 1f;       // 3단계 크기
+    public float[] dust_scaleLevelRate = { 0.5f, 0.75f, 1f };
 }
