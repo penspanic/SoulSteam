@@ -11,11 +11,12 @@ namespace Logic.Entity
 		Star,
 		BlackHole,
 	}
-	public class Entity : MonoBehaviour, IPoolable
+	public class Entity : MonoBehaviour, IPoolable, Input.ITouchable
 	{
 		public virtual EntityType Type { get; } = EntityType.Entity;
 		public override string ToString() => $"{Id}({Serial})";
 		public Common.StaticData.EntityInfo Info { get; private set; }
+		public bool IsPressed { get; private set; }
 		public string Id => _id;
 		private string _id;
 		public int Serial => _serial;
@@ -25,9 +26,11 @@ namespace Logic.Entity
 		{
 			_id = id;
 			_serial = serial;
+			IsPressed = false;
 			Info = Common.StaticInfo.StaticInfoManager.Instance.EntityInfos[_id];
 		}
 
+		#region IPoolable
 		public void OnInit()
 		{
 			gameObject.SetActive(true);
@@ -37,6 +40,24 @@ namespace Logic.Entity
 		{
 			gameObject.SetActive(false);
 		}
+		#endregion
+		#region Input.ITouchable
+
+		public virtual void OnPressDown()
+		{
+			IsPressed = true;
+		}
+
+		public virtual void OnPressUp()
+		{
+			IsPressed = false;
+		}
+
+		public virtual void OnDrag(Vector3 pos)
+		{
+			transform.position = pos;
+		}
+		#endregion
 
         protected Vector3 affectVector;
         public Vector3 GetAffectVector()

@@ -36,18 +36,13 @@ namespace Input
 				return;
 			}
 
-			for (int i = 0; i < touches.Count; ++i)
-			{
-				Debug.Log($"Touch({i}) phase : {touches[i].phase}");
-			}
-
 			if (touches.Count == 0)
 			{
 				_state = InputState.None;
 			}
 			else if (touches.Count == 1)
 			{
-				if (touches[0].phase == TouchPhase.Moved)
+				if (touches[0].deltaPosition.magnitude * Time.deltaTime > 0.5f)
 				{
 					_state = InputState.Sliding;
 				}
@@ -61,6 +56,7 @@ namespace Input
 				_state = InputState.Pinch;
 			}
 			ProcessInput(touches, _state);
+//			Debug.Log($"CurrentState : {_state}");
 			_prevState = _state;
 			_prevTouches = touches;
 		}
