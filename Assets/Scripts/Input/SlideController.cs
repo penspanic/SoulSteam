@@ -36,11 +36,15 @@ namespace Input
 				Logic.Entity.Entity entity = hits[i].gameObject.GetComponent<Logic.Entity.Entity>();
 				if (entity != null)
 				{
+					if ((entity.transform.position - endPoint).magnitude > 1f)
+					{
+						continue;
+					}
 					if (_entities.Contains(entity) == false)
 					{
 						entity.OnStartDrag(endPoint);
+						_entities.Add(entity);
 					}
-					_entities.Add(entity);
 				}
 			}
 
