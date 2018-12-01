@@ -36,6 +36,7 @@ namespace Logic.Entity
 		{
 			_id = id;
 			_serial = serial;
+			name = $"{Type}_{ToString()}";
 			IsPressed = false;
 			Info = Common.StaticInfo.StaticInfoManager.Instance.EntityInfos[_id];
 		}
@@ -65,7 +66,7 @@ namespace Logic.Entity
 
 		public virtual void OnDrag(Vector3 pos, Vector3 deltaPos)
 		{
-			transform.position = deltaPos;
+			transform.position += deltaPos;
 		}
 		#endregion
 
