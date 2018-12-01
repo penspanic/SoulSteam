@@ -29,7 +29,6 @@ namespace Input
 		public event System.Action<Vector3> OnTouchPosChange;
 		public event System.Action<float> OnPinch;
 		
-		
 		private void Update()
 		{
 			List<Touch> touches = InputHelper.GetTouches();

@@ -28,7 +28,7 @@ namespace Scene
 
 		private void Update()
 		{
-			if (UnityEngine.Input.GetMouseButtonDown(0) == true && _canChangeScene == true)
+			if (IsActiveScene == true && UnityEngine.Input.GetMouseButtonDown(0) == true && _canChangeScene == true)
 			{
 				_canChangeScene = false;
 				SceneTransaction.Instance.TransactionTo(SceneType.Title);

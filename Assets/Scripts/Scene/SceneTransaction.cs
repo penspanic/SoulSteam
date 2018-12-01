@@ -24,6 +24,7 @@ namespace Scene
 		private void Awake()
 		{
 			Instance = this;
+			Common.StaticInfo.StaticInfoManager.Instance.Init("StaticData/Common/");
 		}
 
 		private void Start()
