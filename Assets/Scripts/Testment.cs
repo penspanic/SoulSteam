@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DD_Testment : MonoBehaviour
+public class Testment : MonoBehaviour
 {
-    public static DD_Testment Testment = null;
+    public static Testment testment = null;
     public bool isTest = false;
 
     public void Awake()
     {
-        if (Testment == null)
-            Testment = this;
+        if (testment == null)
+            testment = this;
         else
             Debug.LogError("테스트기 1개 이상 존재");
     }

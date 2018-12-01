@@ -41,7 +41,7 @@ namespace Logic.Entity
             angleRotate.y = 0;
             angleRotate.z = Random.value;
 
-            if (DD_Testment.Testment.isTest)
+            if (Testment.testment.isTest)
             {
                 moveDirection.x = Mathf.Round(Random.Range(-1f, 1f) * 100f) / 100f;
                 moveDirection.y = Mathf.Round(Random.Range(-1f, 1f) * 100f) / 100f;
@@ -52,19 +52,19 @@ namespace Logic.Entity
 
         public void Update()
         {
-            if (DD_Testment.Testment == null)
+            if (Testment.testment == null)
             {
                 return;
             }
 
-            if (DD_Testment.Testment.isTest)
+            if (Testment.testment.isTest)
             {
-                rotateSpeed = DD_Testment.Testment.dust_rotateSpeed;
-                moveSpeedBase = DD_Testment.Testment.dust_moveSpeedBase;
-                moveSpeedLevelRate = DD_Testment.Testment.dust_moveSpeedLevelRate[level-1];
+                rotateSpeed = Testment.testment.dust_rotateSpeed;
+                moveSpeedBase = Testment.testment.dust_moveSpeedBase;
+                moveSpeedLevelRate = Testment.testment.dust_moveSpeedLevelRate[level-1];
 
-                scaleBase = DD_Testment.Testment.dust_scaleBase;
-                scaleRate = DD_Testment.Testment.dust_scaleLevelRate[level-1];
+                scaleBase = Testment.testment.dust_scaleBase;
+                scaleRate = Testment.testment.dust_scaleLevelRate[level-1];
             }
 
             transform.Rotate(angleRotate * rotateSpeed * Time.deltaTime);
@@ -116,9 +116,9 @@ namespace Logic.Entity
             angleRotate.y = Random.value;
             angleRotate.z = Random.value;
 
-            if (DD_Testment.Testment != null)
+            if (Testment.testment != null)
             {
-                SetData(DD_Testment.Testment.isTest);
+                SetData(Testment.testment.isTest);
             }
         }
 

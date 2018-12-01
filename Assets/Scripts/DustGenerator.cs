@@ -4,7 +4,7 @@ using Common.StaticInfo;
 using UnityEngine;
 using Logic.Entity;
 
-public class DD_DustGenerator : MonoBehaviour
+public class DustGenerator : MonoBehaviour
 {
     public enum GeneratorType
     {

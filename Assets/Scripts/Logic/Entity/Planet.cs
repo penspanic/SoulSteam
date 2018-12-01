@@ -12,7 +12,7 @@ namespace Logic.Entity
 
         public CircleCollider2D _col;
 
-        public float[] gravity = { 0.8f, 1.2f };
+        public float[] gravity = { 0.8f, 1.2f }; // 0: 왜곡, 1: 충돌
 
         public override EntityType Type { get; } = EntityType.Planet;
 
