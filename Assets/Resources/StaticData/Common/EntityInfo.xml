@@ -12,22 +12,27 @@
 		<Move Level="1">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="2">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="3">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="4">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="5">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		
 		<Groth Level="1">
@@ -61,22 +66,27 @@
 		<Move Level="1">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="2">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="3">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="4">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="5">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 
 		<Groth Level="1">
@@ -110,22 +120,27 @@
 		<Move Level="1">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="2">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="3">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="4">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="5">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 
 		<Groth Level="1">
@@ -159,22 +174,27 @@
 		<Move Level="1">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="2">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="3">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="4">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="5">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 
 		<Groth Level="1">
@@ -208,22 +228,27 @@
 		<Move Level="1">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="2">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="3">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="4">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="5">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 
 		<Groth Level="1">
@@ -257,22 +282,27 @@
 		<Move Level="1">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="2">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="3">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="4">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="5">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		
 		<Groth Level="1">
@@ -305,22 +335,27 @@
 		<Move Level="1">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="2">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="3">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="4">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="5">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		
 		<Groth Level="1">
@@ -353,22 +388,27 @@
 		<Move Level="1">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="2">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="3">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="4">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		<Move Level="5">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
 			<MaxMovingSpeed>2</MaxMovingSpeed>
+			<LevelSpeedRate>1</LevelSpeedRate>
 		</Move>
 		
 		<Groth Level="1">

@@ -68,6 +68,7 @@ namespace Common.StaticData
 			public int Level;
 			public float DefaultMovingSpeed;
 			public float MaxMovingSpeed;
+			public float LevelSpeedRate;
 		}
 		[XmlElement("Move")]
 		public List<MoveInfo> Moves = new List<MoveInfo>(); 
