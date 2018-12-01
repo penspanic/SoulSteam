@@ -32,7 +32,7 @@ namespace Logic.Entity
         // scale
         public float scaleBase;         // 기본 크기
         public float scaleRate;         // 단계별 크기 비율
-        
+
         public void Start()
         {
             angleRotate.x = 0;
@@ -66,7 +66,8 @@ namespace Logic.Entity
             }
 
             transform.Rotate(angleRotate * rotateSpeed * Time.deltaTime);
-            Move();
+            if (Move != null)
+                Move();
         }
 
         private delegate void Delegate_Move();
@@ -81,6 +82,7 @@ namespace Logic.Entity
 
                 case MoveType.Holded:
                     AddAffectedEntity(hole, hole.impactedGravity);
+                    Move = null;
                     break;
 
                 case MoveType.Linear:
@@ -102,7 +104,7 @@ namespace Logic.Entity
                     else
                     {
                         affectedEntities.Clear();
-                        cycleCore = hole;
+                        cycleCore = (Planet)hole;
                         Move = MoveCycleStart;
                     }
                     break;
@@ -119,7 +121,7 @@ namespace Logic.Entity
             MoveState = movetype;
         }
 
-        public Entity cycleCore = null;
+        public Planet cycleCore = null;
         public float cycleRotateSpeed = 72f;
         public float cycleRange = 1f;
 
@@ -138,6 +140,7 @@ namespace Logic.Entity
                 return;
 
             cycleCore.cycleCount++;
+            _renderer.sprite = _sprites[cycleCore.spriteIdx];
             _trail.enabled = true;
             Move = MoveCycleLoop;
         }
@@ -201,13 +204,9 @@ namespace Logic.Entity
             angleRotate.y = Random.value;
             angleRotate.z = Random.value;
 
-            if (Testment.testment != null)
-            {
-                SetData(Testment.testment.isTest);
-            }
-
             affectedEntities.Clear();
             ChangeMoveState(null, MoveType.Linear);
+            _renderer.sprite = _sprites[0];
             _trail.enabled = false;
         }
 
@@ -215,11 +214,6 @@ namespace Logic.Entity
         {
             transform.position = pos;
             moveDirection = dir.normalized;
-        }
-
-        public void SetData(bool isTest)
-        {
-
         }
 
         private readonly static string LayerMaskWall = "Wall";

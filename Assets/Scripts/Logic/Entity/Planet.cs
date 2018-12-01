@@ -15,6 +15,8 @@ namespace Logic.Entity
         private CircleCollider2D _absorveCol;
         private float _absorveColOriginRadius;
 
+        public int spriteIdx = 0;
+
         public override EntityType Type { get; } = EntityType.Planet;
 
         public Common.StaticData.PlanetInfo PlanetInfo { get; private set; }
