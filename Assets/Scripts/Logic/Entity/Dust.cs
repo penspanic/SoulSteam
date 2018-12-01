@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Logic.Entity
@@ -8,7 +10,7 @@ namespace Logic.Entity
     /// </summary>
     public class Dust : Entity
     {
-        public override EntityType Type { get; } = EntityType.Dust;
+        public override EntityType Type => EntityType.Dust;
 
         public SpriteRenderer _renderer;
         public TrailRenderer _trail;
@@ -37,12 +39,12 @@ namespace Logic.Entity
         {
             angleRotate.x = 0;
             angleRotate.y = 0;
-            angleRotate.z = Random.value;
+            angleRotate.z = UnityEngine.Random.value;
 
             if (Testment.testment.isTest)
             {
-                moveDirection.x = Mathf.Round(Random.Range(-1f, 1f) * 100f) / 100f;
-                moveDirection.y = Mathf.Round(Random.Range(-1f, 1f) * 100f) / 100f;
+                moveDirection.x = Mathf.Round(UnityEngine.Random.Range(-1f, 1f) * 100f) / 100f;
+                moveDirection.y = Mathf.Round(UnityEngine.Random.Range(-1f, 1f) * 100f) / 100f;
                 moveDirection.z = 0f;
                 moveDirection = moveDirection.normalized;
             }
@@ -197,9 +199,9 @@ namespace Logic.Entity
             base.Init(id, serial);
             DustInfo = Common.StaticInfo.StaticInfoManager.Instance.EntityInfos[id] as Common.StaticData.DustInfo;
 
-            angleRotate.x = Random.value;
-            angleRotate.y = Random.value;
-            angleRotate.z = Random.value;
+            angleRotate.x = UnityEngine.Random.value;
+            angleRotate.y = UnityEngine.Random.value;
+            angleRotate.z = UnityEngine.Random.value;
 
             affectedEntities.Clear();
             ChangeMoveState(null, MoveType.Linear);
@@ -225,6 +227,34 @@ namespace Logic.Entity
                     transform.position = hit[i].point;
                 }
             }
+        }
+        
+        
+        public virtual void OnStartDrag(Vector3 pos)
+        {
+//            ChangeMoveState(null, MoveType.Undefined);
+            dragLerpCoroutine = StartCoroutine(DragLerpProcess());
+            dragPosDiff = transform.position - pos;
+        }
+
+        private IEnumerator DragLerpProcess()
+        {
+            while (true)
+            {
+                transform.position = Vector3.Lerp(transform.position, dragDestPos, Time.deltaTime);
+                yield return null;
+            }
+        }
+
+        public virtual void OnDrag(Vector3 pos, Vector3 dir)
+        {
+            dragDestPos = pos;
+            dragDir = dir;
+        }
+
+        public virtual void OnEndDrag()
+        {
+            StopCoroutine(dragLerpCoroutine);
         }
     }
 }

@@ -39,6 +39,7 @@ namespace Input
 					Vector3 createPos = planet.transform.position;
 					EntityManager.Instance.Destroy(planet);
 					_dustGenerator.CreateOnPlanetDestruction(planet.PlanetInfo.Growths[planet.Level - 1].DestroyDustCount, createPos);
+					break;
 				}
 			}
 		}

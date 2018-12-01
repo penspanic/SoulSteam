@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Logic.Entity
@@ -24,7 +25,7 @@ namespace Logic.Entity
 
 	public class Entity : MonoBehaviour, IPoolable, Input.ITouchable
 	{
-		public virtual EntityType Type { get; } = EntityType.Entity;
+		public virtual EntityType Type => EntityType.Entity;
 		public override string ToString() => $"{Id}({Serial})";
 		public Common.StaticData.EntityInfo Info { get; private set; }
 		public bool IsPressed { get; private set; }
@@ -39,6 +40,10 @@ namespace Logic.Entity
         public float impactedGravity;
         public float curveGravity;
 
+		protected Coroutine dragLerpCoroutine;
+		protected Vector3 dragPosDiff;
+		protected Vector3 dragDestPos;
+		protected Vector3 dragDir;
 		
         public virtual void Init(string id, int serial)
 		{
@@ -47,6 +52,7 @@ namespace Logic.Entity
 			level = 1;
 			name = $"{Type}_{ToString()}";
 			IsPressed = false;
+			StopAllCoroutines();
 			Info = Common.StaticInfo.StaticInfoManager.Instance.EntityInfos[_id];
 		}
 
@@ -78,10 +84,32 @@ namespace Logic.Entity
 			IsPressed = false;
 		}
 
-		public virtual void OnDrag(Vector3 pos, Vector3 deltaPos)
+		public virtual void OnStartDrag(Vector3 pos)
 		{
-			transform.position += deltaPos;
+			dragLerpCoroutine = StartCoroutine(DragLerpProcess());
+			dragPosDiff = transform.position - pos;
 		}
+
+		private IEnumerator DragLerpProcess()
+		{
+			while (true)
+			{
+				transform.position = Vector3.Lerp(transform.position, dragDestPos, Time.deltaTime);
+				yield return null;
+			}
+		}
+
+		public virtual void OnDrag(Vector3 pos, Vector3 dir)
+		{
+			dragDestPos = pos;
+			dragDir = dir;
+		}
+
+		public virtual void OnEndDrag()
+		{
+			StopCoroutine(dragLerpCoroutine);
+		}
+
 		#endregion
 
         public virtual void ChangeMoveState(Entity hole, MoveType movetype)
