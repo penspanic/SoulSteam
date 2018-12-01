@@ -21,11 +21,10 @@ public class ObjectFactory<T>
 
 	private static ObjectFactory<T> _instance;
 
-	public T Create()
+	public T Create(string id)
 	{
-		string resourcePath = $"Prefabs/{typeof(T).Name}";
-        Vector3 pos = new Vector3(UnityEngine.Random.Range(200f, 1000f), UnityEngine.Random.Range(200f, 1000f));
-		return GameObject.Instantiate(Resources.Load<GameObject>(resourcePath), pos, Quaternion.identity).GetComponent<T>();
+		string resourcePath = $"Prefabs/{id}";
+		return GameObject.Instantiate(Resources.Load<GameObject>(resourcePath)).GetComponent<T>();
 
 		throw new NotSupportedException();
 	}

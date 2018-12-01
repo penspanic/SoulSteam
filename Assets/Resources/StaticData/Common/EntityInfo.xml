@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfEntityInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<EntityInfo Id="StarDust_1" xsi:type="StarDustInfo">
+	<EntityInfo Id="Dust_1" xsi:type="DustInfo">
 		<Move Level="1">
 			<DefaultMovingSpeed>0</DefaultMovingSpeed>
 			<MaxMovingSpeed>0</MaxMovingSpeed>

@@ -18,10 +18,18 @@ public class DustGenerator : MonoBehaviour
     [Range(0.1f, 1f)]
     public float createInterval = 0.1f;
     public string OriginEntityId;
+    private bool _startOnAwake = false;
 
-    public void Start()
+    private void Awake()
     {
-        StaticInfoManager.Instance.Init("StaticData/Common/");
+        if (_startOnAwake == true)
+        {
+            Do();
+        }
+    }
+
+    public void Do()
+    {
         switch (Type)
         {
             case GeneratorType.Undefined:

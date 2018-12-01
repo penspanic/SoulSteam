@@ -29,9 +29,14 @@ namespace Input
 		public event System.Action<Vector3> OnTouchPosChange;
 		public event System.Action<float> OnPinch;
 		
-		
 		private void Update()
 		{
+			if (GameManager.Instance.IsGameProcessing == false)
+			{
+				_prevState = InputState.None;
+				return;
+			}
+
 			List<Touch> touches = InputHelper.GetTouches();
 			if (touches.Count == 0)
 			{

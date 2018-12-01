@@ -6,8 +6,8 @@ using System.Xml;
 namespace Common.StaticData
 {
 	[Serializable]
-	[XmlType("StarDustInfo")]
-	public class StarDustInfo : EntityInfo
+	[XmlType("DustInfo")]
+	public class DustInfo : EntityInfo
 	{
 	}
 	[Serializable]
@@ -36,7 +36,7 @@ namespace Common.StaticData
 	[Serializable]
 	[XmlType("EntityInfo")] // define Type
 	[
-		XmlInclude(typeof(StarDustInfo)),
+		XmlInclude(typeof(DustInfo)),
 		XmlInclude(typeof(PlanetInfo)),
 		XmlInclude(typeof(StarInfo)),
 		XmlInclude(typeof(BlackHoleInfo)),
