@@ -49,6 +49,8 @@ namespace Logic.Entity
 
             // 초기 이동상태
             Move = null;
+
+            cycleCount = 0;
         }
 
         private void Update()
