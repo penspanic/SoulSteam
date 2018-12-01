@@ -14,7 +14,7 @@ public class SpaceArea : MonoBehaviour
 
         if (other.name.Contains("Dust"))
         {
-            other.SendMessage("WallOutReset");
+            other.GetComponent<Dust>().WallOutReset(transform);
         }
     }
     //private void OnTriggerExit(Collider other)

@@ -20,7 +20,24 @@ public class DD_DustGenerator : MonoBehaviour
 
     public void Start()
     {
-        CreateArea();
+        StaticInfoManager.Instance.Init("StaticData/Common/");
+        switch (Type)
+        {
+            case GeneratorType.Undefined:
+                break;
+
+            case GeneratorType.Ingame:
+                break;
+
+            case GeneratorType.Fountain:
+                StartCoroutine("CreateFountain");
+                break;
+
+            case GeneratorType.Area:
+                break;
+            default:
+                break;
+        }
     }
 
     WaitForSeconds interval;
@@ -29,6 +46,9 @@ public class DD_DustGenerator : MonoBehaviour
         interval = new WaitForSeconds(createInterval);
         while (true)
         {
+            Common.StaticData.EntityInfo entityInfo = StaticInfoManager.Instance.EntityInfos[OriginEntityId];
+            Dust target = EntityManager.Instance.Create<Dust>(entityInfo);
+            target.SetParameter(transform.position, new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)));
 
             yield return interval;
         }
@@ -45,22 +65,6 @@ public class DD_DustGenerator : MonoBehaviour
 
     public void Update()
     {
-        switch (Type)
-        {
-            case GeneratorType.Undefined:
-                break;
-
-            case GeneratorType.Ingame:
-                break;
-
-            case GeneratorType.Fountain:
-                break;
-
-            case GeneratorType.Area:
-                break;
-
-            default:
-                break;
-        }
+        transform.RotateAround(Vector3.zero, Vector3.forward, 36f * Time.deltaTime);
     }
 }

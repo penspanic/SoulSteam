@@ -3,12 +3,15 @@ using System.Collections.Generic;
 
 namespace Logic.Entity
 {
-	/// <summary>
-	/// 우주 먼지
-	/// </summary>
-	public class Dust : Entity
-	{
-		public override EntityType Type { get; } = EntityType.Dust;
+    /// <summary>
+    /// 우주 먼지
+    /// </summary>
+    public class Dust : Entity
+    {
+        public override EntityType Type { get; } = EntityType.Dust;
+
+        public SpriteRenderer _renderer;
+        public Sprite[] _sprites;
 
         // rotate
         private Vector3 angleRotate;
@@ -49,19 +52,19 @@ namespace Logic.Entity
 
         public void Update()
         {
-	        if (DD_Testment.Testment == null)
-	        {
-		        return;
-	        }
+            if (DD_Testment.Testment == null)
+            {
+                return;
+            }
 
             if (DD_Testment.Testment.isTest)
             {
                 rotateSpeed = DD_Testment.Testment.dust_rotateSpeed;
                 moveSpeedBase = DD_Testment.Testment.dust_moveSpeedBase;
-                moveSpeedLevelRate = DD_Testment.Testment.dust_moveSpeedLevelRate[level];
+                moveSpeedLevelRate = DD_Testment.Testment.dust_moveSpeedLevelRate[level-1];
 
                 scaleBase = DD_Testment.Testment.dust_scaleBase;
-                scaleRate = DD_Testment.Testment.dust_scaleLevelRate[level];
+                scaleRate = DD_Testment.Testment.dust_scaleLevelRate[level-1];
             }
 
             transform.Rotate(angleRotate * rotateSpeed * Time.deltaTime);
@@ -104,20 +107,26 @@ namespace Logic.Entity
         }
 
         public Common.StaticData.StarDustInfo StarDustInfo { get; private set; }
-		public override void Init(string id, int serial)
-		{
-			base.Init(id, serial);
-			StarDustInfo = Common.StaticInfo.StaticInfoManager.Instance.EntityInfos[id] as Common.StaticData.StarDustInfo;
+        public override void Init(string id, int serial)
+        {
+            base.Init(id, serial);
+            StarDustInfo = Common.StaticInfo.StaticInfoManager.Instance.EntityInfos[id] as Common.StaticData.StarDustInfo;
 
             angleRotate.x = Random.value;
             angleRotate.y = Random.value;
             angleRotate.z = Random.value;
 
-			if (DD_Testment.Testment != null)
-			{
-				SetData(DD_Testment.Testment.isTest);
-			}
-		}
+            if (DD_Testment.Testment != null)
+            {
+                SetData(DD_Testment.Testment.isTest);
+            }
+        }
+
+        public void SetParameter(Vector2 pos, Vector2 dir)
+        {
+            transform.position = pos;
+            moveDirection = dir.normalized;
+        }
 
         public void SetData(bool isTest)
         {
@@ -125,13 +134,16 @@ namespace Logic.Entity
         }
 
         private readonly static string LayerMaskWall = "Wall";
-        private RaycastHit2D hit;
-        public void WallOutReset()
+        private RaycastHit2D[] hit;
+        public void WallOutReset(Transform hitWall)
         {
-            hit = Physics2D.Raycast(transform.position, -moveDirection, 100f, 1 << LayerMask.NameToLayer("Wall"), -1, 1);
-            if (hit)
+            hit = Physics2D.RaycastAll(transform.position, -moveDirection, 100f, 1 << LayerMask.NameToLayer("Wall"), -1, 1);
+            for (int i = 0; i < hit.Length; i++)
             {
-                transform.position = hit.point;
+                if (hit[i].transform != hitWall)
+                {
+                    transform.position = hit[i].point;
+                }
             }
         }
     }

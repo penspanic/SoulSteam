@@ -11,6 +11,16 @@ namespace Logic.Entity
 		Star,
 		BlackHole,
 	}
+
+    public enum MoveType
+    {
+        Undefined = 0,
+        Holded,     // 
+        Move,
+        Curve,
+        Cycle,
+        Impacted
+    }
 	public class Entity : MonoBehaviour, IPoolable, Input.ITouchable
 	{
 		public virtual EntityType Type { get; } = EntityType.Entity;
@@ -59,7 +69,11 @@ namespace Logic.Entity
 		}
 		#endregion
 
-        protected Vector3 affectVector;
+        public virtual void ChangeMoveState()
+        {
+
+        }
+
         public Vector3 GetAffectVector()
         {
             return affectVector;
