@@ -138,7 +138,9 @@ MonoBehaviour:
   MoveState: 0
   impactedGravity: 0.04
   curveGravity: 0.015
-  cycleRange: 1
+  cycleNowRange: 1
+  cycleNextRange: 0
+  cyclePrevRange: 0
   cycleCount: 0
   cycleCountMax: 5
   _renderer: {fileID: 212258906651490024}
@@ -149,7 +151,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 99be95d8b9ef33b47951165b3de8726e, type: 3}
   - {fileID: 21300000, guid: 3019cea2f7ed29d46ad02eba69ee007e, type: 3}
   _col: {fileID: 58803391091217850}
-  spriteIdx: 5
+  elementId: 0
+  satellites: []
 --- !u!114 &114165851791372482
 MonoBehaviour:
   m_ObjectHideFlags: 1
