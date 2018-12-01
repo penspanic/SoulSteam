@@ -37,23 +37,23 @@
 		</Groth>
 		<Groth Level="2">
 			<Scale>1.5</Scale>
-			<RequireStarDust>30</RequireStarDust>
-			<DestroyDustCount>30</DestroyDustCount>
+			<RequireStarDust>50</RequireStarDust>
+			<DestroyDustCount>50</DestroyDustCount>
 		</Groth>
 		<Groth Level="3">
 			<Scale>2</Scale>
-			<RequireStarDust>40</RequireStarDust>
-			<DestroyDustCount>40</DestroyDustCount>
+			<RequireStarDust>70</RequireStarDust>
+			<DestroyDustCount>70</DestroyDustCount>
 		</Groth>
 		<Groth Level="4">
 			<Scale>2.5</Scale>
-			<RequireStarDust>45</RequireStarDust>
-			<DestroyDustCount>45</DestroyDustCount>
+			<RequireStarDust>85</RequireStarDust>
+			<DestroyDustCount>85</DestroyDustCount>
 		</Groth>
 		<Groth Level="5">
 			<Scale>3.0</Scale>
-			<RequireStarDust>50</RequireStarDust>
-			<DestroyDustCount>50</DestroyDustCount>
+			<RequireStarDust>100</RequireStarDust>
+			<DestroyDustCount>100</DestroyDustCount>
 		</Groth>
 	</EntityInfo>
 	<!-- 얼음속성 행성-->
@@ -86,23 +86,23 @@
 		</Groth>
 		<Groth Level="2">
 			<Scale>1.5</Scale>
-			<RequireStarDust>35</RequireStarDust>
-			<DestroyDustCount>35</DestroyDustCount>
+			<RequireStarDust>55</RequireStarDust>
+			<DestroyDustCount>55</DestroyDustCount>
 		</Groth>
 		<Groth Level="3">
 			<Scale>2</Scale>
-			<RequireStarDust>40</RequireStarDust>
-			<DestroyDustCount>40</DestroyDustCount>
+			<RequireStarDust>70</RequireStarDust>
+			<DestroyDustCount>70</DestroyDustCount>
 		</Groth>
 		<Groth Level="4">
 			<Scale>2.5</Scale>
-			<RequireStarDust>45</RequireStarDust>
-			<DestroyDustCount>45</DestroyDustCount>
+			<RequireStarDust>95</RequireStarDust>
+			<DestroyDustCount>95</DestroyDustCount>
 		</Groth>
 		<Groth Level="5">
 			<Scale>3</Scale>
-			<RequireStarDust>50</RequireStarDust>
-			<DestroyDustCount>50</DestroyDustCount>
+			<RequireStarDust>100</RequireStarDust>
+			<DestroyDustCount>100</DestroyDustCount>
 		</Groth>
 	</EntityInfo>
 	<!-- 금속속성 행성-->
@@ -135,23 +135,23 @@
 		</Groth>
 		<Groth Level="2">
 			<Scale>1.5</Scale>
-			<RequireStarDust>35</RequireStarDust>
-			<DestroyDustCount>35</DestroyDustCount>
+			<RequireStarDust>60</RequireStarDust>
+			<DestroyDustCount>60</DestroyDustCount>
 		</Groth>
 		<Groth Level="3">
 			<Scale>2</Scale>
-			<RequireStarDust>45</RequireStarDust>
-			<DestroyDustCount>45</DestroyDustCount>
+			<RequireStarDust>80</RequireStarDust>
+			<DestroyDustCount>80</DestroyDustCount>
 		</Groth>
 		<Groth Level="4">
 			<Scale>2.5</Scale>
-			<RequireStarDust>50</RequireStarDust>
-			<DestroyDustCount>50</DestroyDustCount>
+			<RequireStarDust>100</RequireStarDust>
+			<DestroyDustCount>100</DestroyDustCount>
 		</Groth>
 		<Groth Level="5">
 			<Scale>3</Scale>
-			<RequireStarDust>50</RequireStarDust>
-			<DestroyDustCount>50</DestroyDustCount>
+			<RequireStarDust>100</RequireStarDust>
+			<DestroyDustCount>100</DestroyDustCount>
 		</Groth>
 	</EntityInfo>
 	<!--가스속성 행성-->
@@ -184,23 +184,23 @@
 		</Groth>
 		<Groth Level="2">
 			<Scale>1.5</Scale>
-			<RequireStarDust>40</RequireStarDust>
-			<DestroyDustCount>40</DestroyDustCount>
+			<RequireStarDust>55</RequireStarDust>
+			<DestroyDustCount>55</DestroyDustCount>
 		</Groth>
 		<Groth Level="3">
 			<Scale>2</Scale>
-			<RequireStarDust>45</RequireStarDust>
-			<DestroyDustCount>45</DestroyDustCount>
+			<RequireStarDust>75</RequireStarDust>
+			<DestroyDustCount>75</DestroyDustCount>
 		</Groth>
 		<Groth Level="4">
 			<Scale>2.5</Scale>
-			<RequireStarDust>50</RequireStarDust>
-			<DestroyDustCount>50</DestroyDustCount>
+			<RequireStarDust>100</RequireStarDust>
+			<DestroyDustCount>100</DestroyDustCount>
 		</Groth>
 		<Groth Level="5">
 			<Scale>3</Scale>
-			<RequireStarDust>50</RequireStarDust>
-			<DestroyDustCount>50</DestroyDustCount>
+			<RequireStarDust>100</RequireStarDust>
+			<DestroyDustCount>100</DestroyDustCount>
 		</Groth>
 	</EntityInfo>
 	<!--나무속성 행성-->
@@ -233,169 +233,31 @@
 		</Groth>
 		<Groth Level="2">
 			<Scale>1.5</Scale>
-			<RequireStarDust>35</RequireStarDust>
-			<DestroyDustCount>35</DestroyDustCount>
+			<RequireStarDust>55</RequireStarDust>
+			<DestroyDustCount>55</DestroyDustCount>
 		</Groth>
 		<Groth Level="3">
 			<Scale>2</Scale>
-			<RequireStarDust>40</RequireStarDust>
-			<DestroyDustCount>40</DestroyDustCount>
+			<RequireStarDust>70</RequireStarDust>
+			<DestroyDustCount>70</DestroyDustCount>
 		</Groth>
 		<Groth Level="4">
 			<Scale>2.5</Scale>
-			<RequireStarDust>45</RequireStarDust>
-			<DestroyDustCount>45</DestroyDustCount>
+			<RequireStarDust>85</RequireStarDust>
+			<DestroyDustCount>85</DestroyDustCount>
 		</Groth>
 		<Groth Level="5">
 			<Scale>3</Scale>
-			<RequireStarDust>50</RequireStarDust>
-			<DestroyDustCount>50</DestroyDustCount>
+			<RequireStarDust>100</RequireStarDust>
+			<DestroyDustCount>100</DestroyDustCount>
 		</Groth>
 	</EntityInfo>
 
 	<EntityInfo Id="Star_1" xsi:type="StarInfo">
-		<Move Level="1">
-			<DefaultMovingSpeed>1</DefaultMovingSpeed>
-			<MaxMovingSpeed>2</MaxMovingSpeed>
-		</Move>
-		<Move Level="2">
-			<DefaultMovingSpeed>1</DefaultMovingSpeed>
-			<MaxMovingSpeed>2</MaxMovingSpeed>
-		</Move>
-		<Move Level="3">
-			<DefaultMovingSpeed>1</DefaultMovingSpeed>
-			<MaxMovingSpeed>2</MaxMovingSpeed>
-		</Move>
-		<Move Level="4">
-			<DefaultMovingSpeed>1</DefaultMovingSpeed>
-			<MaxMovingSpeed>2</MaxMovingSpeed>
-		</Move>
-		<Move Level="5">
-			<DefaultMovingSpeed>1</DefaultMovingSpeed>
-			<MaxMovingSpeed>2</MaxMovingSpeed>
-		</Move>
-
-		<Groth Level="1">
-			<Scale>1</Scale>
-			<RequireStarDust>20</RequireStarDust>
-			<DestroyDustCount>20</DestroyDustCount>
-		</Groth>
-		<Groth Level="2">
-			<Scale>1.5</Scale>
-			<RequireStarDust>30</RequireStarDust>
-			<DestroyDustCount>30</DestroyDustCount>
-		</Groth>
-		<Groth Level="3">
-			<Scale>2</Scale>
-			<RequireStarDust>40</RequireStarDust>
-			<DestroyDustCount>40</DestroyDustCount>
-		</Groth>
-		<Groth Level="4">
-			<Scale>2.5</Scale>
-			<RequireStarDust>45</RequireStarDust>
-			<DestroyDustCount>45</DestroyDustCount>
-		</Groth>
-		<Groth Level="5">
-			<Scale>3.0</Scale>
-			<RequireStarDust>50</RequireStarDust>
-			<DestroyDustCount>50</DestroyDustCount>
-		</Groth>
 	</EntityInfo>
 	<EntityInfo Id="Star_2" xsi:type="StarInfo">
-		<Move Level="1">
-			<DefaultMovingSpeed>1</DefaultMovingSpeed>
-			<MaxMovingSpeed>2</MaxMovingSpeed>
-		</Move>
-		<Move Level="2">
-			<DefaultMovingSpeed>1</DefaultMovingSpeed>
-			<MaxMovingSpeed>2</MaxMovingSpeed>
-		</Move>
-		<Move Level="3">
-			<DefaultMovingSpeed>1</DefaultMovingSpeed>
-			<MaxMovingSpeed>2</MaxMovingSpeed>
-		</Move>
-		<Move Level="4">
-			<DefaultMovingSpeed>1</DefaultMovingSpeed>
-			<MaxMovingSpeed>2</MaxMovingSpeed>
-		</Move>
-		<Move Level="5">
-			<DefaultMovingSpeed>1</DefaultMovingSpeed>
-			<MaxMovingSpeed>2</MaxMovingSpeed>
-		</Move>
-
-		<Groth Level="1">
-			<Scale>1</Scale>
-			<RequireStarDust>20</RequireStarDust>
-			<DestroyDustCount>20</DestroyDustCount>
-		</Groth>
-		<Groth Level="2">
-			<Scale>1.5</Scale>
-			<RequireStarDust>30</RequireStarDust>
-			<DestroyDustCount>30</DestroyDustCount>
-		</Groth>
-		<Groth Level="3">
-			<Scale>2</Scale>
-			<RequireStarDust>40</RequireStarDust>
-			<DestroyDustCount>40</DestroyDustCount>
-		</Groth>
-		<Groth Level="4">
-			<Scale>2.5</Scale>
-			<RequireStarDust>45</RequireStarDust>
-			<DestroyDustCount>45</DestroyDustCount>
-		</Groth>
-		<Groth Level="5">
-			<Scale>3.0</Scale>
-			<RequireStarDust>50</RequireStarDust>
-			<DestroyDustCount>50</DestroyDustCount>
-		</Groth>
 	</EntityInfo>
 	<EntityInfo Id="Star_3" xsi:type="StarInfo">
-		<Move Level="1">
-			<DefaultMovingSpeed>1</DefaultMovingSpeed>
-			<MaxMovingSpeed>2</MaxMovingSpeed>
-		</Move>
-		<Move Level="2">
-			<DefaultMovingSpeed>1</DefaultMovingSpeed>
-			<MaxMovingSpeed>2</MaxMovingSpeed>
-		</Move>
-		<Move Level="3">
-			<DefaultMovingSpeed>1</DefaultMovingSpeed>
-			<MaxMovingSpeed>2</MaxMovingSpeed>
-		</Move>
-		<Move Level="4">
-			<DefaultMovingSpeed>1</DefaultMovingSpeed>
-			<MaxMovingSpeed>2</MaxMovingSpeed>
-		</Move>
-		<Move Level="5">
-			<DefaultMovingSpeed>1</DefaultMovingSpeed>
-			<MaxMovingSpeed>2</MaxMovingSpeed>
-		</Move>
-
-		<Groth Level="1">
-			<Scale>1</Scale>
-			<RequireStarDust>20</RequireStarDust>
-			<DestroyDustCount>20</DestroyDustCount>
-		</Groth>
-		<Groth Level="2">
-			<Scale>1.5</Scale>
-			<RequireStarDust>30</RequireStarDust>
-			<DestroyDustCount>30</DestroyDustCount>
-		</Groth>
-		<Groth Level="3">
-			<Scale>2</Scale>
-			<RequireStarDust>40</RequireStarDust>
-			<DestroyDustCount>40</DestroyDustCount>
-		</Groth>
-		<Groth Level="4">
-			<Scale>2.5</Scale>
-			<RequireStarDust>45</RequireStarDust>
-			<DestroyDustCount>45</DestroyDustCount>
-		</Groth>
-		<Groth Level="5">
-			<Scale>3.0</Scale>
-			<RequireStarDust>50</RequireStarDust>
-			<DestroyDustCount>50</DestroyDustCount>
-		</Groth>
 	</EntityInfo>
 
 	<EntityInfo Id="BlackHole" xsi:type="BlackHoleInfo">
