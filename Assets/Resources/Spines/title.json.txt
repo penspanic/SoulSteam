@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "DBNWqOsjm9cUv3bQ8W6vT4Vl8Ow", "spine": "3.6.53", "width": 0, "height": 0, "images": "./title_spine/images/" },
+"skeleton": { "hash": "i4P5S1G99SMnS+EpxtoPofnyJeQ", "spine": "3.6.53", "width": 0, "height": 0, "images": "./title_spine/images/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "title", "parent": "root" },
@@ -51,6 +51,9 @@
 			"wave": { "x": 1, "y": -1, "width": 397, "height": 101 }
 		}
 	}
+},
+"events": {
+	"create": {}
 },
 "animations": {
 	"idle": {
@@ -393,10 +396,19 @@
 			"light0": {
 				"color": [
 					{ "time": 0.7667, "color": "ffffffff" },
-					{ "time": 0.9333, "color": "ffffff00" }
+					{ "time": 0.9333, "color": "ffffff00", "curve": "stepped" },
+					{
+						"time": 1.5,
+						"color": "ffffff00",
+						"curve": [ 0.914, 0, 0.75, 1 ]
+					},
+					{ "time": 2.3333, "color": "ffffffff", "curve": "stepped" },
+					{ "time": 2.5, "color": "ffffffff" },
+					{ "time": 3.5, "color": "ffffff00" }
 				],
 				"attachment": [
-					{ "time": 0.6, "name": "light0" }
+					{ "time": 0.6, "name": "light0" },
+					{ "time": 1.5, "name": "light0" }
 				]
 			},
 			"planet0": {
@@ -445,8 +457,8 @@
 						"color": "ffffff00",
 						"curve": [ 0.998, -0.01, 0.75, 1 ]
 					},
-					{ "time": 1.1667, "color": "ffffffff" },
-					{ "time": 1.2, "color": "ffffff00" }
+					{ "time": 1.5, "color": "ffffffff" },
+					{ "time": 1.5333, "color": "ffffff00" }
 				],
 				"attachment": [
 					{ "time": 0.8333, "name": "wave" }
@@ -520,16 +532,25 @@
 				"scale": [
 					{ "time": 0.6, "x": 0.269, "y": 0.269 },
 					{ "time": 0.7667, "x": 3.722, "y": 3.722 },
-					{ "time": 0.9333, "x": 23.572, "y": 23.572 }
+					{ "time": 0.9333, "x": 8.455, "y": 8.455 },
+					{
+						"time": 1.5,
+						"x": 0.5,
+						"y": 0.5,
+						"curve": [ 0.914, 0, 0.75, 1 ]
+					},
+					{ "time": 2.3333, "x": 4.379, "y": 4.379, "curve": "stepped" },
+					{ "time": 2.5, "x": 4.379, "y": 4.379 },
+					{ "time": 3.5, "x": 5.103, "y": 5.103 }
 				]
 			},
 			"wave": {
 				"rotate": [
 					{ "time": 0.8333, "angle": -8.84, "curve": "stepped" },
-					{ "time": 1.2667, "angle": -8.84 }
+					{ "time": 1.6, "angle": -8.84 }
 				],
 				"translate": [
-					{ "time": 1.2667, "x": 0, "y": 0 }
+					{ "time": 1.6, "x": 0, "y": 0 }
 				],
 				"scale": [
 					{
@@ -538,8 +559,8 @@
 						"y": 5.678,
 						"curve": [ 0.998, -0.01, 0.75, 1 ]
 					},
-					{ "time": 1.1667, "x": 0.079, "y": 0.079, "curve": "stepped" },
-					{ "time": 1.2667, "x": 0.079, "y": 0.079 }
+					{ "time": 1.5, "x": 0.079, "y": 0.079, "curve": "stepped" },
+					{ "time": 1.6, "x": 0.079, "y": 0.079 }
 				]
 			},
 			"light1": {
