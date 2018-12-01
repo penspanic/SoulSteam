@@ -122,38 +122,38 @@ namespace Logic.Entity
             // 동일개체와 충돌함 (Planet)
 
             // 하위개체와 추돌함 (Dust)
-//            switch (otherEntity.Type)
-//            {
-//                case EntityType.Undefined:
-//                    break;
-//
-//                case EntityType.Planet:
-//                    Dust dust = (Dust)otherEntity;
-//                    Vector2 incomingVec = dust.moveDirection;
-//                    Vector2 normalVec = other.transform.position - transform.position;
-//                    Vector2 reflectVec = Vector2.Reflect(incomingVec, normalVec);
-//                    Vector2 angleVec = reflectVec - incomingVec;
-//                    float angle = Mathf.Atan2(reflectVec.y - incomingVec.y, reflectVec.x - incomingVec.x) * Mathf.Rad2Deg;
-//                    angle = Mathf.Abs(angle);
-//                    if(angle < impact) // 충돌
-//                    {
-//                        dust.ChangeMoveState(this, MoveType.Impacted);
-////                        dust.ChangeMoveState(this, MoveType.Curve);
-//                    }
-//                    else if(angle < cycle) // 공전
-//                    {
-//                        dust.ChangeMoveState(this, MoveType.Cycle);
-//                        //dust.ChangeMoveState(this, MoveType.Curve);
-//                    }
-//                    else // 왜곡
-//                    {
-//                        dust.ChangeMoveState(this, MoveType.Curve);
-//                    }
-//                    break;
-//
-//                default:
-//                    break;
-//            }
+            switch (otherEntity.Type)
+            {
+                case EntityType.Undefined:
+                    break;
+
+                case EntityType.Planet:
+                    Planet otherPlanet = (Planet)otherEntity;
+                    Vector2 incomingVec = otherPlanet.moveDirection;
+                    Vector2 normalVec = other.transform.position - transform.position;
+                    Vector2 reflectVec = Vector2.Reflect(incomingVec, normalVec);
+                    Vector2 angleVec = reflectVec - incomingVec;
+                    float angle = Mathf.Atan2(reflectVec.y - incomingVec.y, reflectVec.x - incomingVec.x) * Mathf.Rad2Deg;
+                    angle = Mathf.Abs(angle);
+                    if (angle < impact) // 충돌
+                    {
+                        otherPlanet.ChangeMoveState(this, MoveType.Impacted);
+                        //                        dust.ChangeMoveState(this, MoveType.Curve);
+                    }
+                    else if (angle < cycle) // 공전
+                    {
+                        otherPlanet.ChangeMoveState(this, MoveType.Cycle);
+                        //dust.ChangeMoveState(this, MoveType.Curve);
+                    }
+                    else // 왜곡
+                    {
+                        otherPlanet.ChangeMoveState(this, MoveType.Curve);
+                    }
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         public void OnTriggerExit2D(Collider2D other)
