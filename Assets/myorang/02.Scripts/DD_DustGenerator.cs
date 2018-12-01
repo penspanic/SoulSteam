@@ -15,12 +15,14 @@ public class DD_DustGenerator : MonoBehaviour
     public GeneratorType Type = GeneratorType.Undefined;
     [Range(0.1f, 1f)]
     public float createInterval = 0.1f;
-    public Entity originPrefab;
+    public string originPrefab;
 
     public void Start()
     {
         if (originPrefab == null)
             return;
+
+
     }
 
     WaitForSeconds interval;
@@ -29,29 +31,11 @@ public class DD_DustGenerator : MonoBehaviour
         interval = new WaitForSeconds(createInterval);
         while (true)
         {
-
             yield return interval;
         }
     }
 
     public void Update()
     {
-        switch (Type)
-        {
-            case GeneratorType.Undefined:
-                break;
-
-            case GeneratorType.Ingame:
-                break;
-
-            case GeneratorType.Fountain:
-                break;
-
-            case GeneratorType.Area:
-                break;
-
-            default:
-                break;
-        }
     }
 }
