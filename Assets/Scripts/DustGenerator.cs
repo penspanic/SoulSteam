@@ -72,7 +72,7 @@ public class DustGenerator : MonoBehaviour
     {
         for (int i = 0; i < count; ++i)
         {
-            Common.StaticData.EntityInfo entityInfo = StaticInfoManager.Instance.EntityInfos["Dust_1"];
+            Common.StaticData.EntityInfo entityInfo = StaticInfoManager.Instance.EntityInfos[OriginEntityId];
             Dust target = EntityManager.Instance.Create<Dust>(entityInfo);
             target.SetParameter(originPos, new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)));
         }

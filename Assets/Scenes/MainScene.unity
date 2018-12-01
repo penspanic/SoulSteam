@@ -941,48 +941,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputController: {fileID: 607909276}
---- !u!1001 &710336604
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4732766028579758, guid: d6e2bdd5a5ab2b14fa71536d25a43a7c, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4732766028579758, guid: d6e2bdd5a5ab2b14fa71536d25a43a7c, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4732766028579758, guid: d6e2bdd5a5ab2b14fa71536d25a43a7c, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4732766028579758, guid: d6e2bdd5a5ab2b14fa71536d25a43a7c, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4732766028579758, guid: d6e2bdd5a5ab2b14fa71536d25a43a7c, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4732766028579758, guid: d6e2bdd5a5ab2b14fa71536d25a43a7c, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4732766028579758, guid: d6e2bdd5a5ab2b14fa71536d25a43a7c, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4732766028579758, guid: d6e2bdd5a5ab2b14fa71536d25a43a7c, type: 2}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d6e2bdd5a5ab2b14fa71536d25a43a7c, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!114 &713754535 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114453704309808574, guid: 65e9230bb34caa142b744482eb345fe4,
@@ -2061,7 +2019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 2
   createInterval: 0.1
-  OriginEntityId: Dust_1
+  OriginEntityId: Dust
   homingTarget: {fileID: 0}
 --- !u!4 &2061453614
 Transform:

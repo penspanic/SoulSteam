@@ -59,10 +59,10 @@ namespace Logic.Entity
             {
                 rotateSpeed = Testment.testment.dust_rotateSpeed;
                 moveSpeedBase = Testment.testment.dust_moveSpeedBase;
-                moveSpeedLevelRate = Testment.testment.dust_moveSpeedLevelRate[level - 1];
+                moveSpeedLevelRate = 1f;
 
                 scaleBase = Testment.testment.dust_scaleBase;
-                scaleRate = Testment.testment.dust_scaleLevelRate[level - 1];
+                scaleRate = 1f;
             }
 
             transform.Rotate(angleRotate * rotateSpeed * Time.deltaTime);

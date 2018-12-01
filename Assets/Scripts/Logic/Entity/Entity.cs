@@ -94,6 +94,7 @@ namespace Logic.Entity
         }
 
         public float cycleRange = 1f;
+        //public float cycleNextRange = 
         public int cycleCount = 0;
         public int cycleCountMax = 5;
     }
