@@ -49,13 +49,13 @@ namespace Spine.Unity.Examples {
 		void Update () {
 			if (model == null) return;
 
-			float currentHorizontal = Input.GetAxisRaw(horizontalAxis);
+			float currentHorizontal = UnityEngine.Input.GetAxisRaw(horizontalAxis);
 			model.TryMove(currentHorizontal);
 
-			if (Input.GetButton(attackButton))
+			if (UnityEngine.Input.GetButton(attackButton))
 				model.TryShoot();
 
-			if (Input.GetButtonDown(jumpButton))
+			if (UnityEngine.Input.GetButtonDown(jumpButton))
 				model.TryJump();
 		}
 	}

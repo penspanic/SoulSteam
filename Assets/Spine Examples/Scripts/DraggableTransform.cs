@@ -13,7 +13,7 @@ namespace Spine.Unity.Examples {
 		}
 
 		void Update () {
-			Vector2 mouseCurrent = Input.mousePosition;
+			Vector2 mouseCurrent = UnityEngine.Input.mousePosition;
 			Vector2 mouseCurrentWorld = mainCamera.ScreenToWorldPoint(new Vector3(mouseCurrent.x, mouseCurrent.y, -mainCamera.transform.position.z));
 
 			mouseDeltaWorld = mouseCurrentWorld - mousePreviousWorld;

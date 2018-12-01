@@ -75,14 +75,14 @@ namespace Spine.Unity.Examples {
 		}
 
 		void Update () {
-			if (Input.GetKey(attackKey)) {
+			if (UnityEngine.Input.GetKey(attackKey)) {
 				skeletonAnimation.AnimationName = attackAnimation;
 			} else {
-				if (Input.GetKey(rightKey)) {
+				if (UnityEngine.Input.GetKey(rightKey)) {
 					skeletonAnimation.AnimationName = moveAnimation;
 					skeletonAnimation.Skeleton.FlipX = false;
 					transform.Translate(moveSpeed * Time.deltaTime, 0, 0);
-				} else if(Input.GetKey(leftKey)) {
+				} else if(UnityEngine.Input.GetKey(leftKey)) {
 					skeletonAnimation.AnimationName = moveAnimation;
 					skeletonAnimation.Skeleton.FlipX = true;
 					transform.Translate(-moveSpeed * Time.deltaTime, 0, 0);

@@ -13,7 +13,7 @@ public class Obj_Control : MonoBehaviour {
 
         target = null;
 
-        Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 pos = Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
 
         RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero, 0f);
 
@@ -30,7 +30,7 @@ public class Obj_Control : MonoBehaviour {
     void Update()
 
     {
-        if (Input.GetMouseButtonDown(0))
+        if (UnityEngine.Input.GetMouseButtonDown(0))
         {
             CastRay();
 

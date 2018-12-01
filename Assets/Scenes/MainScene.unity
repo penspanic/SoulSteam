@@ -140,7 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee2cf80ec60944de942e5876393b1fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 2
+  _type: 3
+  _animation: {fileID: 713754535}
 --- !u!4 &103428211
 Transform:
   m_ObjectHideFlags: 0
@@ -344,6 +345,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &607909274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 607909275}
+  - component: {fileID: 607909276}
+  m_Layer: 0
+  m_Name: InputController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &607909275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 607909274}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &607909276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 607909274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c2bc39f80eb400da1fa41c86bf03040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slideTouchArea: 0
+--- !u!114 &713754535 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114453704309808574, guid: 65e9230bb34caa142b744482eb345fe4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1220584613}
+  m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
 --- !u!1001 &914212158
 Prefab:
   m_ObjectHideFlags: 0
@@ -906,7 +954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16120f4ae8804abb942c87e5a19acb89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 3
+  _type: 4
 --- !u!4 &1856212903
 Transform:
   m_ObjectHideFlags: 0

@@ -92,10 +92,10 @@ namespace Spine.Unity.Examples {
 			bool landed = !wasGrounded && isGrounded;
 
 			// Dummy input.
-			input.x = Input.GetAxis(XAxis);
-			input.y = Input.GetAxis(YAxis);
-			bool inputJumpStop = Input.GetButtonUp(JumpButton);
-			bool inputJumpStart = Input.GetButtonDown(JumpButton);			
+			input.x = UnityEngine.Input.GetAxis(XAxis);
+			input.y = UnityEngine.Input.GetAxis(YAxis);
+			bool inputJumpStop = UnityEngine.Input.GetButtonUp(JumpButton);
+			bool inputJumpStart = UnityEngine.Input.GetButtonDown(JumpButton);			
 			bool doCrouch = (isGrounded && input.y < -0.5f) || (forceCrouchEndTime > Time.time);
 			bool doJumpInterrupt = false;
 			bool doJump = false;

@@ -20,7 +20,7 @@ namespace Spine.Unity.Examples {
 		}
 
 		void Update () {
-			var mousePosition = Input.mousePosition;
+			var mousePosition = UnityEngine.Input.mousePosition;
 			var worldMousePosition = camera.ScreenToWorldPoint(mousePosition);
 			var skeletonSpacePoint = skeletonAnimation.transform.InverseTransformPoint(worldMousePosition);
 			if (skeletonAnimation.Skeleton.FlipX) skeletonSpacePoint.x *= -1;

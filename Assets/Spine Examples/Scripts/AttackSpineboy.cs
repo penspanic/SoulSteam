@@ -47,7 +47,7 @@ namespace Spine.Unity.Examples {
 		public UnityEngine.Events.UnityEvent onAttack;
 
 		void Update () {
-			if (Input.GetKeyDown(KeyCode.Space)) {
+			if (UnityEngine.Input.GetKeyDown(KeyCode.Space)) {
 				currentHealth -= 10;
 				healthText.text = currentHealth + "/" + maxHealth;
 

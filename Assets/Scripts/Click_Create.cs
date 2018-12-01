@@ -47,11 +47,11 @@ public class Click_Create : MonoBehaviour
         }
         Vector3 createPos = new Vector3(transform.position.x, transform.position.y, -10);
         // 마우스 왼쪽 버튼 클릭
-        if (Input.GetMouseButtonDown(0))
+        if (UnityEngine.Input.GetMouseButtonDown(0))
         {
 
             //스크린 좌표를 월드 좌표로 변환
-            Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 wp = Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
 
             Vector2 touchPos = new Vector2(wp.x, wp.y);
             // 오브젝트 위치 갱신 
