@@ -30,17 +30,19 @@ namespace Input
 			pos = Camera.main.ScreenToWorldPoint(pos);
 			pos.z = 0;
 
-			List<Entity> planets = new List<Entity>(EntityManager.Instance.GetAll(EntityType.Planet));
-			for (int i = 0; i < planets.Count; ++i)
+			RaycastHit2D[] hits = Physics2D.RaycastAll(pos, Vector2.zero, 0f, ~(LayerMask.GetMask("Gravity")));
+			for (int i = 0; i < hits.Length; ++i)
 			{
-				Planet planet = planets[i] as Planet;
-				if ((planet.transform.position - pos).magnitude < 0.5f + ((planet.Level - 1) * 0.1f) == true)
+				Entity entity = hits[i].transform?.GetComponent<Entity>();
+				if (entity is Planet)
 				{
+					Planet planet = entity as Planet;
 					EntityManager.Instance.Destroy(planet);
 					_dustGenerator.CreateOnPlanetDestruction(planet.PlanetInfo.Growths[planet.Level - 1].DestroyDustCount, planet.transform.position);
 					break;
 				}
 			}
+			
 		}
 
 		private void OnTouchPosChange(Vector3 pos)
@@ -58,11 +60,11 @@ namespace Input
 			_gravityZone.gameObject.SetActive(true);
 			pos = Camera.main.ScreenToWorldPoint(pos);
 
-			RaycastHit2D[] hits = Physics2D.RaycastAll(pos, Vector2.zero, 0f);
+			RaycastHit2D[] hits = Physics2D.RaycastAll(pos, Vector2.zero, 0f, ~(LayerMask.GetMask("Gravity")));
 			for (int i = 0; i < hits.Length; ++i)
 			{
-				Logic.Entity.Entity entity = hits[i].collider.gameObject.GetComponent<Logic.Entity.Entity>();
-				if (entity is Logic.Entity.Planet || entity is Logic.Entity.Star)
+				Entity entity = hits[i].transform?.GetComponent<Entity>();
+				if (entity is Planet || entity is Star || entity is BlackHole)
 				{
 					_entities.Add(entity);
 				}

@@ -38,6 +38,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 		FindObjectOfType<UIManager>().PlayResetAnimation();
 		yield return new WaitForSeconds(2f);
 		EntityManager.Instance.DestroyAll();
+		IsGameProcessing = true;
 	}
 	
 

@@ -97,9 +97,11 @@ namespace Logic.Entity
             SoundManager.Instance.Play("Sounds/Planet_Grow");
             if (level == PlanetInfo.Growths.Count)
             {
+                Vector3 pos = transform.position;
                 EntityManager.Instance.Destroy(this);
                 EntityManager.Instance.Create<Star>(StaticInfoManager.Instance.EntityInfos["Star_" + Random.Range(1, 4).ToString()] as StarInfo);
-                
+                Star star = EntityManager.Instance.Create<Star>(StaticInfoManager.Instance.EntityInfos["Star_" + Random.Range(1, 4).ToString()] as StarInfo);
+                star.transform.position = pos;
                 return;
             }
             _renderer.sprite = _sprites[level - 1];
