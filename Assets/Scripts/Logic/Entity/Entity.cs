@@ -70,14 +70,8 @@ namespace Logic.Entity
 
             affectedEntities.Clear();
             Invincible = true;
-            StartCoroutine(InvincibleProcess());
         }
 
-        private IEnumerator InvincibleProcess()
-        {
-            yield return new WaitForSeconds(1f);
-            Invincible = false;
-        }
 
         protected virtual void OnChangeLevel()
         {
@@ -88,6 +82,13 @@ namespace Logic.Entity
         public void OnInit()
         {
             gameObject.SetActive(true);
+            StartCoroutine(InvincibleProcess());
+        }
+
+        private IEnumerator InvincibleProcess()
+        {
+            yield return new WaitForSeconds(1f);
+            Invincible = false;
         }
 
         public virtual void OnRelease()

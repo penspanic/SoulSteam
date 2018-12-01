@@ -31,7 +31,7 @@ namespace Logic.Entity
 
         public List<Dust> satellites = new List<Dust>();
 
-        public override EntityType Type { get; } = EntityType.Planet;
+        public override EntityType Type => EntityType.Planet;
 
         public Common.StaticData.PlanetInfo PlanetInfo { get; private set; }
         private int _collectedDust = 0;
