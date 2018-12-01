@@ -53,9 +53,12 @@ namespace Input
 				OnTouchPosChange?.Invoke(touches[0].position);
 				float deltaPositionLength = touches[0].deltaPosition.magnitude;
 				float moveSpeed = deltaPositionLength * Time.deltaTime;
-//				Debug.Log($"Delta : {deltaPositionLength * Time.deltaTime}");
 				if (touches[0].phase == TouchPhase.Ended)
 				{
+					if (_prevTouches.Count == 1)
+					{
+						OnPressUp?.Invoke(touches[0].position);
+					}
 					_state = InputState.Up;
 				}
 				else if (moveSpeed > 0.1f)
@@ -89,10 +92,6 @@ namespace Input
 					if (touches[0].phase == TouchPhase.Began)
 					{
 						OnPressStart?.Invoke(touches[0].position);
-					}
-					else if (touches[0].phase == TouchPhase.Ended)
-					{
-						OnPressUp?.Invoke(touches[0].position);
 					}
 					break;
 				case InputState.Sliding:

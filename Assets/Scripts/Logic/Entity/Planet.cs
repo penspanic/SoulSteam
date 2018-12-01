@@ -70,6 +70,10 @@ namespace Logic.Entity
         public void OnTriggerEnter2D(Collider2D other)
         {
             Entity otherEntity = other.GetComponent<Entity>();
+            if (otherEntity == null)
+            {
+                return;
+            }
 
             // 상위개체와 충돌함 (Star, Blackhole)
             if (otherEntity.Type > Type)
@@ -115,6 +119,10 @@ namespace Logic.Entity
         public void OnTriggerExit2D(Collider2D other)
         {
             Entity otherEntity = other.GetComponent<Entity>();
+            if (otherEntity == null)
+            {
+                return;
+            }
 
             // 상위개체와 충돌함 (Star, Blackhole)
             if (otherEntity.Type > Type)

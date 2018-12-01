@@ -21,6 +21,7 @@ namespace Common.StaticData
 			public int Level;
 			public float Scale;
 			public int RequireStarDust;
+			public int DestroyDustCount;
 		}
 		[XmlElement("Groth")]
 		public List<GrowthInfo> Growths = new List<GrowthInfo>();
