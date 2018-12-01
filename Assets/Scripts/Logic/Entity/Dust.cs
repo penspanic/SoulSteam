@@ -33,8 +33,9 @@ namespace Logic.Entity
             DustInfo = Common.StaticInfo.StaticInfoManager.Instance.EntityInfos[id] as Common.StaticData.DustInfo;
 
             ChangeMoveState(null, MoveType.Linear);
+            transform.SetParent(null);
             _renderer.sprite = _sprites[0];
-            _trail.Clear();
+            _trail.time = 0f;
             _trail.enabled = false;
         }
 
@@ -121,7 +122,7 @@ namespace Logic.Entity
             //transform.position = cycleCore.transform.position - transform.position;
             cycleCore.cycleCount++;
             _renderer.sprite = _sprites[(int)cycleCore.elementId];
-            _trail.Clear();
+            _trail.time = _trailTime;
             _trail.enabled = true;
             cycleCore.satellites.Add(this);
             transform.SetParent(cycleCore.transform);

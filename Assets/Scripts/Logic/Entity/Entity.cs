@@ -73,7 +73,7 @@ namespace Logic.Entity
         }
 
 
-        protected virtual void OnChangeLevel()
+        public virtual void OnChangeLevel()
         {
 
         }
@@ -147,6 +147,7 @@ namespace Logic.Entity
         [Header("Component")]
         public SpriteRenderer _renderer;
         public TrailRenderer _trail;
+        public float _trailTime = 0.5f;
 
         // �̵� �Ķ����
         [Header("Movement")]

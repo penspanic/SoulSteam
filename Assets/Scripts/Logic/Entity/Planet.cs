@@ -91,7 +91,7 @@ namespace Logic.Entity
             }
         }
 
-        protected override void OnChangeLevel()
+        public override void OnChangeLevel()
         {
             base.OnChangeLevel();
             SoundManager.Instance.Play("Sounds/Planet_Grow");

@@ -30,6 +30,37 @@ public class PlanetAbsorve : MonoBehaviour
         {
             Planet otherPlanet = (Planet)otherEntity;
 
+            // 동일 속성
+            if(_planet.elementId == otherPlanet.elementId)
+            {
+                // 동일 레벨
+                if(otherPlanet.level == _planet.level)
+                {
+                    if (otherPlanet.Serial > _planet.Serial)
+                    {
+                        EntityManager.Instance.Destroy<Planet>(_planet);
+                        otherPlanet.level++;
+                        otherPlanet.OnChangeLevel();
+                        return;
+                    }
+                    else
+                    {
+                        EntityManager.Instance.Destroy<Planet>(otherPlanet);
+                        _planet.level++;
+                        _planet.OnChangeLevel();
+                        return;
+                    }
+                }
+                else if (otherPlanet.level < _planet.level)
+                {
+                    EntityManager.Instance.Destroy<Planet>(otherPlanet);
+                    _planet.level++;
+                    _planet.OnChangeLevel();
+                    return;
+                }
+            }
+
+            // 동일 속성이 아닌 경우
             switch (_planet.elementId)
             {
                 case Element.Normal:
@@ -44,46 +75,42 @@ public class PlanetAbsorve : MonoBehaviour
                     }
 
                     // 합체
-                    else if (otherPlanet.elementId == Element.Fire
-                       || otherPlanet.elementId == Element.Tree)
+                    else if (otherPlanet.elementId == Element.Tree)
                     {
-                        // 단계가 같음
-                        if (otherPlanet.level == _planet.level)
+                        if (otherPlanet.level > _planet.level)
                         {
-
-                        }
-                        else if (otherPlanet.level > _planet.level)
-                        {
-                            EntityManager.Instance.Destroy<Planet>(_planet);
+                            EntityManager.Instance.Destroy<Planet>(otherPlanet);
+                            _planet.level = otherPlanet.level + 1;
+                            _planet.OnChangeLevel();
                         }
                         else
                         {
                             EntityManager.Instance.Destroy<Planet>(otherPlanet);
+                            _planet.level++;
+                            _planet.OnChangeLevel();
                         }
                     }
-
-                    // 패배
-                    //else if (otherPlanet.elementId == Element.Iron)
-                    //{
-                    //}
                     break;
 
                 case Element.Ice:
                     // 승리
                     // 합체
-                    if (otherPlanet.elementId == Element.Ice
-                        || otherPlanet.elementId == Element.Gas
+                    if (otherPlanet.elementId == Element.Gas
                         || otherPlanet.elementId == Element.Tree)
                     {
-
+                        if (otherPlanet.level > _planet.level)
+                        {
+                            EntityManager.Instance.Destroy<Planet>(otherPlanet);
+                            _planet.level = otherPlanet.level + 1;
+                            _planet.OnChangeLevel();
+                        }
+                        else
+                        {
+                            EntityManager.Instance.Destroy<Planet>(otherPlanet);
+                            _planet.level++;
+                            _planet.OnChangeLevel();
+                        }
                     }
-
-                    // 패배
-                    //else if (otherPlanet.elementId == Element.Fire
-                    //    || otherPlanet.elementId == Element.Iron)
-                    //{
-
-                    //}
                     break;
 
                 case Element.Iron:
@@ -96,56 +123,32 @@ public class PlanetAbsorve : MonoBehaviour
                         EntityManager.Instance.Destroy<Planet>(otherPlanet);
                     }
 
-                    // 합체
-                    else if (otherPlanet.elementId == Element.Iron)
-                    {
-
-                    }
                     // 패배
                     break;
 
                 case Element.Gas:
                     // 승리
                     // 자신 - 합체
-                    if (otherPlanet.elementId == Element.Gas)
-                    {
-
-                    }
-                    // 상대 - 합체
-                    else if (otherPlanet.elementId == Element.Ice
-                        || otherPlanet.elementId == Element.Tree)
-                    {
-
-                    }
-                    // 패배
-                    //else if (otherPlanet.elementId == Element.Fire
-                    //    || otherPlanet.elementId == Element.Iron)
-                    //{
-
-                    //}
                     break;
 
                 case Element.Tree:
                     // 승리
                     // 자신 - 합체
-                    if (otherPlanet.elementId == Element.Tree
-                        || otherPlanet.elementId == Element.Gas)
+                    if (otherPlanet.elementId == Element.Gas)
                     {
-
+                        if (otherPlanet.level > _planet.level)
+                        {
+                            EntityManager.Instance.Destroy<Planet>(_planet);
+                            otherPlanet.level++;
+                            otherPlanet.OnChangeLevel();
+                        }
+                        else
+                        {
+                            EntityManager.Instance.Destroy<Planet>(otherPlanet);
+                            _planet.level++;
+                            _planet.OnChangeLevel();
+                        }
                     }
-
-                    // 상대 - 합체
-                    else if (otherPlanet.elementId == Element.Fire
-                        || otherPlanet.elementId == Element.Ice)
-                    {
-
-                    }
-
-                    // 패배
-                    //else if (otherPlanet.elementId == Element.Iron)
-                    //{
-
-                    //}
                     break;
 
                 default:

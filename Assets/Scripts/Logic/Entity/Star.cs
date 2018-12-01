@@ -107,7 +107,7 @@ namespace Logic.Entity
             }
         }
 
-        protected override void OnChangeLevel()
+        public override void OnChangeLevel()
         {
             base.OnChangeLevel();
             float radiusScale = StarInfo.Growths[level - 1].Scale;
