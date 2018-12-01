@@ -30,12 +30,12 @@ namespace Logic.Entity
 
 		public void OnInit()
 		{
-			
+			gameObject.SetActive(true);
 		}
 
 		public void OnRelease()
 		{
-			
+			gameObject.SetActive(false);
 		}
 
         protected Vector3 affectVector;

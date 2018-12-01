@@ -12,17 +12,112 @@ namespace Input
 		private enum InputState
 		{
 			None = 0,
+			Press, // 가만히 누르고 기다리는 상태
 			Sliding,
 			Pinch,
 		}
+
+		private InputState _state;
+		private InputState _prevState;
+		private List<Touch> _prevTouches = new List<Touch>();
+
+		public event System.Action<Vector3> OnPressStart;
+		public event System.Action<Vector3> OnPressUp;
+		public event System.Action<Vector3, Vector3> OnSlide;
+		public event System.Action<float> OnPinch;
+		
 		
 		private void Update()
 		{
 			List<Touch> touches = InputHelper.GetTouches();
+			if (touches.Count == 0)
+			{
+				_state = InputState.None;
+				return;
+			}
+
 			for (int i = 0; i < touches.Count; ++i)
 			{
 				Debug.Log($"Touch({i}) phase : {touches[i].phase}");
 			}
+
+			if (touches.Count == 0)
+			{
+				_state = InputState.None;
+			}
+			else if (touches.Count == 1)
+			{
+				if (touches[0].phase == TouchPhase.Moved)
+				{
+					_state = InputState.Sliding;
+				}
+				else
+				{
+					_state = InputState.Press;
+				}
+			}
+			else if (touches.Count == 2)
+			{
+				_state = InputState.Pinch;
+			}
+			ProcessInput(touches, _state);
+			_prevState = _state;
+			_prevTouches = touches;
+		}
+
+		private void ProcessInput(List<Touch> touches, InputState state)
+		{
+			switch (state)
+			{
+				case InputState.None:
+					break;
+				case InputState.Press:
+					if (touches[0].phase == TouchPhase.Began)
+					{
+						OnPressStart?.Invoke(touches[0].position);
+					}
+					else if (touches[0].phase == TouchPhase.Ended)
+					{
+						OnPressUp?.Invoke(touches[0].position);
+					}
+					break;
+				case InputState.Sliding:
+					Vector3 prevPos = _prevTouches[0].position;
+					Vector3 currentPos = touches[0].position;
+					OnSlide?.Invoke(prevPos, currentPos);
+					break;
+				case InputState.Pinch:
+					if (_prevState != InputState.Pinch)
+					{
+						return;
+					}
+
+					float prevLength = (_prevTouches[0].position - _prevTouches[1].position).magnitude;
+					float currentLength = (touches[0].position - touches[1].position).magnitude;
+					OnPinch?.Invoke(Mathf.Abs(prevLength - currentLength));
+					break;
+				default:
+					break;
+			}
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

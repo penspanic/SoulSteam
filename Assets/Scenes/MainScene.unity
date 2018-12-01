@@ -354,6 +354,9 @@ GameObject:
   m_Component:
   - component: {fileID: 607909275}
   - component: {fileID: 607909276}
+  - component: {fileID: 607909279}
+  - component: {fileID: 607909278}
+  - component: {fileID: 607909277}
   m_Layer: 0
   m_Name: InputController
   m_TagString: Untagged
@@ -386,6 +389,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slideTouchArea: 0
+--- !u!114 &607909277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 607909274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b13d426bf2a14c9d8e0e73e076d8a8de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputController: {fileID: 607909276}
+--- !u!114 &607909278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 607909274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d694f050792844609f50c668e84809f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputController: {fileID: 607909276}
+--- !u!114 &607909279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 607909274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2461edcca1774d4598417f6c36eb08d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputController: {fileID: 607909276}
 --- !u!114 &713754535 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114453704309808574, guid: 65e9230bb34caa142b744482eb345fe4,
