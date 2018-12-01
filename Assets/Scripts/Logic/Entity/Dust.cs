@@ -34,6 +34,7 @@ namespace Logic.Entity
 
             ChangeMoveState(null, MoveType.Linear);
             _renderer.sprite = _sprites[0];
+            _trail.Clear();
             _trail.enabled = false;
         }
 
@@ -120,6 +121,7 @@ namespace Logic.Entity
             //transform.position = cycleCore.transform.position - transform.position;
             cycleCore.cycleCount++;
             _renderer.sprite = _sprites[(int)cycleCore.elementId];
+            _trail.Clear();
             _trail.enabled = true;
             cycleCore.satellites.Add(this);
             transform.SetParent(cycleCore.transform);
