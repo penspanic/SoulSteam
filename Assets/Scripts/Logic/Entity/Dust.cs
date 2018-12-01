@@ -11,6 +11,7 @@ namespace Logic.Entity
         public override EntityType Type { get; } = EntityType.Dust;
 
         public SpriteRenderer _renderer;
+        public TrailRenderer _trail;
         public Sprite[] _sprites;
 
         // rotate
@@ -31,10 +32,7 @@ namespace Logic.Entity
         // scale
         public float scaleBase;         // 기본 크기
         public float scaleRate;         // 단계별 크기 비율
-
-        [Range(1, 3)]
-        public int level;               // 레벨
-
+        
         public void Start()
         {
             angleRotate.x = 0;
@@ -68,13 +66,14 @@ namespace Logic.Entity
             }
 
             transform.Rotate(angleRotate * rotateSpeed * Time.deltaTime);
-            MoveLinear();
+            Move();
         }
 
         private delegate void Delegate_Move();
         private Delegate_Move Move;
         public override void ChangeMoveState(Entity hole, MoveType movetype)
         {
+            _trail.enabled = false;
             switch (movetype)
             {
                 case MoveType.Undefined:
@@ -85,6 +84,8 @@ namespace Logic.Entity
                     break;
 
                 case MoveType.Linear:
+                    affectedEntities.Clear();
+                    Move = MoveLinear;
                     break;
 
                 case MoveType.Curve:
@@ -93,9 +94,17 @@ namespace Logic.Entity
                     break;
 
                 case MoveType.Cycle:
-                    affectedEntities.Clear();
-                    cycleCore = hole;
-                    Move = MoveCycleStart;
+                    if (cycleCount >= cycleCountMax)
+                    {
+                        ChangeMoveState(null, MoveType.Linear);
+                        return;
+                    }
+                    else
+                    {
+                        affectedEntities.Clear();
+                        cycleCore = hole;
+                        Move = MoveCycleStart;
+                    }
                     break;
 
                 case MoveType.Impacted:
@@ -111,15 +120,25 @@ namespace Logic.Entity
         }
 
         public Entity cycleCore = null;
-        public float cycleRotateSpeed = 36f;
-        public float cycleRange = 2f;
+        public float cycleRotateSpeed = 72f;
+        public float cycleRange = 1f;
 
         public void MoveCycleStart()
         {
+            MoveLinear();
+
+            if (cycleCore.cycleCount >= cycleCore.cycleCountMax)
+            {
+                ChangeMoveState(null, MoveType.Linear);
+                return;
+            }
+
             float nowDist = Vector2.Distance(cycleCore.transform.position, transform.position);
-            if (nowDist > 2f)
+            if (nowDist > cycleRange)
                 return;
 
+            cycleCore.cycleCount++;
+            _trail.enabled = true;
             Move = MoveCycleLoop;
         }
 
@@ -128,7 +147,7 @@ namespace Logic.Entity
             if (cycleCore == null)
                 ChangeMoveState(null, MoveType.Linear);
 
-            transform.RotateAround(cycleCore.transform.position, Vector3.forward, cycleRotateSpeed);
+            transform.RotateAround(cycleCore.transform.position, Vector3.forward, cycleRotateSpeed * Time.deltaTime);
         }
 
         public void MoveLinear()
@@ -148,21 +167,6 @@ namespace Logic.Entity
 
             transform.position += moveDirection * moveSpeedTotal * Time.deltaTime;
         }
-
-        //public void Move_Linear()
-        //{
-        //    moveSpeedTotal = moveSpeedBase * moveSpeedLevelRate;
-
-        //    moveVector = Vector3.zero;
-        //    foreach (var hole in affectedEntities)
-        //    {
-        //        moveVector += (hole.Key.transform.position - transform.position).normalized
-        //            * moveSpeedTotal * hole.Value * Time.deltaTime;
-        //    }
-        //    moveVector = moveDirection + moveVector;
-
-        //    transform.position += moveVector.normalized * moveSpeedTotal * Time.deltaTime;
-        //}
 
         public void GetAffectedVector()
         {
@@ -204,6 +208,7 @@ namespace Logic.Entity
 
             affectedEntities.Clear();
             ChangeMoveState(null, MoveType.Linear);
+            _trail.enabled = false;
         }
 
         public void SetParameter(Vector2 pos, Vector2 dir)

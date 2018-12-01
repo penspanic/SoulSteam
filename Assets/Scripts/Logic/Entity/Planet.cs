@@ -102,8 +102,8 @@ namespace Logic.Entity
                     }
                     else if(angle < cycle) // 공전
                     {
-                        //dust.ChangeMoveState(this, MoveType.Cycle);
-                        dust.ChangeMoveState(this, MoveType.Curve);
+                        dust.ChangeMoveState(this, MoveType.Cycle);
+                        //dust.ChangeMoveState(this, MoveType.Curve);
                     }
                     else // 왜곡
                     {

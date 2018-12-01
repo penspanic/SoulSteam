@@ -92,5 +92,8 @@ namespace Logic.Entity
         {
 	        return Vector3.zero;
         }
-	}
+
+        public int cycleCount = 0;
+        public int cycleCountMax = 5;
+    }
 }
