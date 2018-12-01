@@ -11,7 +11,7 @@ namespace Logic.Entity
 		{
 		}
 
-		public Entity Create<T>(Common.StaticData.EntityInfo entityInfo) where T : Entity
+		public T Create<T>(Common.StaticData.EntityInfo entityInfo) where T : Entity
 		{
 			T entity = PoolManager<T>.Instance.Get();
 			int serial = ++_currentSerial;
