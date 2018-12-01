@@ -55,18 +55,6 @@ namespace Logic.Entity
 			gameObject.SetActive(false);
 		}
 
-		public override void OnDrag(Vector3 pos, Vector3 dir)
-		{
-		}
-
-		public override void OnStartDrag(Vector3 pos)
-		{
-		}
-
-		public override void OnEndDrag()
-		{
-		}
-
 		public void OnTriggerEnter2D(Collider2D other)
         {
             Entity otherEntity = other.GetComponent<Entity>();
