@@ -16,7 +16,16 @@ namespace Logic.Entity
         private CircleCollider2D _absorveCol;
         private float _absorveColOriginRadius;
 
-        public int spriteIdx = 0;
+        public enum Element
+        {
+            Normal = 0,
+            Fire,
+            Ice,
+            Iron,
+            Gas,
+            Tree
+        }
+        public Element elementId = 0;
 
         public List<Dust> satellites = new List<Dust>();
 
@@ -85,6 +94,134 @@ namespace Logic.Entity
                 return;
 
             // 동일개체와 충돌함 (Planet)
+            if (otherEntity.Type == Type)
+            {
+                Planet otherPlanet = (Planet)otherEntity;
+
+                switch (elementId)
+                {
+                    case Element.Normal:
+                        break;
+
+                    case Element.Fire:
+                        // 승리
+                        if (otherPlanet.elementId == Element.Ice
+                            || otherPlanet.elementId == Element.Gas)
+                        {
+                            EntityManager.Instance.Destroy<Planet>(otherPlanet);
+                        }
+
+                        // 합체
+                        else if (otherPlanet.elementId == Element.Fire
+                           || otherPlanet.elementId == Element.Tree)
+                        {
+                            // 단계가 같음
+                            if(otherPlanet.level == level)
+                            {
+
+                            }
+                            else if(otherPlanet.level > level)
+                            {
+                                EntityManager.Instance.Destroy<Planet>(this);
+                            }
+                            else
+                            {
+                                EntityManager.Instance.Destroy<Planet>(otherPlanet);
+                            }
+                        }
+
+                        // 패배
+                        //else if (otherPlanet.elementId == Element.Iron)
+                        //{
+                        //}
+                        break;
+
+                    case Element.Ice:
+                        // 승리
+                        // 합체
+                        if (otherPlanet.elementId == Element.Ice
+                            || otherPlanet.elementId == Element.Gas
+                            || otherPlanet.elementId == Element.Tree)
+                        {
+
+                        }
+
+                        // 패배
+                        //else if (otherPlanet.elementId == Element.Fire
+                        //    || otherPlanet.elementId == Element.Iron)
+                        //{
+
+                        //}
+                        break;
+
+                    case Element.Iron:
+                        // 승리
+                        if (otherPlanet.elementId == Element.Fire
+                            || otherPlanet.elementId == Element.Ice
+                            || otherPlanet.elementId == Element.Gas
+                            || otherPlanet.elementId == Element.Tree)
+                        {
+                            EntityManager.Instance.Destroy<Planet>(otherPlanet);
+                        }
+
+                        // 합체
+                        else if (otherPlanet.elementId == Element.Iron)
+                        {
+
+                        }
+                        // 패배
+                        break;
+
+                    case Element.Gas:
+                        // 승리
+                        // 자신 - 합체
+                        if (otherPlanet.elementId == Element.Gas)
+                        {
+
+                        }
+                        // 상대 - 합체
+                        else if (otherPlanet.elementId == Element.Ice
+                            || otherPlanet.elementId == Element.Tree)
+                        {
+
+                        }
+                        // 패배
+                        //else if (otherPlanet.elementId == Element.Fire
+                        //    || otherPlanet.elementId == Element.Iron)
+                        //{
+
+                        //}
+                        break;
+
+                    case Element.Tree:
+                        // 승리
+                        // 자신 - 합체
+                        if (otherPlanet.elementId == Element.Tree
+                            || otherPlanet.elementId == Element.Gas)
+                        {
+
+                        }
+
+                        // 상대 - 합체
+                        else if (otherPlanet.elementId == Element.Fire
+                            || otherPlanet.elementId == Element.Ice)
+                        {
+
+                        }
+
+                        // 패배
+                        //else if (otherPlanet.elementId == Element.Iron)
+                        //{
+
+                        //}
+                        break;
+
+                    default:
+                        break;
+                }
+
+                return;
+            }
 
             // 하위개체와 추돌함 (Dust)
             switch (otherEntity.Type)
@@ -100,12 +237,12 @@ namespace Logic.Entity
                     Vector2 angleVec = reflectVec - incomingVec;
                     float angle = Mathf.Atan2(reflectVec.y - incomingVec.y, reflectVec.x - incomingVec.x) * Mathf.Rad2Deg;
                     angle = Mathf.Abs(angle);
-                    if(angle < impact) // 충돌
+                    if (angle < impact) // 충돌
                     {
                         dust.ChangeMoveState(this, MoveType.Impacted);
-//                        dust.ChangeMoveState(this, MoveType.Curve);
+                        //                        dust.ChangeMoveState(this, MoveType.Curve);
                     }
-                    else if(angle < cycle) // 공전
+                    else if (angle < cycle) // 공전
                     {
                         dust.ChangeMoveState(this, MoveType.Cycle);
                         //dust.ChangeMoveState(this, MoveType.Curve);

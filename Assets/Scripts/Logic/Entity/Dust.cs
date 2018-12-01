@@ -143,7 +143,7 @@ namespace Logic.Entity
 
             //transform.position = cycleCore.transform.position - transform.position;
             cycleCore.cycleCount++;
-            _renderer.sprite = _sprites[cycleCore.spriteIdx];
+            _renderer.sprite = _sprites[(int)cycleCore.elementId];
             _trail.enabled = true;
             cycleCore.satellites.Add(this);
             transform.SetParent(cycleCore.transform);
