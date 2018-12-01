@@ -138,7 +138,7 @@ namespace Logic.Entity
             }
 
             float nowDist = Vector2.Distance(cycleCore.transform.position, transform.position);
-            if (nowDist > cycleCore.cycleRange)
+            if (nowDist > cycleCore.cycleNowRange)
                 return;
 
             //transform.position = cycleCore.transform.position - transform.position;
@@ -147,13 +147,14 @@ namespace Logic.Entity
             _trail.enabled = true;
             Move = MoveCycleLoop;
         }
-
+        
         public void MoveCycleLoop()
         {
             if (cycleCore == null)
                 ChangeMoveState(null, MoveType.Linear);
-
+            
             transform.RotateAround(cycleCore.transform.position, Vector3.forward, cycleRotateSpeed * Time.deltaTime);
+            transform.position = cycleCore.transform.position + (transform.position - cycleCore.transform.position).normalized * cycleCore.cycleNowRange;
         }
 
         public void MoveLinear()

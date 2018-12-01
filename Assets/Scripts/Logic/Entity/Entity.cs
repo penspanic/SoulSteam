@@ -121,8 +121,9 @@ namespace Logic.Entity
 	        return Vector3.zero;
         }
 
-        public float cycleRange = 1f;
-        //public float cycleNextRange = 
+        public float cycleNowRange = 1f;
+        public float cycleNextRange = 0f;
+        public float cyclePrevRange = 0f;
         public int cycleCount = 0;
         public int cycleCountMax = 5;
     }
