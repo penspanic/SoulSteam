@@ -10,6 +10,7 @@ namespace Common.StaticData
 	public class DustInfo : EntityInfo
 	{
 	}
+
 	[Serializable]
 	[XmlType("PlanetInfo")]
 	public class PlanetInfo : EntityInfo
@@ -26,14 +27,19 @@ namespace Common.StaticData
 		[XmlElement("Groth")]
 		public List<GrowthInfo> Growths = new List<GrowthInfo>();
 	}
+
+	[Serializable]
 	[XmlType("StarInfo")]
 	public class StarInfo : EntityInfo
 	{
 	}
+
+	[Serializable]
 	[XmlType("BlackHoleInfo")]
 	public class BlackHoleInfo : EntityInfo
 	{
 	}
+
 	[Serializable]
 	[XmlType("EntityInfo")] // define Type
 	[

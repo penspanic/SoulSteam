@@ -7,7 +7,7 @@
 		</Move>
 	</EntityInfo>
 
-	// 불속성 행성
+	<!-- 불속성 행성-->
 	<EntityInfo Id="Planet_1" xsi:type="PlanetInfo">
 		<Move Level="1">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
@@ -56,7 +56,7 @@
 			<DestroyDustCount>50</DestroyDustCount>
 		</Groth>
 	</EntityInfo>
-	// 얼음속성 행성
+	<!-- 얼음속성 행성-->
 	<EntityInfo Id="Planet_2" xsi:type="PlanetInfo">
 		<Move Level="1">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
@@ -105,7 +105,7 @@
 			<DestroyDustCount>50</DestroyDustCount>
 		</Groth>
 	</EntityInfo>
-	//금속속성 행성
+	<!-- 금속속성 행성-->
 	<EntityInfo Id="Planet_3" xsi:type="PlanetInfo">
 		<Move Level="1">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
@@ -154,7 +154,7 @@
 			<DestroyDustCount>50</DestroyDustCount>
 		</Groth>
 	</EntityInfo>
-	// 가스속성 행성
+	<!--가스속성 행성-->
 	<EntityInfo Id="Planet_4" xsi:type="PlanetInfo">
 		<Move Level="1">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>
@@ -203,7 +203,7 @@
 			<DestroyDustCount>50</DestroyDustCount>
 		</Groth>
 	</EntityInfo>
-	// 나무속성 행성
+	<!--나무속성 행성-->
 	<EntityInfo Id="Planet_5" xsi:type="PlanetInfo">
 		<Move Level="1">
 			<DefaultMovingSpeed>1</DefaultMovingSpeed>

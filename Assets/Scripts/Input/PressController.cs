@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Logic.Entity;
 
 namespace Input
 {
@@ -9,6 +10,7 @@ namespace Input
 		private InputController _inputController;
 
 		private Logic.GravityZone _gravityZone;
+		private DustGenerator _dustGenerator;
 
 		private List<Logic.Entity.Entity> _entities = new List<Logic.Entity.Entity>();
 
@@ -16,9 +18,29 @@ namespace Input
 		{
 			_inputController.OnPressStart += OnPressStart;
 			_inputController.OnPressUp += OnPressUp;
+			_inputController.OnClick += OnClick;
 			_inputController.OnTouchPosChange += OnTouchPosChange;
 			_gravityZone = Logic.GravityZone.Create();
+			_dustGenerator = GameObject.FindObjectOfType<DustGenerator>();
 			_gravityZone.gameObject.SetActive(false);
+		}
+
+		private void OnClick(Vector3 pos)
+		{
+			pos = Camera.main.ScreenToWorldPoint(pos);
+			
+			RaycastHit2D[] hits = Physics2D.RaycastAll(pos, Vector2.zero, 0f);
+			for (int i = 0; i < hits.Length; ++i)
+			{
+				Logic.Entity.Entity entity = hits[i].collider.gameObject.GetComponent<Logic.Entity.Entity>();
+				if (entity is Planet)
+				{
+					Planet planet = entity as Planet;
+					Vector3 createPos = planet.transform.position;
+					EntityManager.Instance.Destroy(planet);
+					_dustGenerator.CreateOnPlanetDestruction(planet.PlanetInfo.Growths[planet.Level - 1].DestroyDustCount, createPos);
+				}
+			}
 		}
 
 		private void OnTouchPosChange(Vector3 pos)

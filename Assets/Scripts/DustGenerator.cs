@@ -68,6 +68,17 @@ public class DustGenerator : MonoBehaviour
         }
     }
 
+    public void CreateOnPlanetDestruction(int count, Vector3 originPos)
+    {
+        for (int i = 0; i < count; ++i)
+        {
+            Common.StaticData.EntityInfo entityInfo = StaticInfoManager.Instance.EntityInfos["Dust_1"];
+            Dust target = EntityManager.Instance.Create<Dust>(entityInfo);
+            target.SetParameter(originPos, new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)));
+        }
+    }
+    
+
     public Transform homingTarget;
     IEnumerator CreateHoming()
     {

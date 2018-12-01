@@ -32,12 +32,13 @@ namespace Logic.Entity
 		private string _id;
 		public int Serial => _serial;
 		private int _serial;
+		public int Level => level;
+		protected int level;
 
         public MoveType MoveState = MoveType.Undefined;
         public float impactedGravity;
         public float curveGravity;
 
-		protected int level;
 		
         public virtual void Init(string id, int serial)
 		{

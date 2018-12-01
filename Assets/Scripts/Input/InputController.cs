@@ -25,10 +25,12 @@ namespace Input
 		public event System.Action<Vector3> OnPressStart;
 		public event System.Action<Vector3> OnPressUp;
 		public event System.Action<Vector3> OnTouchUp;
+		public event System.Action<Vector3> OnClick;
 		public event System.Action<Vector3, Vector3> OnSlide;
 		public event System.Action<Vector3> OnTouchPosChange;
 		public event System.Action<float> OnPinch;
-		
+
+		private float _pressDownTime;
 		private void Update()
 		{
 			if (GameManager.Instance.IsGameProcessing == false)
@@ -50,11 +52,20 @@ namespace Input
 			}
 			else if (touches.Count == 1)
 			{
+				if (touches[0].phase == TouchPhase.Began)
+				{
+					_pressDownTime = Time.time;
+				}
+
 				OnTouchPosChange?.Invoke(touches[0].position);
 				float deltaPositionLength = touches[0].deltaPosition.magnitude;
 				float moveSpeed = deltaPositionLength * Time.deltaTime;
 				if (touches[0].phase == TouchPhase.Ended)
 				{
+					if (Time.time - _pressDownTime < 0.4f)
+					{
+						OnClick?.Invoke(touches[0].position);
+					}
 					OnPressUp?.Invoke(touches[0].position);
 					_state = InputState.Up;
 				}
