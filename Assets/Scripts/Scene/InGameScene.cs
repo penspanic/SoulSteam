@@ -8,6 +8,7 @@ namespace Scene
 		{
 			base.Enter(beforeScene);
 			GameManager.Instance.StartGame();
+			Camera.main.GetComponent<Animator>().Play("GameStart");
 		}
 	}
 }

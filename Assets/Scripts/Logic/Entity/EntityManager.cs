@@ -33,6 +33,30 @@ namespace Logic.Entity
 			_entityTypeLists[entity.Type].Remove(entity);
 		}
 
+		public void DestroyAll()
+		{
+			foreach (KeyValuePair<int,Entity> pair in _entities)
+			{
+				switch (pair.Value.Type)
+				{
+					case EntityType.Dust:
+						PoolManager<Dust>.Instance.Release(pair.Value as Dust, pair.Value.Id);
+						break;
+					case EntityType.Planet:
+						PoolManager<Planet>.Instance.Release(pair.Value as Planet, pair.Value.Id);
+						break;
+					case EntityType.Star:
+						PoolManager<Star>.Instance.Release(pair.Value as Star, pair.Value.Id);
+						break;
+					 case EntityType.BlackHole:
+						 PoolManager<BlackHole>.Instance.Release(pair.Value as BlackHole, pair.Value.Id);
+						 break;
+				}
+			}
+			_entities.Clear();
+			_entityTypeLists.Clear();
+		}
+
 		public Entity Get<T>(int serial) where T : Entity
 		{
 			if (_entities.ContainsKey(serial) == false)
