@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2818192fc1574deea75ddc1133f3ce22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
   MoveState: 0
   impactedGravity: 0
   curveGravity: 0

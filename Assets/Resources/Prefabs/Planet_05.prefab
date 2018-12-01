@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 212515064277011480}
   - component: {fileID: 58668039938621710}
   - component: {fileID: 50776118079682072}
+  - component: {fileID: 114769992877060712}
   m_Layer: 9
   m_Name: Planet_05
   m_TagString: Untagged
@@ -167,6 +168,19 @@ MonoBehaviour:
   cycleCore: {fileID: 0}
   elementId: 5
   satellites: []
+--- !u!114 &114769992877060712
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1627957316430244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c129c46e2d8094395910933d6ce1c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: {x: 0.1, y: 0.2}
+  rotime: 0.1
 --- !u!114 &114904547730547230
 MonoBehaviour:
   m_ObjectHideFlags: 1
