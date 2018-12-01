@@ -18,6 +18,7 @@ namespace Logic.Entity
         private CircleCollider2D _absorveCol;
         private float _absorveColOriginRadius;
 
+        public Star cycleCore = null;
         public enum Element
         {
             Normal = 0,
@@ -46,6 +47,18 @@ namespace Logic.Entity
             base.Init(id, serial);
             PlanetInfo = Common.StaticInfo.StaticInfoManager.Instance.EntityInfos[id] as Common.StaticData.PlanetInfo;
             OnChangeLevel();
+
+            // 초기 이동상태
+            Move = null;
+        }
+
+        private void Update()
+        {
+            if (Testment.testment == null)
+                return;
+
+            transform.Rotate(angleRotate * rotateSpeed * Time.deltaTime);
+            Move?.Invoke();
         }
 
         public void SetAbsorve(PlanetAbsorve absorve)
@@ -81,6 +94,119 @@ namespace Logic.Entity
             _absorveCol.radius = _absorveColOriginRadius * radiusScale;
         }
 
+        // 이동
+        public override void ChangeMoveState(Entity hole, MoveType movetype)
+        {
+            _trail.enabled = false;
+            switch (movetype)
+            {
+                case MoveType.Undefined:
+                    break;
+
+                case MoveType.Holded:
+                    AddAffectedEntity(hole, hole.impactedGravity);
+                    Move = null;
+                    break;
+
+                case MoveType.Linear:
+                    affectedEntities.Clear();
+                    Move = MoveLinear;
+                    break;
+
+                case MoveType.Curve:
+                    AddAffectedEntity(hole, hole.curveGravity);
+                    Move = MoveLinear;
+                    break;
+
+                case MoveType.Cycle:
+                    cycleCore = (Star)hole;
+                    if (cycleCore.cycleCount >= cycleCore.cycleCountMax)
+                    {
+                        cycleCore = null;
+                        ChangeMoveState(null, MoveType.Linear);
+                        return;
+                    }
+                    else
+                    {
+                        affectedEntities.Clear();
+                        cycleCore = (Star)hole;
+                        Move = MoveCycleStart;
+                    }
+                    break;
+
+                case MoveType.Impacted:
+                    AddAffectedEntity(hole, hole.impactedGravity);
+                    Move = MoveLinear;
+                    break;
+
+                default:
+                    break;
+            }
+
+            MoveState = movetype;
+        }
+
+        public void MoveLinear()
+        {
+            moveSpeedTotal = moveSpeedBase * moveSpeedLevelRate;
+
+            affectedVector = Vector3.zero;
+
+            if (affectedEntities != null)
+                foreach (var hole in affectedEntities)
+                {
+                    affectedVector += (hole.Key.transform.position - transform.position).normalized
+                        * moveSpeedTotal * hole.Value * Time.deltaTime;
+                }
+
+            moveDirection = (moveDirection * moveSpeedTotal * Time.deltaTime + affectedVector).normalized;
+
+            transform.position += moveDirection * moveSpeedTotal * Time.deltaTime;
+        }
+
+        public void MoveCycleStart()
+        {
+            MoveLinear();
+            if (cycleCore.cycleCount >= cycleCore.cycleCountMax)
+            {
+                ChangeMoveState(null, MoveType.Linear);
+                return;
+            }
+
+            float nowDist = Vector2.Distance(cycleCore.transform.position, transform.position);
+            if (nowDist > cycleCore.cycleNowRange)
+                return;
+
+            //transform.position = cycleCore.transform.position - transform.position;
+            cycleCore.cycleCount++;
+            _trail.enabled = true;
+            transform.SetParent(cycleCore.transform);
+            Move = MoveCycleLoop;
+        }
+
+        public void MoveCycleLoop()
+        {
+            if (cycleCore == null)
+                ChangeMoveState(null, MoveType.Linear);
+
+            transform.RotateAround(cycleCore.transform.position, Vector3.forward, cycleRotateSpeed * Time.deltaTime);
+            //transform.position = cycleCore.transform.position + (transform.position - cycleCore.transform.position).normalized * cycleCore.cycleNowRange;
+        }
+
+        // 이동에 영향을 주는 행성과 중력값 리스트 등록
+        public void AddAffectedEntity(Entity affectEntity, float gravityRate)
+        {
+            if (affectEntity.Type == EntityType.Dust
+                || affectEntity.Type == EntityType.Planet)
+                return;
+
+            if (affectedEntities.ContainsKey(affectEntity))
+                return;
+
+            affectedEntities.Add(affectEntity, gravityRate);
+        }
+
+        // 충돌처리
         float impact = 45f, cycle = 90f;
         public void OnTriggerEnter2D(Collider2D other)
         {
@@ -288,5 +414,7 @@ namespace Logic.Entity
                     break;
             }
         }
+
+
     }
 }
