@@ -21,6 +21,7 @@ namespace Logic.Entity
         Cycle,
         Impacted
     }
+
 	public class Entity : MonoBehaviour, IPoolable, Input.ITouchable
 	{
 		public virtual EntityType Type { get; } = EntityType.Entity;
@@ -76,7 +77,7 @@ namespace Logic.Entity
 
         public Vector3 GetAffectVector()
         {
-            return affectVector;
+            return Vector3.zero;
         }
 	}
 }
