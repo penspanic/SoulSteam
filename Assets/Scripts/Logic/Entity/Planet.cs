@@ -48,8 +48,8 @@ namespace Logic.Entity
                     angle = Mathf.Abs(angle);
                     if(angle < impact) // 충돌
                     {
-                        //dust.ChangeMoveState(this, MoveType.Impacted);
-                        dust.ChangeMoveState(this, MoveType.Curve);
+                        dust.ChangeMoveState(this, MoveType.Impacted);
+//                        dust.ChangeMoveState(this, MoveType.Curve);
                     }
                     else if(angle < cycle) // 공전
                     {

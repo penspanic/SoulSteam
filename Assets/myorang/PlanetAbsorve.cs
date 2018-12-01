@@ -5,13 +5,18 @@ using Logic.Entity;
 
 public class PlanetAbsorve : MonoBehaviour
 {
-    public Planet _parent;
+    private Planet _planet;
+    private void Awake()
+    {
+        _planet = transform.parent.GetComponent<Planet>();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         Entity otherEntity = other.GetComponent<Entity>();
 
         // 상위개체와 충돌함 (Star, Blackhole)
-        if (otherEntity.Type > _parent.Type)
+        if (otherEntity.Type > _planet.Type)
             return;
 
         // 동일개체와 충돌함 (Planet)
