@@ -63,9 +63,9 @@ namespace Logic.Entity
 			IsPressed = false;
 		}
 
-		public virtual void OnDrag(Vector3 pos)
+		public virtual void OnDrag(Vector3 pos, Vector3 deltaPos)
 		{
-			transform.position = pos;
+			transform.position = deltaPos;
 		}
 		#endregion
 
@@ -76,7 +76,7 @@ namespace Logic.Entity
 
         public Vector3 GetAffectVector()
         {
-            return affectVector;
+	        return Vector3.zero;
         }
 	}
 }

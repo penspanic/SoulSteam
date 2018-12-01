@@ -14,6 +14,7 @@ namespace Input
 			None = 0,
 			Press, // 가만히 누르고 기다리는 상태
 			Sliding,
+			Up,
 			Pinch,
 		}
 
@@ -23,6 +24,7 @@ namespace Input
 
 		public event System.Action<Vector3> OnPressStart;
 		public event System.Action<Vector3> OnPressUp;
+		public event System.Action<Vector3> OnTouchUp;
 		public event System.Action<Vector3, Vector3> OnSlide;
 		public event System.Action<float> OnPinch;
 		
@@ -42,7 +44,14 @@ namespace Input
 			}
 			else if (touches.Count == 1)
 			{
-				if (touches[0].deltaPosition.magnitude * Time.deltaTime > 0.5f)
+				float deltaPositionLength = touches[0].deltaPosition.magnitude;
+				float moveSpeed = deltaPositionLength * Time.deltaTime;
+//				Debug.Log($"Delta : {deltaPositionLength * Time.deltaTime}");
+				if (touches[0].phase == TouchPhase.Ended)
+				{
+					_state = InputState.Up;
+				}
+				else if (moveSpeed > 0.1f)
 				{
 					_state = InputState.Sliding;
 				}
@@ -55,6 +64,8 @@ namespace Input
 			{
 				_state = InputState.Pinch;
 			}
+			
+
 			ProcessInput(touches, _state);
 //			Debug.Log($"CurrentState : {_state}");
 			_prevState = _state;
@@ -81,6 +92,9 @@ namespace Input
 					Vector3 prevPos = _prevTouches[0].position;
 					Vector3 currentPos = touches[0].position;
 					OnSlide?.Invoke(prevPos, currentPos);
+					break;
+				case InputState.Up:
+					OnTouchUp?.Invoke(touches[0].position);
 					break;
 				case InputState.Pinch:
 					if (_prevState != InputState.Pinch)
