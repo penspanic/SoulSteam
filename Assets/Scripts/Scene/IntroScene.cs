@@ -1,3 +1,4 @@
+using System.Collections;
 using Spine;
 using Spine.Unity;
 using UnityEngine;
@@ -17,20 +18,17 @@ namespace Scene
 
 			_introAnimation.gameObject.SetActive(true);
 			_introAnimation.AnimationState.Complete += OnAnimationStateComplete;
+			StartCoroutine(SoundRoutine());
 		}
 
-        private void OnAnimationStateStart(TrackEntry trackEntry)
-        {
-            switch(trackEntry.Animation.name)
-            {
-                case "intro":
-                    SoundManager.Instance.Play("BigBang");
-                    break;
-                case "outro":
-                    SoundManager.Instance.Play("Un_Bigbang");
-                    break;
-            }
-        }
+		private IEnumerator SoundRoutine()
+		{
+			yield return new WaitForSeconds(0.5f);
+			SoundManager.Instance.Play("Sounds/BigBang");
+			yield return new WaitForSeconds(5.5f);
+			SoundManager.Instance.Play("Sounds/Un_BigBang");
+			
+		}
 
 		private void OnAnimationStateComplete(TrackEntry trackentry)
 		{

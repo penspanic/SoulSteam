@@ -150,7 +150,7 @@ MonoBehaviour:
   logErrors: 0
   disableRenderingOnOverride: 1
   _animationName: idle
-  loop: 0
+  loop: 1
   timeScale: 1
 --- !u!114 &114787515058683672
 MonoBehaviour:
@@ -169,6 +169,7 @@ MonoBehaviour:
   curveGravity: 0
   _renderer: {fileID: 0}
   _trail: {fileID: 0}
+  _trailTime: 0.5
   affectedVector: {x: 0, y: 0, z: 0}
   moveDirection: {x: 0, y: 0, z: 0}
   moveSpeedRate: {x: 0, y: 0, z: 0}
