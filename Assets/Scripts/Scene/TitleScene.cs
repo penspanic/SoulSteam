@@ -7,17 +7,23 @@ namespace Scene
 {
 	public class TitleScene : AbstractScene
 	{
-		[SerializeField]
+
+        [SerializeField]
 		private SkeletonAnimation _introAnimation;
 
 		private bool _canChangeScene = true;
 
-		private void Awake()
+        float aa;
+        int a = 0;
+
+        private void Awake()
 		{
-            SoundManager.Instance.Play("Sounds/Main_Theme");
+            
         }
 
-		public void Update()
+      
+
+        public void Update()
 		{
 			if (IsActiveScene == true && _canChangeScene == true)
 			{

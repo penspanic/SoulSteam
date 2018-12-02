@@ -16,7 +16,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 	{
 		IsGameProcessing = true;
 		var firstPlanetCreation = new CreatePlanetSituation(Vector3.zero);
-		if (Testment.testment != null && Testment.testment.isTest == true && false)
+
+        SoundManager.Instance.Play("Sounds/Main_Theme");
+        if (Testment.testment != null && Testment.testment.isTest == true && false)
 		{
 			GameObject.FindObjectOfType<DustGenerator>().Do();
 		}
