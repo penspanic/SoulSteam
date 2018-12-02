@@ -20,6 +20,12 @@ public class PlanetAbsorve : MonoBehaviour
             return;
         }
 
+        float distance = (other.transform.position - _planet.transform.position).magnitude;
+        if (distance > _planet.GetRadius() + otherEntity.GetRadius())
+        {
+            return;
+        }
+
         // 상위개체와 충돌함 (Star, Blackhole)
         if (otherEntity.Type > _planet.Type)
             return;

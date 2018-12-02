@@ -43,6 +43,12 @@ namespace Input
 					continue;
 				}
 
+				if (entity.GetRadius() + 1f < (endPoint - entity.transform.position).magnitude)
+				{
+					continue;
+				}
+
+				
 				if ((entity is Logic.Entity.Dust) == false)
 				{
 					if (_mainEntity != null)

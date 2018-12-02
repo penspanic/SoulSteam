@@ -36,6 +36,11 @@ namespace Logic.Entity
         public Common.StaticData.PlanetInfo PlanetInfo { get; private set; }
         private int _collectedDust = 0;
 
+        public override float GetRadius()
+        {
+            return _absorveCol.radius;
+        }
+
         private void Awake()
         {
             _colOriginRadius = _col.radius;
@@ -95,7 +100,7 @@ namespace Logic.Entity
         {
             base.OnChangeLevel();
             SoundManager.Instance.Play("Sounds/Planet_Grow");
-            if (level == PlanetInfo.Growths.Count)
+            if (level == PlanetInfo.Growths.Count + 1)
             {
                 Vector3 pos = transform.position;
                 EntityManager.Instance.Destroy(this);

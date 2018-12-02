@@ -48,6 +48,11 @@ namespace Logic.Entity
 
         public bool Invincible { get; private set; }
 
+        public virtual float GetRadius()
+        {
+            return 0f;
+        }
+
         public virtual void Init(string id, int serial)
         {
             _id = id;

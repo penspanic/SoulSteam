@@ -16,6 +16,13 @@ namespace Logic.Entity
 
         public Planet cycleCore = null;
 
+        private CircleCollider2D _dustCol;
+
+        private void Awake()
+        {
+            _dustCol = GetComponent<CircleCollider2D>();
+        }
+
         public void Start()
         {
             if (Testment.testment.isTest)
@@ -25,6 +32,11 @@ namespace Logic.Entity
                 moveDirection.z = 0f;
                 moveDirection = moveDirection.normalized;
             }
+        }
+
+        public override float GetRadius()
+        {
+            return _dustCol.radius * transform.localScale.x;
         }
 
         public override void Init(string id, int serial)

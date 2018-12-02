@@ -24,6 +24,12 @@ namespace Logic.Entity
         private int _collectedDust = 0;
         private SkeletonAnimation _skeleton;
 
+        public override float GetRadius()
+        {
+            return _absorveCol.radius * transform.localScale.x;
+        }
+        
+
         private void Awake()
         {
             _colOriginRadius = _col.radius;
@@ -189,7 +195,7 @@ namespace Logic.Entity
         {
             base.OnChangeLevel();
             SoundManager.Instance.Play("Sounds/Star_Grow");
-            if (level == StarInfo.Growths.Count)
+            if (level == StarInfo.Growths.Count + 1)
             {
                 Vector3 pos = transform.position;
                 EntityManager.Instance.Destroy(this);
@@ -283,6 +289,11 @@ namespace Logic.Entity
                 default:
                     break;
             }
+        }
+        
+        public void CollectDust(Dust dust)
+        {
+            EntityManager.Instance.Destroy<Dust>(dust);
         }
     }
 }

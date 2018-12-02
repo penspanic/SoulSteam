@@ -14,12 +14,15 @@ public class StarAbsorve : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Gravity"))
-            return;
-
-        Entity otherEntity = other.transform?.parent?.GetComponent<Entity>();
+        Entity otherEntity = other.transform?.GetComponent<Entity>();
 		if (otherEntity == null)
 			return;
+	    
+	    float distance = (other.transform.position - _star.transform.position).magnitude;
+	    if (distance > _star.GetRadius() + otherEntity.GetRadius())
+	    {
+		    return;
+	    }
 
         // 상위개체와 충돌함 (Star, Blackhole)
         if (otherEntity.Type > _star.Type)
@@ -65,6 +68,12 @@ public class StarAbsorve : MonoBehaviour
                 Planet otherPlanet = (Planet)otherEntity;
 				_star.CollectPlanet(otherPlanet);
 				break;
+			
+			case EntityType.Dust:
+				Dust dust = (Dust)otherEntity;
+				_star.CollectDust(dust);
+				break;
+
 
 			default:
 				break;
