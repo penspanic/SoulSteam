@@ -104,7 +104,6 @@ namespace Logic.Entity
             {
                 Vector3 pos = transform.position;
                 EntityManager.Instance.Destroy(this);
-                EntityManager.Instance.Create<Star>(StaticInfoManager.Instance.EntityInfos["Star_" + Random.Range(1, 4).ToString()] as StarInfo);
                 Star star = EntityManager.Instance.Create<Star>(StaticInfoManager.Instance.EntityInfos["Star_" + Random.Range(1, 4).ToString()] as StarInfo);
                 star.transform.position = pos;
                 return;
