@@ -26,6 +26,8 @@ namespace Logic.Entity
         private CircleCollider2D _absorveCol;
         private float _absorveColOriginRadius;
 
+        private float _originCycleNowRange;
+        
         public Star cycleCore = null;
         public Element elementId = 0;
 
@@ -44,6 +46,7 @@ namespace Logic.Entity
         private void Awake()
         {
             _colOriginRadius = _col.radius;
+            _originCycleNowRange = cycleNowRange;
 
             SoundManager.Instance.Play("Sounds/Planet_Born");
         }
@@ -110,6 +113,7 @@ namespace Logic.Entity
             }
             _renderer.sprite = _sprites[level - 1];
             float radiusScale = PlanetInfo.Growths[level - 1].Scale;
+            cycleNowRange = _originCycleNowRange * radiusScale;
             _col.radius = _colOriginRadius * radiusScale;
             _absorveCol.radius = _absorveColOriginRadius * radiusScale;
         }
@@ -216,7 +220,7 @@ namespace Logic.Entity
                 ChangeMoveState(null, MoveType.Linear);
 
             transform.RotateAround(cycleCore.transform.position, Vector3.forward, cycleRotateSpeed * Time.deltaTime);
-            //transform.position = cycleCore.transform.position + (transform.position - cycleCore.transform.position).normalized * cycleCore.cycleNowRange;
+            transform.position = cycleCore.transform.position + (transform.position - cycleCore.transform.position).normalized * cycleCore.cycleNowRange;
         }
 
         // 이동에 영향을 주는 행성과 중력값 리스트 등록

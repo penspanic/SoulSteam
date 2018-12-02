@@ -147,7 +147,7 @@ namespace Logic.Entity
                 ChangeMoveState(null, MoveType.Linear);
             
             transform.RotateAround(cycleCore.transform.position, Vector3.forward, cycleRotateSpeed * Time.deltaTime);
-            //transform.position = cycleCore.transform.position + (transform.position - cycleCore.transform.position).normalized * cycleCore.cycleNowRange;
+            transform.position = cycleCore.transform.position + (transform.position - cycleCore.transform.position).normalized * cycleCore.cycleNowRange;
         }
 
         public void MoveLinear()

@@ -63,19 +63,19 @@ public class StarAbsorve : MonoBehaviour
 		}
 	}
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
+	private void OnTriggerEnter2D(Collider2D other)
+	{
         Entity otherEntity = other.transform?.GetComponent<Entity>();
 		if (otherEntity == null)
 			return;
 	    
-	    float distance = (other.transform.position - _star.transform.position).magnitude;
-	    float radiuses = _star.GetRadius() + otherEntity.GetRadius();
-	    Debug.Log($"StarAbsorve, {_star} <-> {otherEntity}, {distance}|{radiuses}");
-	    if (distance - 1f > _star.GetRadius() + otherEntity.GetRadius())
-	    {
-		    return;
-	    }
+//	    float distance = (other.transform.position - _star.transform.position).magnitude;
+//	    float radiuses = _star.GetRadius() + otherEntity.GetRadius();
+//	    Debug.Log($"StarAbsorve, {_star} <-> {otherEntity}, {distance}|{radiuses}");
+//	    if (distance - 1f > _star.GetRadius() + otherEntity.GetRadius())
+//	    {
+//		    return;
+//	    }
 
         // 상위개체와 충돌함 (Star, Blackhole)
         if (otherEntity.Type > _star.Type)
