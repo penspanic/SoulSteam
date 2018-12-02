@@ -16,7 +16,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 	{
 		IsGameProcessing = true;
 		var firstPlanetCreation = new CreatePlanetSituation(Vector3.zero);
-		if (Testment.testment != null && Testment.testment.isTest == true)
+		if (Testment.testment != null && Testment.testment.isTest == true && false)
 		{
 			GameObject.FindObjectOfType<DustGenerator>().Do();
 		}
