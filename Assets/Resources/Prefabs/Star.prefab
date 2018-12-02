@@ -181,8 +181,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 0
   MoveState: 0
-  impactedGravity: 0.08
-  curveGravity: 0.2
+  impactedGravity: 0.06
+  curveGravity: 0.15
   _renderer: {fileID: 0}
   _trail: {fileID: 0}
   _trailTime: 0.5

@@ -208,7 +208,7 @@ namespace Logic.Entity
             this.transform.localScale = Vector3.one * radiusScale;
         }
 
-        float impact = 45f, cycle = 90f;
+        float impact = 30f, cycle = 120f;
         public void OnTriggerEnter2D(Collider2D other)
         {
             Entity otherEntity = other.GetComponent<Entity>();

@@ -2,6 +2,7 @@ using System.Collections;
 using Logic.Entity;
 using Logic.Situation;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Utility;
 
 public class GameManager : SingletonMonoBehaviour<GameManager>
@@ -15,7 +16,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 	{
 		IsGameProcessing = true;
 		var firstPlanetCreation = new CreatePlanetSituation(Vector3.zero);
-		GameObject.FindObjectOfType<DustGenerator>().Do();
+		if (Testment.testment != null && Testment.testment.isTest == true)
+		{
+			GameObject.FindObjectOfType<DustGenerator>().Do();
+		}
 	}
 
 	private void Update()
@@ -28,6 +32,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
 	public void ResetGame()
 	{
+		SceneManager.LoadScene(0);
+		//
 		StartCoroutine(ResetGameProcess());
 	}
 
