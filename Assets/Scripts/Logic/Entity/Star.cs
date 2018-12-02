@@ -1,6 +1,8 @@
 using Spine;
 using Spine.Unity;
 using UnityEngine;
+using Common.StaticData;
+using Common.StaticInfo;
 
 namespace Logic.Entity
 {
@@ -43,17 +45,88 @@ namespace Logic.Entity
             else if (id == "Star_2")
             {
                 SoundManager.Instance.Play("Sounds/Planet_Destroy");
-                _skeleton.Skeleton.SetSkin("B");
+                _skeleton.Skeleton.SetSkin("W");
             }
             else if (id == "Star_3")
             {
                 SoundManager.Instance.Play("Sounds/Planet_Destroy");
-                _skeleton.Skeleton.SetSkin("B");
+                _skeleton.Skeleton.SetSkin("Y");
             }
 
             _skeleton.state.SetAnimation(0, "create", false);
             _skeleton.AnimationState.Complete += OnCreateComplete;
             SoundManager.Instance.Play("Sounds/Star_Grow");
+        }
+
+        // 이동
+        public override void ChangeMoveState(Entity hole, MoveType movetype)
+        {
+            if (_trail != null)
+            {
+                _trail.enabled = false;
+            }
+            switch (movetype)
+            {
+                case MoveType.Undefined:
+                    break;
+
+                case MoveType.Holded:
+                    AddAffectedEntity(hole, hole.impactedGravity);
+                    Move = null;
+                    break;
+
+                case MoveType.Linear:
+                    affectedEntities.Clear();
+                    Move = MoveLinear;
+                    break;
+
+                case MoveType.Curve:
+                    AddAffectedEntity(hole, hole.curveGravity);
+                    Move = MoveLinear;
+                    break;
+
+                case MoveType.Cycle:
+                    break;
+
+                case MoveType.Impacted:
+                    AddAffectedEntity(hole, hole.impactedGravity);
+                    Move = MoveLinear;
+                    break;
+
+                default:
+                    break;
+            }
+
+            MoveState = movetype;
+        }
+
+        public void AddAffectedEntity(Entity affectEntity, float gravityRate)
+        {
+            if (affectEntity.Type != EntityType.BlackHole)
+                return;
+
+            if (affectedEntities.ContainsKey(affectEntity))
+                return;
+
+            affectedEntities.Add(affectEntity, gravityRate);
+        }
+
+        public void MoveLinear()
+        {
+            moveSpeedTotal = moveSpeedBase * moveSpeedLevelRate;
+
+            affectedVector = Vector3.zero;
+
+            if (affectedEntities != null)
+                foreach (var hole in affectedEntities)
+                {
+                    affectedVector += (hole.Key.transform.position - transform.position).normalized
+                        * moveSpeedTotal * hole.Value * Time.deltaTime;
+                }
+
+            moveDirection = (moveDirection * moveSpeedTotal * Time.deltaTime + affectedVector).normalized;
+
+            transform.position += moveDirection * moveSpeedTotal * Time.deltaTime;
         }
 
         public override void OnCollide()
@@ -89,11 +162,11 @@ namespace Logic.Entity
             _absorveColOriginRadius = _absorveCol.radius;
         }
 
-        public void CollectDust(Dust dust)
+        public void CollectPlanet(Planet otherPlanet)
         {
-            EntityManager.Instance.Destroy<Dust>(dust);
+            EntityManager.Instance.Destroy<Planet>(otherPlanet);
             ++_collectedDust;
-            if (StarInfo.Growths.Count == level)
+            if (StarInfo.Growths.Count + 1 == level)
             {
             }
             else
@@ -107,12 +180,26 @@ namespace Logic.Entity
             }
         }
 
+        public void RemoveDust(Dust otherDust)
+        {
+            EntityManager.Instance.Destroy<Dust>(otherDust);
+        }
+
         public override void OnChangeLevel()
         {
             base.OnChangeLevel();
+            SoundManager.Instance.Play("Sounds/Star_Grow");
+            if (level == StarInfo.Growths.Count)
+            {
+                Vector3 pos = transform.position;
+                EntityManager.Instance.Destroy(this);
+                BlackHole nextBlackhole
+                    = EntityManager.Instance.Create<BlackHole>(StaticInfoManager.Instance.EntityInfos["BlackHole"] as BlackHoleInfo);
+                nextBlackhole.transform.position = pos;
+                return;
+            }
             float radiusScale = StarInfo.Growths[level - 1].Scale;
             this.transform.localScale = Vector3.one * radiusScale;
-            SoundManager.Instance.Play("Sounds/Star_Grow");
         }
 
         float impact = 45f, cycle = 90f;
@@ -167,6 +254,9 @@ namespace Logic.Entity
 
         public void OnTriggerExit2D(Collider2D other)
         {
+            if (other == _absorveCol)
+                return;
+
             Entity otherEntity = other.GetComponent<Entity>();
             if (otherEntity == null)
             {

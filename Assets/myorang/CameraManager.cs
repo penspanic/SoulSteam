@@ -15,7 +15,7 @@ public class CameraManager : Utility.SingletonMonoBehaviour<CameraManager>
         endSize = _camera.orthographicSize;
 
         minSize = _camera.orthographicSize;
-        maxSize = 14f;
+        maxSize = 12f;
     }
 
     Coroutine sizeUp;
