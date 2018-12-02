@@ -19,7 +19,9 @@ public class StarAbsorve : MonoBehaviour
 			return;
 	    
 	    float distance = (other.transform.position - _star.transform.position).magnitude;
-	    if (distance > _star.GetRadius() + otherEntity.GetRadius())
+	    float radiuses = _star.GetRadius() + otherEntity.GetRadius();
+	    Debug.Log($"StarAbsorve, {_star} <-> {otherEntity}, {distance}|{radiuses}");
+	    if (distance - 1f > _star.GetRadius() + otherEntity.GetRadius())
 	    {
 		    return;
 	    }

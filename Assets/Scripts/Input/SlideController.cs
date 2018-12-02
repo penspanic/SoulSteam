@@ -36,7 +36,6 @@ namespace Input
 			Collider2D[] hits = Physics2D.OverlapCircleAll(endPoint, 1f);
 			for (int i = 0; i < hits.Length; ++i)
 			{
-				Debug.Log(hits[i].transform.name);
 				Logic.Entity.Entity entity = hits[i].transform?.GetComponent<Logic.Entity.Entity>();
 				if (entity == null)
 				{

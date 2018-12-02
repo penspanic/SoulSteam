@@ -21,7 +21,9 @@ public class PlanetAbsorve : MonoBehaviour
         }
 
         float distance = (other.transform.position - _planet.transform.position).magnitude;
-        if (distance > _planet.GetRadius() + otherEntity.GetRadius())
+        float radiuses = _planet.GetRadius() + otherEntity.GetRadius();
+        Debug.Log($"PlanetAbsorve, {_planet} <-> {otherEntity}, {distance}|{radiuses}");
+        if (distance - 1f > _planet.GetRadius() + otherEntity.GetRadius())
         {
             return;
         }
