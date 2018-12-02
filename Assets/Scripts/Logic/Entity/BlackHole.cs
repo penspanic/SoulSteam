@@ -34,7 +34,7 @@ namespace Logic.Entity
 		private IEnumerator WaitForDestroy()
 		{
 			yield return new WaitForSeconds(_aliveTime);
-            SoundManager.Instance.Play("BH_Destroy_1");
+            SoundManager.Instance.Play("Sounds/BH_Destroy_2");
             EntityManager.Instance.Destroy(this);
 		}
 
@@ -64,7 +64,6 @@ namespace Logic.Entity
                 return;
             }
 
-            SoundManager.Instance.Play("BH_Eat");
 	        if (otherEntity.Type == EntityType.Dust)
 	        {
 		        EntityManager.Instance.Destroy(otherEntity as Dust);
